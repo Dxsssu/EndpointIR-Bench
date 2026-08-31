@@ -1,0 +1,4 @@
+interface:
+  display_name: "IR Report to Atomic Chain"
+  short_description: "Extract safe Atomic Red Team chains from IR reports"
+  default_prompt: "Use $ir-report-to-atomic-chain to convert selected public IR reports into validated Atomic Red Team attack-chain documents under docs/."

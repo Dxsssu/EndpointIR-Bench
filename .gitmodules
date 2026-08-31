@@ -1,0 +1,3 @@
+[submodule "atomic_red_team"]
+	path = atomic_red_team
+	url = https://github.com/redcanaryco/atomic-red-team.git

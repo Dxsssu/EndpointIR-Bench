@@ -1,0 +1,125 @@
+scenario_id: L2-BAZAR-RECON-001
+title: BazarLoader-style single-host persistence and reconnaissance
+level: L2
+platform: windows
+host_count: 1
+
+source:
+  report: "Case Study: From BazarLoader to Network Reconnaissance"
+  publisher: Unit 42
+  published: 2021-10-18
+  local_file: Public_IR_Reports/Unit42/BazarLoader-to-Network-Reconnaissance.md
+  source_url: https://unit42.paloaltonetworks.com/bazarloader-network-reconnaissance/
+
+source_chain:
+  - user opens a malicious XLSB and enables macros
+  - macro downloads a BazarLoader DLL and launches it with regsvr32
+  - the loader establishes registry persistence
+  - the infected host communicates with Bazar/Cobalt Strike C2 over HTTPS
+  - the actor enumerates the host, network, and Active Directory environment
+
+scope_reduction:
+  retained:
+    - execution leaves a canary file
+    - registry-based persistence
+    - host and network discovery
+    - periodic-looking HTTP requests to a mock C2
+  substituted:
+    - report malware execution is represented by a harmless Atomic command-shell file drop
+    - full Active Directory enumeration is reduced to local network and ARP discovery
+  omitted:
+    - Office macro execution
+    - BazarLoader and Cobalt Strike payloads
+    - real internet C2 infrastructure
+    - credential access, lateral movement, and ransomware
+
+safety:
+  external_network: false
+  mock_c2: http://127.0.0.1:18088/beacon
+  payloads: harmless canary files only
+  persistence_target: HKCU
+  cleanup_required: true
+  destructive_actions: false
+
+initial_alert:
+  severity: medium
+  text: Suspicious command shell created a DLL-named file under ProgramData on WIN-TARGET-01.
+
+steps:
+  - order: 1
+    name: canary payload creation
+    report_relation: semantic substitute for the downloaded BazarLoader DLL
+    technique: T1059.003
+    atomic_guid: 127b4afe-2346-4192-815c-69042bec570e
+    atomic_name: Writes text to a file and displays it.
+    input_args:
+      file_contents_path: 'C:\ProgramData\EndpointIRBench\bazarloader-recon\tru.dll'
+      message: ENDPOINTIR_BENCH_BAZAR_CANARY
+
+  - order: 2
+    name: registry run-key persistence
+    report_relation: directly preserves the registry-persistence behavior
+    technique: T1547.001
+    atomic_guid: e55be3fd-3521-4610-9d1a-e210e42dcf05
+    atomic_name: Reg Key Run
+    input_args:
+      command_to_execute: 'cmd.exe /c type C:\ProgramData\EndpointIRBench\bazarloader-recon\tru.dll > C:\ProgramData\EndpointIRBench\bazarloader-recon\beacon-started.txt'
+
+  - order: 3
+    name: system information discovery
+    report_relation: reduced host-reconnaissance component
+    technique: T1082
+    atomic_guid: 66703791-c902-4560-8770-42b8a91f7667
+    atomic_name: System Information Discovery
+
+  - order: 4
+    name: network configuration discovery
+    report_relation: reduced network-reconnaissance component
+    technique: T1016
+    atomic_guid: 970ab6a1-0157-4f3f-9a73-ec4166754b23
+    atomic_name: System Network Configuration Discovery on Windows
+
+  - order: 5
+    name: nearby system discovery
+    report_relation: safe substitute for full AdFind enumeration
+    technique: T1018
+    atomic_guid: 2d5a61f5-0447-4be4-944a-1f8530ed6574
+    atomic_name: Remote System Discovery - arp
+
+  - order: 6
+    name: mock HTTP C2
+    report_relation: preserves application-layer beacon semantics without external traffic
+    technique: T1071.001
+    atomic_guid: 81c13829-f6c9-45b8-85a6-053366d55297
+    atomic_name: Malicious User Agents - Powershell
+    input_args:
+      domain: http://127.0.0.1:18088/beacon
+
+expected_findings:
+  - id: F1
+    type: file
+    path: 'C:\ProgramData\EndpointIRBench\bazarloader-recon\tru.dll'
+    value: ENDPOINTIR_BENCH_BAZAR_CANARY
+    required: true
+  - id: F2
+    type: registry_run_key
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
+    value_name: Atomic Red Team
+    required: true
+  - id: F3
+    type: process_or_event
+    value: cmd.exe, systeminfo.exe, reg.exe, ipconfig.exe, netsh.exe, arp.exe, nbtstat.exe, and powershell.exe activity
+    required: true
+  - id: F4
+    type: network
+    value: four HTTP requests to 127.0.0.1:18088/beacon with distinct suspicious User-Agent strings
+    required: true
+  - id: F5
+    type: causal_relation
+    value: execution precedes persistence, discovery, and mock C2
+    required: true
+
+cleanup:
+  - run the T1547.001 Atomic cleanup for the selected GUID
+  - run the T1059.003 Atomic cleanup for the selected GUID and matching input path
+  - remove only scenario-owned files under C:\ProgramData\EndpointIRBench\bazarloader-recon

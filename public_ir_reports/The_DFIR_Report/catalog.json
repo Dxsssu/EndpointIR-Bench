@@ -1,0 +1,778 @@
+[
+  {
+    "date": "2026-08-24T14:28:41",
+    "slug": "bengalseo-part-1-anatomy-of-the-operation",
+    "link": "https://thedfirreport.com/2026/08/24/bengalseo-part-1-anatomy-of-the-operation/",
+    "title": {
+      "rendered": "BengalSEO Part 1: Anatomy of the Operation"
+    }
+  },
+  {
+    "date": "2026-06-29T13:07:17",
+    "slug": "from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3",
+    "link": "https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/",
+    "title": {
+      "rendered": "From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira"
+    }
+  },
+  {
+    "date": "2026-05-11T14:05:04",
+    "slug": "flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware",
+    "link": "https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/",
+    "title": {
+      "rendered": "Flash Alert: EtherRat and TukTuk C2 End in The Gentleman Ransomware"
+    }
+  },
+  {
+    "date": "2026-04-22T14:51:21",
+    "slug": "bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting",
+    "link": "https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/",
+    "title": {
+      "rendered": "Bissa Scanner Exposed: AI-Assisted Mass Exploitation and Credential Harvesting"
+    }
+  },
+  {
+    "date": "2026-02-23T14:09:43",
+    "slug": "apache-activemq-exploit-leads-to-lockbit-ransomware",
+    "link": "https://thedfirreport.com/2026/02/23/apache-activemq-exploit-leads-to-lockbit-ransomware/",
+    "title": {
+      "rendered": "Apache ActiveMQ Exploit Leads to LockBit Ransomware"
+    }
+  },
+  {
+    "date": "2025-12-17T19:07:07",
+    "slug": "cats-got-your-files-lynx-ransomware",
+    "link": "https://thedfirreport.com/2025/12/17/cats-got-your-files-lynx-ransomware/",
+    "title": {
+      "rendered": "Cat’s Got Your Files: Lynx Ransomware"
+    }
+  },
+  {
+    "date": "2025-09-29T14:30:06",
+    "slug": "from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion",
+    "link": "https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/",
+    "title": {
+      "rendered": "From a Single Click: How Lunar Spider Enabled a Near Two-Month Intrusion"
+    }
+  },
+  {
+    "date": "2025-09-08T14:20:31",
+    "slug": "blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs",
+    "link": "https://thedfirreport.com/2025/09/08/blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs/",
+    "title": {
+      "rendered": "Blurring the Lines: Intrusion Shows Connection With Three Major Ransomware Gangs"
+    }
+  },
+  {
+    "date": "2025-08-05T21:30:00",
+    "slug": "from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-2",
+    "link": "https://thedfirreport.com/2025/08/05/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-2/",
+    "title": {
+      "rendered": "Flash Alert: From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira"
+    }
+  },
+  {
+    "date": "2025-07-14T00:50:41",
+    "slug": "kongtuke-filefix-leads-to-new-interlock-rat-variant",
+    "link": "https://thedfirreport.com/2025/07/14/kongtuke-filefix-leads-to-new-interlock-rat-variant/",
+    "title": {
+      "rendered": "KongTuke FileFix Leads to New Interlock RAT Variant"
+    }
+  },
+  {
+    "date": "2025-06-30T00:20:06",
+    "slug": "hide-your-rdp-password-spray-leads-to-ransomhub-deployment",
+    "link": "https://thedfirreport.com/2025/06/30/hide-your-rdp-password-spray-leads-to-ransomhub-deployment/",
+    "title": {
+      "rendered": "Hide Your RDP: Password Spray Leads to RansomHub Deployment"
+    }
+  },
+  {
+    "date": "2025-05-19T00:05:39",
+    "slug": "another-confluence-bites-the-dust-falling-to-elpaco-team-ransomware",
+    "link": "https://thedfirreport.com/2025/05/19/another-confluence-bites-the-dust-falling-to-elpaco-team-ransomware/",
+    "title": {
+      "rendered": "Another Confluence Bites the Dust: Falling to ELPACO-team Ransomware"
+    }
+  },
+  {
+    "date": "2025-04-28T00:03:02",
+    "slug": "navigating-through-the-fog",
+    "link": "https://thedfirreport.com/2025/04/28/navigating-through-the-fog/",
+    "title": {
+      "rendered": "Navigating Through The Fog"
+    }
+  },
+  {
+    "date": "2025-03-31T00:01:24",
+    "slug": "fake-zoom-ends-in-blacksuit-ransomware",
+    "link": "https://thedfirreport.com/2025/03/31/fake-zoom-ends-in-blacksuit-ransomware/",
+    "title": {
+      "rendered": "Fake Zoom Ends in BlackSuit Ransomware"
+    }
+  },
+  {
+    "date": "2025-02-24T00:06:37",
+    "slug": "confluence-exploit-leads-to-lockbit-ransomware",
+    "link": "https://thedfirreport.com/2025/02/24/confluence-exploit-leads-to-lockbit-ransomware/",
+    "title": {
+      "rendered": "Confluence Exploit Leads to LockBit Ransomware"
+    }
+  },
+  {
+    "date": "2025-01-27T01:42:49",
+    "slug": "cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware",
+    "link": "https://thedfirreport.com/2025/01/27/cobalt-strike-and-a-pair-of-socks-lead-to-lockbit-ransomware/",
+    "title": {
+      "rendered": "Cobalt Strike and a Pair of SOCKS Lead to LockBit Ransomware"
+    }
+  },
+  {
+    "date": "2024-12-02T01:50:57",
+    "slug": "the-curious-case-of-an-egg-cellent-resume",
+    "link": "https://thedfirreport.com/2024/12/02/the-curious-case-of-an-egg-cellent-resume/",
+    "title": {
+      "rendered": "The Curious Case of an Egg-Cellent Resume"
+    }
+  },
+  {
+    "date": "2024-10-28T01:05:30",
+    "slug": "inside-the-open-directory-of-the-you-dun-threat-group",
+    "link": "https://thedfirreport.com/2024/10/28/inside-the-open-directory-of-the-you-dun-threat-group/",
+    "title": {
+      "rendered": "Inside the Open Directory of the “You Dun” Threat Group"
+    }
+  },
+  {
+    "date": "2024-09-30T00:45:53",
+    "slug": "nitrogen-campaign-drops-sliver-and-ends-with-blackcat-ransomware",
+    "link": "https://thedfirreport.com/2024/09/30/nitrogen-campaign-drops-sliver-and-ends-with-blackcat-ransomware/",
+    "title": {
+      "rendered": "Nitrogen Campaign Drops Sliver and Ends With BlackCat Ransomware"
+    }
+  },
+  {
+    "date": "2024-08-26T00:30:32",
+    "slug": "blacksuit-ransomware",
+    "link": "https://thedfirreport.com/2024/08/26/blacksuit-ransomware/",
+    "title": {
+      "rendered": "BlackSuit Ransomware"
+    }
+  },
+  {
+    "date": "2024-08-12T01:46:57",
+    "slug": "threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts",
+    "link": "https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/",
+    "title": {
+      "rendered": "Threat Actors' Toolkit: Leveraging Sliver, PoshC2 &#038; Batch Scripts"
+    }
+  },
+  {
+    "date": "2024-06-10T00:44:23",
+    "slug": "icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment",
+    "link": "https://thedfirreport.com/2024/06/10/icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment/",
+    "title": {
+      "rendered": "IcedID Brings ScreenConnect and CSharp Streamer to ALPHV Ransomware Deployment"
+    }
+  },
+  {
+    "date": "2024-04-29T01:21:08",
+    "slug": "from-icedid-to-dagon-locker-ransomware-in-29-days",
+    "link": "https://thedfirreport.com/2024/04/29/from-icedid-to-dagon-locker-ransomware-in-29-days/",
+    "title": {
+      "rendered": "From IcedID to Dagon Locker Ransomware in 29 Days"
+    }
+  },
+  {
+    "date": "2024-04-01T00:04:14",
+    "slug": "from-onenote-to-ransomnote-an-ice-cold-intrusion",
+    "link": "https://thedfirreport.com/2024/04/01/from-onenote-to-ransomnote-an-ice-cold-intrusion/",
+    "title": {
+      "rendered": "From OneNote to RansomNote: An Ice Cold Intrusion"
+    }
+  },
+  {
+    "date": "2024-03-04T01:22:08",
+    "slug": "threat-brief-wordpress-exploit-leads-to-godzilla-web-shell-discovery-new-cve",
+    "link": "https://thedfirreport.com/2024/03/04/threat-brief-wordpress-exploit-leads-to-godzilla-web-shell-discovery-new-cve/",
+    "title": {
+      "rendered": "Threat Brief: WordPress Plugin Exploit Leads to Godzilla Web Shell, Discovery &#038; New CVE"
+    }
+  },
+  {
+    "date": "2024-02-26T00:39:52",
+    "slug": "seo-poisoning-to-domain-control-the-gootloader-saga-continues",
+    "link": "https://thedfirreport.com/2024/02/26/seo-poisoning-to-domain-control-the-gootloader-saga-continues/",
+    "title": {
+      "rendered": "SEO Poisoning to Domain Control: The Gootloader Saga Continues"
+    }
+  },
+  {
+    "date": "2024-01-29T00:52:11",
+    "slug": "buzzing-on-christmas-eve-trigona-ransomware-in-3-hours",
+    "link": "https://thedfirreport.com/2024/01/29/buzzing-on-christmas-eve-trigona-ransomware-in-3-hours/",
+    "title": {
+      "rendered": "Buzzing on Christmas Eve: Trigona Ransomware in 3 Hours"
+    }
+  },
+  {
+    "date": "2023-12-18T01:06:14",
+    "slug": "lets-opendir-some-presents-an-analysis-of-a-persistent-actors-activity",
+    "link": "https://thedfirreport.com/2023/12/18/lets-opendir-some-presents-an-analysis-of-a-persistent-actors-activity/",
+    "title": {
+      "rendered": "Lets Open(Dir) Some Presents: An Analysis of a Persistent Actor’s Activity"
+    }
+  },
+  {
+    "date": "2023-12-04T01:55:56",
+    "slug": "sql-brute-force-leads-to-bluesky-ransomware",
+    "link": "https://thedfirreport.com/2023/12/04/sql-brute-force-leads-to-bluesky-ransomware/",
+    "title": {
+      "rendered": "SQL Brute Force Leads to BlueSky Ransomware"
+    }
+  },
+  {
+    "date": "2023-10-30T00:38:56",
+    "slug": "netsupport-intrusion-results-in-domain-compromise",
+    "link": "https://thedfirreport.com/2023/10/30/netsupport-intrusion-results-in-domain-compromise/",
+    "title": {
+      "rendered": "NetSupport Intrusion Results in Domain Compromise"
+    }
+  },
+  {
+    "date": "2023-09-25T00:58:24",
+    "slug": "from-screenconnect-to-hive-ransomware-in-61-hours",
+    "link": "https://thedfirreport.com/2023/09/25/from-screenconnect-to-hive-ransomware-in-61-hours/",
+    "title": {
+      "rendered": "From ScreenConnect to Hive Ransomware in 61 hours"
+    }
+  },
+  {
+    "date": "2023-08-28T00:22:33",
+    "slug": "html-smuggling-leads-to-domain-wide-ransomware",
+    "link": "https://thedfirreport.com/2023/08/28/html-smuggling-leads-to-domain-wide-ransomware/",
+    "title": {
+      "rendered": "HTML Smuggling Leads to Domain Wide Ransomware"
+    }
+  },
+  {
+    "date": "2023-06-12T01:06:26",
+    "slug": "a-truly-graceful-wipe-out",
+    "link": "https://thedfirreport.com/2023/06/12/a-truly-graceful-wipe-out/",
+    "title": {
+      "rendered": "A Truly Graceful Wipe Out"
+    }
+  },
+  {
+    "date": "2023-05-22T01:04:22",
+    "slug": "icedid-macro-ends-in-nokoyawa-ransomware",
+    "link": "https://thedfirreport.com/2023/05/22/icedid-macro-ends-in-nokoyawa-ransomware/",
+    "title": {
+      "rendered": "IcedID Macro Ends in Nokoyawa Ransomware"
+    }
+  },
+  {
+    "date": "2023-04-03T01:27:10",
+    "slug": "malicious-iso-file-leads-to-domain-wide-ransomware",
+    "link": "https://thedfirreport.com/2023/04/03/malicious-iso-file-leads-to-domain-wide-ransomware/",
+    "title": {
+      "rendered": "Malicious ISO File Leads to Domain Wide Ransomware"
+    }
+  },
+  {
+    "date": "2023-03-16T20:50:48",
+    "slug": "default-post",
+    "link": "https://thedfirreport.com/2023/03/16/default-post/",
+    "title": {
+      "rendered": "From a Single Click: How Lunar Spider Enabled a Near Two-Month IntrusionDefault Post"
+    }
+  },
+  {
+    "date": "2023-03-06T02:37:40",
+    "slug": "2022-year-in-review",
+    "link": "https://thedfirreport.com/2023/03/06/2022-year-in-review/",
+    "title": {
+      "rendered": "2022 Year in Review"
+    }
+  },
+  {
+    "date": "2023-02-06T01:26:23",
+    "slug": "collect-exfiltrate-sleep-repeat",
+    "link": "https://thedfirreport.com/2023/02/06/collect-exfiltrate-sleep-repeat/",
+    "title": {
+      "rendered": "Collect, Exfiltrate, Sleep, Repeat"
+    }
+  },
+  {
+    "date": "2023-01-23T01:11:17",
+    "slug": "sharefinder-how-threat-actors-discover-file-shares",
+    "link": "https://thedfirreport.com/2023/01/23/sharefinder-how-threat-actors-discover-file-shares/",
+    "title": {
+      "rendered": "ShareFinder: How Threat Actors Discover File Shares"
+    }
+  },
+  {
+    "date": "2023-01-09T02:16:40",
+    "slug": "unwrapping-ursnifs-gifts",
+    "link": "https://thedfirreport.com/2023/01/09/unwrapping-ursnifs-gifts/",
+    "title": {
+      "rendered": "Unwrapping Ursnifs Gifts"
+    }
+  },
+  {
+    "date": "2022-11-28T01:13:34",
+    "slug": "emotet-strikes-again-lnk-file-leads-to-domain-wide-ransomware",
+    "link": "https://thedfirreport.com/2022/11/28/emotet-strikes-again-lnk-file-leads-to-domain-wide-ransomware/",
+    "title": {
+      "rendered": "Emotet Strikes Again - LNK File Leads to Domain Wide Ransomware"
+    }
+  },
+  {
+    "date": "2022-11-14T01:48:26",
+    "slug": "bumblebee-zeros-in-on-meterpreter",
+    "link": "https://thedfirreport.com/2022/11/14/bumblebee-zeros-in-on-meterpreter/",
+    "title": {
+      "rendered": "BumbleBee Zeros in on Meterpreter"
+    }
+  },
+  {
+    "date": "2022-10-31T00:47:53",
+    "slug": "follina-exploit-leads-to-domain-compromise",
+    "link": "https://thedfirreport.com/2022/10/31/follina-exploit-leads-to-domain-compromise/",
+    "title": {
+      "rendered": "Follina Exploit Leads to Domain Compromise"
+    }
+  },
+  {
+    "date": "2022-09-26T01:05:36",
+    "slug": "bumblebee-round-two",
+    "link": "https://thedfirreport.com/2022/09/26/bumblebee-round-two/",
+    "title": {
+      "rendered": "BumbleBee: Round Two"
+    }
+  },
+  {
+    "date": "2022-09-12T00:32:41",
+    "slug": "dead-or-alive-an-emotet-story",
+    "link": "https://thedfirreport.com/2022/09/12/dead-or-alive-an-emotet-story/",
+    "title": {
+      "rendered": "Dead or Alive? An Emotet Story"
+    }
+  },
+  {
+    "date": "2022-08-08T01:36:03",
+    "slug": "bumblebee-roasts-its-way-to-domain-admin",
+    "link": "https://thedfirreport.com/2022/08/08/bumblebee-roasts-its-way-to-domain-admin/",
+    "title": {
+      "rendered": "BumbleBee Roasts Its Way to Domain Admin"
+    }
+  },
+  {
+    "date": "2022-07-11T01:51:24",
+    "slug": "select-xmrig-from-sqlserver",
+    "link": "https://thedfirreport.com/2022/07/11/select-xmrig-from-sqlserver/",
+    "title": {
+      "rendered": "SELECT XMRig FROM SQLServer"
+    }
+  },
+  {
+    "date": "2022-06-16T14:20:39",
+    "slug": "sans-ransomware-summit-2022-can-you-detect-this",
+    "link": "https://thedfirreport.com/2022/06/16/sans-ransomware-summit-2022-can-you-detect-this/",
+    "title": {
+      "rendered": "SANS Ransomware Summit 2022, Can You Detect This?"
+    }
+  },
+  {
+    "date": "2022-06-06T01:28:07",
+    "slug": "will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration",
+    "link": "https://thedfirreport.com/2022/06/06/will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration/",
+    "title": {
+      "rendered": "Will the Real Msiexec Please Stand Up? Exploit Leads to Data Exfiltration"
+    }
+  },
+  {
+    "date": "2022-05-09T01:53:53",
+    "slug": "seo-poisoning-a-gootloader-story",
+    "link": "https://thedfirreport.com/2022/05/09/seo-poisoning-a-gootloader-story/",
+    "title": {
+      "rendered": "SEO Poisoning - A Gootloader Story"
+    }
+  },
+  {
+    "date": "2022-04-25T01:16:30",
+    "slug": "quantum-ransomware",
+    "link": "https://thedfirreport.com/2022/04/25/quantum-ransomware/",
+    "title": {
+      "rendered": "Quantum Ransomware"
+    }
+  },
+  {
+    "date": "2022-04-04T01:06:56",
+    "slug": "stolen-images-campaign-ends-in-conti-ransomware",
+    "link": "https://thedfirreport.com/2022/04/04/stolen-images-campaign-ends-in-conti-ransomware/",
+    "title": {
+      "rendered": "Stolen Images Campaign Ends in Conti Ransomware"
+    }
+  },
+  {
+    "date": "2022-03-21T01:55:06",
+    "slug": "phosphorus-automates-initial-access-using-proxyshell",
+    "link": "https://thedfirreport.com/2022/03/21/phosphorus-automates-initial-access-using-proxyshell/",
+    "title": {
+      "rendered": "PHOSPHORUS Automates Initial Access Using ProxyShell"
+    }
+  },
+  {
+    "date": "2022-03-07T02:30:33",
+    "slug": "2021-year-in-review",
+    "link": "https://thedfirreport.com/2022/03/07/2021-year-in-review/",
+    "title": {
+      "rendered": "2021 Year In Review"
+    }
+  },
+  {
+    "date": "2022-02-21T02:04:48",
+    "slug": "qbot-and-zerologon-lead-to-full-domain-compromise",
+    "link": "https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/",
+    "title": {
+      "rendered": "Qbot and Zerologon Lead To Full Domain Compromise"
+    }
+  },
+  {
+    "date": "2022-02-07T01:02:36",
+    "slug": "qbot-likes-to-move-it-move-it",
+    "link": "https://thedfirreport.com/2022/02/07/qbot-likes-to-move-it-move-it/",
+    "title": {
+      "rendered": "Qbot Likes to Move It, Move It"
+    }
+  },
+  {
+    "date": "2022-01-24T03:03:49",
+    "slug": "cobalt-strike-a-defenders-guide-part-2",
+    "link": "https://thedfirreport.com/2022/01/24/cobalt-strike-a-defenders-guide-part-2/",
+    "title": {
+      "rendered": "Cobalt Strike, a Defender’s Guide - Part 2"
+    }
+  },
+  {
+    "date": "2021-12-13T02:13:31",
+    "slug": "diavol-ransomware",
+    "link": "https://thedfirreport.com/2021/12/13/diavol-ransomware/",
+    "title": {
+      "rendered": "Diavol Ransomware"
+    }
+  },
+  {
+    "date": "2021-11-29T02:19:21",
+    "slug": "continuing-the-bazar-ransomware-story",
+    "link": "https://thedfirreport.com/2021/11/29/continuing-the-bazar-ransomware-story/",
+    "title": {
+      "rendered": "CONTInuing the Bazar Ransomware Story"
+    }
+  },
+  {
+    "date": "2021-11-15T02:06:59",
+    "slug": "exchange-exploit-leads-to-domain-wide-ransomware",
+    "link": "https://thedfirreport.com/2021/11/15/exchange-exploit-leads-to-domain-wide-ransomware/",
+    "title": {
+      "rendered": "Exchange Exploit Leads to Domain Wide Ransomware"
+    }
+  },
+  {
+    "date": "2021-11-01T00:57:41",
+    "slug": "from-zero-to-domain-admin",
+    "link": "https://thedfirreport.com/2021/11/01/from-zero-to-domain-admin/",
+    "title": {
+      "rendered": "From Zero to Domain Admin"
+    }
+  },
+  {
+    "date": "2021-10-18T01:42:16",
+    "slug": "icedid-to-xinglocker-ransomware-in-24-hours",
+    "link": "https://thedfirreport.com/2021/10/18/icedid-to-xinglocker-ransomware-in-24-hours/",
+    "title": {
+      "rendered": "IcedID to XingLocker Ransomware in 24 hours"
+    }
+  },
+  {
+    "date": "2021-10-04T01:30:53",
+    "slug": "bazarloader-and-the-conti-leaks",
+    "link": "https://thedfirreport.com/2021/10/04/bazarloader-and-the-conti-leaks/",
+    "title": {
+      "rendered": "BazarLoader and the Conti Leaks"
+    }
+  },
+  {
+    "date": "2021-09-13T00:13:02",
+    "slug": "bazarloader-to-conti-ransomware-in-32-hours",
+    "link": "https://thedfirreport.com/2021/09/13/bazarloader-to-conti-ransomware-in-32-hours/",
+    "title": {
+      "rendered": "BazarLoader to Conti Ransomware in 32 Hours"
+    }
+  },
+  {
+    "date": "2021-08-29T23:36:36",
+    "slug": "cobalt-strike-a-defenders-guide",
+    "link": "https://thedfirreport.com/2021/08/29/cobalt-strike-a-defenders-guide/",
+    "title": {
+      "rendered": "Cobalt Strike, a Defender's Guide"
+    }
+  },
+  {
+    "date": "2021-08-16T00:16:38",
+    "slug": "trickbot-leads-up-to-fake-1password-installation",
+    "link": "https://thedfirreport.com/2021/08/16/trickbot-leads-up-to-fake-1password-installation/",
+    "title": {
+      "rendered": "Trickbot Leads Up to Fake 1Password Installation"
+    }
+  },
+  {
+    "date": "2021-08-01T22:47:29",
+    "slug": "bazarcall-to-conti-ransomware-via-trickbot-and-cobalt-strike",
+    "link": "https://thedfirreport.com/2021/08/01/bazarcall-to-conti-ransomware-via-trickbot-and-cobalt-strike/",
+    "title": {
+      "rendered": "BazarCall to Conti Ransomware via Trickbot and Cobalt Strike"
+    }
+  },
+  {
+    "date": "2021-07-19T00:25:47",
+    "slug": "icedid-and-cobalt-strike-vs-antivirus",
+    "link": "https://thedfirreport.com/2021/07/19/icedid-and-cobalt-strike-vs-antivirus/",
+    "title": {
+      "rendered": "IcedID and Cobalt Strike vs Antivirus"
+    }
+  },
+  {
+    "date": "2021-06-28T01:28:27",
+    "slug": "hancitor-continues-to-push-cobalt-strike",
+    "link": "https://thedfirreport.com/2021/06/28/hancitor-continues-to-push-cobalt-strike/",
+    "title": {
+      "rendered": "Hancitor Continues to Push Cobalt Strike"
+    }
+  },
+  {
+    "date": "2021-06-20T23:27:55",
+    "slug": "from-word-to-lateral-movement-in-1-hour",
+    "link": "https://thedfirreport.com/2021/06/20/from-word-to-lateral-movement-in-1-hour/",
+    "title": {
+      "rendered": "From Word to Lateral Movement in 1 Hour"
+    }
+  },
+  {
+    "date": "2021-06-03T00:57:26",
+    "slug": "weblogic-rce-leads-to-xmrig",
+    "link": "https://thedfirreport.com/2021/06/03/weblogic-rce-leads-to-xmrig/",
+    "title": {
+      "rendered": "WebLogic RCE Leads to XMRig"
+    }
+  },
+  {
+    "date": "2021-05-12T01:20:17",
+    "slug": "conti-ransomware",
+    "link": "https://thedfirreport.com/2021/05/12/conti-ransomware/",
+    "title": {
+      "rendered": "Conti Ransomware"
+    }
+  },
+  {
+    "date": "2021-05-02T23:42:46",
+    "slug": "trickbot-brief-creds-and-beacons",
+    "link": "https://thedfirreport.com/2021/05/02/trickbot-brief-creds-and-beacons/",
+    "title": {
+      "rendered": "Trickbot Brief: Creds and Beacons"
+    }
+  },
+  {
+    "date": "2021-03-29T00:43:09",
+    "slug": "sodinokibi-aka-revil-ransomware",
+    "link": "https://thedfirreport.com/2021/03/29/sodinokibi-aka-revil-ransomware/",
+    "title": {
+      "rendered": "Sodinokibi (aka REvil) Ransomware"
+    }
+  },
+  {
+    "date": "2021-03-08T02:09:34",
+    "slug": "bazar-drops-the-anchor",
+    "link": "https://thedfirreport.com/2021/03/08/bazar-drops-the-anchor/",
+    "title": {
+      "rendered": "Bazar Drops the Anchor"
+    }
+  },
+  {
+    "date": "2021-02-28T18:54:02",
+    "slug": "laravel-debug-leaking-secrets",
+    "link": "https://thedfirreport.com/2021/02/28/laravel-debug-leaking-secrets/",
+    "title": {
+      "rendered": "Laravel Apps Leaking Secrets"
+    }
+  },
+  {
+    "date": "2021-01-31T23:58:23",
+    "slug": "bazar-no-ryuk",
+    "link": "https://thedfirreport.com/2021/01/31/bazar-no-ryuk/",
+    "title": {
+      "rendered": "Bazar, No Ryuk?"
+    }
+  },
+  {
+    "date": "2021-01-18T23:53:31",
+    "slug": "all-that-for-a-coinminer",
+    "link": "https://thedfirreport.com/2021/01/18/all-that-for-a-coinminer/",
+    "title": {
+      "rendered": "All That for a Coinminer?"
+    }
+  },
+  {
+    "date": "2021-01-11T02:37:17",
+    "slug": "trickbot-still-alive-and-well",
+    "link": "https://thedfirreport.com/2021/01/11/trickbot-still-alive-and-well/",
+    "title": {
+      "rendered": "Trickbot Still Alive and Well"
+    }
+  },
+  {
+    "date": "2020-12-13T22:00:09",
+    "slug": "defender-control",
+    "link": "https://thedfirreport.com/2020/12/13/defender-control/",
+    "title": {
+      "rendered": "Defender Control"
+    }
+  },
+  {
+    "date": "2020-11-23T02:47:31",
+    "slug": "pysa-mespinoza-ransomware",
+    "link": "https://thedfirreport.com/2020/11/23/pysa-mespinoza-ransomware/",
+    "title": {
+      "rendered": "PYSA/Mespinoza Ransomware"
+    }
+  },
+  {
+    "date": "2020-11-12T00:23:53",
+    "slug": "cryptominers-exploiting-weblogic-rce-cve-2020-14882",
+    "link": "https://thedfirreport.com/2020/11/12/cryptominers-exploiting-weblogic-rce-cve-2020-14882/",
+    "title": {
+      "rendered": "Cryptominers Exploiting WebLogic RCE CVE-2020-14882"
+    }
+  },
+  {
+    "date": "2020-11-05T17:19:17",
+    "slug": "ryuk-speed-run-2-hours-to-ransom",
+    "link": "https://thedfirreport.com/2020/11/05/ryuk-speed-run-2-hours-to-ransom/",
+    "title": {
+      "rendered": "Ryuk Speed Run, 2 Hours to Ransom"
+    }
+  },
+  {
+    "date": "2020-10-18T23:21:04",
+    "slug": "ryuk-in-5-hours",
+    "link": "https://thedfirreport.com/2020/10/18/ryuk-in-5-hours/",
+    "title": {
+      "rendered": "Ryuk in 5 Hours"
+    }
+  },
+  {
+    "date": "2020-10-08T12:14:59",
+    "slug": "ryuks-return",
+    "link": "https://thedfirreport.com/2020/10/08/ryuks-return/",
+    "title": {
+      "rendered": "Ryuk's Return"
+    }
+  },
+  {
+    "date": "2020-08-31T00:02:08",
+    "slug": "netwalker-ransomware-in-1-hour",
+    "link": "https://thedfirreport.com/2020/08/31/netwalker-ransomware-in-1-hour/",
+    "title": {
+      "rendered": "NetWalker Ransomware in 1 Hour"
+    }
+  },
+  {
+    "date": "2020-08-03T10:19:10",
+    "slug": "dridex-from-word-to-domain-dominance",
+    "link": "https://thedfirreport.com/2020/08/03/dridex-from-word-to-domain-dominance/",
+    "title": {
+      "rendered": "Dridex - From Word to Domain Dominance"
+    }
+  },
+  {
+    "date": "2020-07-13T01:00:29",
+    "slug": "ransomware-again-but-we-changed-the-rdp-port",
+    "link": "https://thedfirreport.com/2020/07/13/ransomware-again-but-we-changed-the-rdp-port/",
+    "title": {
+      "rendered": "Ransomware Again...But We Changed the RDP Port!?!?!"
+    }
+  },
+  {
+    "date": "2020-06-21T22:58:39",
+    "slug": "snatch-ransomware",
+    "link": "https://thedfirreport.com/2020/06/21/snatch-ransomware/",
+    "title": {
+      "rendered": "Snatch Ransomware"
+    }
+  },
+  {
+    "date": "2020-06-16T11:52:41",
+    "slug": "the-little-ransomware-that-couldnt-dharma",
+    "link": "https://thedfirreport.com/2020/06/16/the-little-ransomware-that-couldnt-dharma/",
+    "title": {
+      "rendered": "The Little Ransomware That Couldn’t (Dharma)"
+    }
+  },
+  {
+    "date": "2020-06-10T14:22:25",
+    "slug": "lockbit-ransomware-why-you-no-spread",
+    "link": "https://thedfirreport.com/2020/06/10/lockbit-ransomware-why-you-no-spread/",
+    "title": {
+      "rendered": "Lockbit Ransomware, Why You No Spread?"
+    }
+  },
+  {
+    "date": "2020-05-08T23:41:59",
+    "slug": "adfind-recon",
+    "link": "https://thedfirreport.com/2020/05/08/adfind-recon/",
+    "title": {
+      "rendered": "AdFind Recon"
+    }
+  },
+  {
+    "date": "2020-04-30T11:22:27",
+    "slug": "tricky-pyxie",
+    "link": "https://thedfirreport.com/2020/04/30/tricky-pyxie/",
+    "title": {
+      "rendered": "Tricky Pyxie"
+    }
+  },
+  {
+    "date": "2020-04-24T12:40:20",
+    "slug": "ursnif-via-lolbins",
+    "link": "https://thedfirreport.com/2020/04/24/ursnif-via-lolbins/",
+    "title": {
+      "rendered": "Ursnif via LOLbins"
+    }
+  },
+  {
+    "date": "2020-04-20T22:45:11",
+    "slug": "sqlserver-or-the-miner-in-the-basement",
+    "link": "https://thedfirreport.com/2020/04/20/sqlserver-or-the-miner-in-the-basement/",
+    "title": {
+      "rendered": "Sqlserver, or the Miner in the Basement"
+    }
+  },
+  {
+    "date": "2020-04-14T00:08:55",
+    "slug": "dharma-ransomware",
+    "link": "https://thedfirreport.com/2020/04/14/dharma-ransomware/",
+    "title": {
+      "rendered": "Dharma Ransomware"
+    }
+  },
+  {
+    "date": "2020-04-04T19:18:33",
+    "slug": "gogoogle-ransomware",
+    "link": "https://thedfirreport.com/2020/04/04/gogoogle-ransomware/",
+    "title": {
+      "rendered": "GoGoogle Ransomware"
+    }
+  }
+]

