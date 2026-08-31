@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "scenario_id": "cisa-aa23-289a-ubuntu",
+  "title": "Confluence unauthorized-admin and curl exfiltration safe Ubuntu slice",
+  "level": "L1",
+  "platform": "ubuntu",
+  "host_count": 1,
+  "source": {
+    "report_id": "CISA-AA23-289A",
+    "publisher": "CISA/FBI/MS-ISAC",
+    "published": "2023-10-16",
+    "local_file": "public_ir_reports/CISA/2023-10-16_AA23-289A_Confluence-CVE-2023-22515.pdf",
+    "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-289a",
+    "confidence_notes": "The advisory reports exploitation that creates unauthorized Confluence administrator accounts and observes curl or Rclone for exfiltration. This package does not exploit Confluence or create an operating-system account. It uses an application-audit canary, fake staged text, and a loopback-only HTTP receiver."
+  },
+  "atomic_repo_commit": "6132b92779873cb0d05bef07ba0a480d47eb1cc8",
+  "initial_alert": {
+    "severity": "medium",
+    "text": "An unexpected application administrator event was followed by a multipart HTTP upload. Investigate the Ubuntu endpoint and reconstruct the sequence."
+  },
+  "safety": {
+    "external_network": false,
+    "requires_elevation": false,
+    "allows_dependencies": false,
+    "scenario_root": "/tmp/endpointir-bench/cisa-aa23-289a-ubuntu",
+    "cleanup_required": true
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "Write a harmless Confluence administrator audit canary",
+      "source_confidence": "reported",
+      "implementation": "custom_canary",
+      "technique": "T1136.003",
+      "cleanup_action": "Remove only /tmp/endpointir-bench/cisa-aa23-289a-ubuntu/confluence-audit.json",
+      "mutates_state": true
+    },
+    {
+      "order": 2,
+      "name": "Stage fake text and upload it to a loopback Mock service with curl",
+      "source_confidence": "observed",
+      "implementation": "atomic",
+      "technique": "T1567.004",
+      "atomic_guid": "40c44d16-bb49-4d14-aafa-f9ba7e6e6c5b",
+      "atomic_name": "Exfiltrate staged file to a Discord webhook with curl (bash)",
+      "input_args": {
+        "webhook_url": "http://127.0.0.1:18089/upload",
+        "staged_file": "/tmp/endpointir-bench/cisa-aa23-289a-ubuntu/staged-loot.txt"
+      },
+      "cleanup_action": "Atomic cleanup removes staged-loot.txt; exact-root cleanup removes mock-exfil.json",
+      "mutates_state": true
+    }
+  ],
+  "expected_findings": [
+    {
+      "id": "F1",
+      "required": true,
+      "type": "application_audit",
+      "expected": "confluence-audit.json records a harmless administrator-account canary for benchmark_admin",
+      "evidence_surface": "filesystem",
+      "temporal_relation": "written before staged data",
+      "verifier": "Test-ConfluenceAuditCanary"
+    },
+    {
+      "id": "F2",
+      "required": true,
+      "type": "file",
+      "expected": "staged-loot.txt contains only the Atomic fake-data marker",
+      "evidence_surface": "filesystem",
+      "temporal_relation": "created after the audit canary and before upload",
+      "verifier": "Test-StagedFakeData"
+    },
+    {
+      "id": "F3",
+      "required": true,
+      "type": "network",
+      "expected": "the loopback Mock service records one POST /upload request containing the fake-data marker",
+      "evidence_surface": "loopback Mock-service record",
+      "temporal_relation": "recorded after staged-loot.txt",
+      "verifier": "Test-MockUploadRecord"
+    },
+    {
+      "id": "F4",
+      "required": true,
+      "type": "timeline",
+      "expected": "audit canary timestamp is no later than staged-file time, which is no later than Mock upload time",
+      "evidence_surface": "filesystem timestamps and Mock-service timestamp",
+      "temporal_relation": "application event precedes staging and upload",
+      "verifier": "Test-TemporalOrder"
+    }
+  ],
+  "omitted_behaviors": [
+    "CVE-2023-22515 exploitation",
+    "Creation of a real Confluence or Linux administrator account",
+    "Use of real credentials, victim content, Rclone, or cloud storage",
+    "Connections to public indicators or any non-loopback address",
+    "Installation of malicious plugins or additional persistence"
+  ]
+}
