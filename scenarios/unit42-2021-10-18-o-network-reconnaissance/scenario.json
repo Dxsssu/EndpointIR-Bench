@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "scenario_id": "unit42-2021-10-18-o-network-reconnaissance",
+  "title": "BazarLoader-to-reconnaissance safe Windows lab slice",
+  "level": "L2",
+  "platform": "windows",
+  "host_count": 1,
+  "source": {
+    "report_id": "UNIT42-2021-10-18-o-Network-Reconnaissance",
+    "publisher": "Unit 42",
+    "published": "2021-10-18",
+    "local_file": "public_ir_reports/Unit42/BazarLoader-to-Network-Reconnaissance.md",
+    "source_url": "https://unit42.paloaltonetworks.com/bazarloader-network-reconnaissance/",
+    "confidence_notes": "The report directly records a DLL-like file, registry persistence, Cobalt Strike traffic, and later reconnaissance. Malware, public infrastructure, and AD enumeration are replaced with harmless local artifacts, built-in discovery commands, and loopback HTTP."
+  },
+  "atomic_repo_commit": "6132b92779873cb0d05bef07ba0a480d47eb1cc8",
+  "initial_alert": {
+    "severity": "medium",
+    "text": "A user-context autorun value appeared shortly before unusual HTTP client activity. Investigate the endpoint and reconstruct the sequence."
+  },
+  "safety": {
+    "external_network": false,
+    "requires_elevation": false,
+    "allows_dependencies": false,
+    "scenario_root": "C:\\ProgramData\\EndpointIRBench\\unit42-2021-10-18-o-network-reconnaissance",
+    "cleanup_required": true
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "Create a harmless DLL-named canary",
+      "source_confidence": "observed",
+      "implementation": "atomic",
+      "technique": "T1059.003",
+      "atomic_guid": "127b4afe-2346-4192-815c-69042bec570e",
+      "atomic_name": "Writes text to a file and displays it.",
+      "input_args": {
+        "file_contents_path": "C:\\ProgramData\\EndpointIRBench\\unit42-2021-10-18-o-network-reconnaissance\\tru.dll",
+        "message": "ENDPOINTIR_BENCH_UNIT42_BAZAR_CANARY"
+      },
+      "mutates_state": true
+    },
+    {
+      "order": 2,
+      "name": "Create a scenario-owned HKCU Run value",
+      "source_confidence": "observed",
+      "implementation": "custom_canary",
+      "technique": "T1547.001",
+      "cleanup_action": "Remove only HKCU Run value EndpointIRBench_Unit42_BazarRecon",
+      "mutates_state": true
+    },
+    {
+      "order": 3,
+      "name": "Collect basic system information",
+      "source_confidence": "reported",
+      "implementation": "atomic",
+      "technique": "T1082",
+      "atomic_guid": "66703791-c902-4560-8770-42b8a91f7667",
+      "atomic_name": "System Information Discovery",
+      "input_args": {},
+      "mutates_state": false
+    },
+    {
+      "order": 4,
+      "name": "Collect local network configuration",
+      "source_confidence": "reported",
+      "implementation": "atomic",
+      "technique": "T1016",
+      "atomic_guid": "970ab6a1-0157-4f3f-9a73-ec4166754b23",
+      "atomic_name": "System Network Configuration Discovery on Windows",
+      "input_args": {},
+      "mutates_state": false
+    },
+    {
+      "order": 5,
+      "name": "Inspect the local ARP cache",
+      "source_confidence": "reported",
+      "implementation": "atomic",
+      "technique": "T1018",
+      "atomic_guid": "2d5a61f5-0447-4be4-944a-1f8530ed6574",
+      "atomic_name": "Remote System Discovery - arp",
+      "input_args": {},
+      "mutates_state": false
+    },
+    {
+      "order": 6,
+      "name": "Send four HTTP requests to a loopback Mock service",
+      "source_confidence": "observed",
+      "implementation": "atomic",
+      "technique": "T1071.001",
+      "atomic_guid": "81c13829-f6c9-45b8-85a6-053366d55297",
+      "atomic_name": "Malicious User Agents - Powershell",
+      "input_args": {
+        "domain": "http://127.0.0.1:18088/beacon"
+      },
+      "cleanup_action": "Remove the scenario-owned mock-c2.log during exact-root cleanup",
+      "mutates_state": true
+    }
+  ],
+  "expected_findings": [
+    {
+      "id": "F1",
+      "required": true,
+      "type": "file",
+      "expected": "tru.dll contains ENDPOINTIR_BENCH_UNIT42_BAZAR_CANARY",
+      "evidence_surface": "filesystem",
+      "temporal_relation": "created before the autorun value",
+      "verifier": "Test-CanaryFile"
+    },
+    {
+      "id": "F2",
+      "required": true,
+      "type": "registry",
+      "expected": "HKCU Run value EndpointIRBench_Unit42_BazarRecon points to the harmless canary command",
+      "evidence_surface": "registry",
+      "temporal_relation": "created after tru.dll and before discovery",
+      "verifier": "Test-PersistenceValue"
+    },
+    {
+      "id": "F3",
+      "required": false,
+      "type": "process",
+      "expected": "independent process telemetry includes the discovery commands",
+      "evidence_surface": "Sysmon Event ID 1 when configured",
+      "temporal_relation": "after persistence and before loopback HTTP",
+      "verifier": "Test-OptionalProcessTelemetry"
+    },
+    {
+      "id": "F4",
+      "required": true,
+      "type": "network",
+      "expected": "four GET /beacon requests with four Atomic user-agent strings",
+      "evidence_surface": "loopback Mock-service log",
+      "temporal_relation": "after discovery commands",
+      "verifier": "Test-MockC2Log"
+    },
+    {
+      "id": "F5",
+      "required": true,
+      "type": "timeline",
+      "expected": "canary modification time is no later than the first Mock-service record",
+      "evidence_surface": "filesystem timestamps and Mock-service timestamp",
+      "temporal_relation": "canary precedes HTTP",
+      "verifier": "Test-TemporalOrder"
+    }
+  ],
+  "omitted_behaviors": [
+    "Excel macro execution and document branding",
+    "BazarLoader and Cobalt Strike malware execution",
+    "Connections to public report indicators",
+    "AdFind binary execution and live Active Directory enumeration",
+    "Lateral movement and ransomware impact"
+  ]
+}

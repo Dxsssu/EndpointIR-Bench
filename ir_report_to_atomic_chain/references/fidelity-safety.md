@@ -1,10 +1,10 @@
-# Fidelity and safety rules
+# Fidelity and safety rules for runnable scenarios
 
 Read this reference before selecting or adapting Atomic tests.
 
 ## Four-layer separation
 
-Keep these layers distinct in every chain:
+Keep these layers distinct in every runnable package:
 
 1. **Source fact:** what the report directly records or attributes.
 2. **Semantic interpretation:** the ATT&CK behavior represented by that fact.
@@ -12,6 +12,16 @@ Keep these layers distinct in every chain:
 4. **Ground Truth:** evidence the implementation actually leaves in the benchmark environment.
 
 An implementation can preserve the semantics without reproducing malware mechanics. Its evidence must not be described as evidence from the historical incident.
+
+## Executable package boundary
+
+- Generate code only for disposable, recoverable lab targets. The package must not assume that generation authorizes execution.
+- `run.ps1 -Mode Plan` must make no changes. `Execute` requires an explicit confirmation switch and must abort before mutation when prerequisites or the pinned Atomic commit do not match.
+- A package must be complete when generated: no TODO commands, placeholder GUIDs, unresolved paths, missing cleanup, or operator copy/paste from narrative text.
+- Keep execution and cleanup narrowly scoped. Cleanup must be idempotent and safe after a partially completed run.
+- Do not automatically clean after execution; preserve evidence until the investigation episode is complete.
+- Do not store Ground Truth, expected answers, execution transcripts, or verification results inside the investigated scenario directory. Verification prints JSON to the controller or an explicit path outside the target evidence tree.
+- Generation-time validation may run parsers and Plan mode only. It must never run Execute or Cleanup.
 
 ## Source confidence labels
 
@@ -56,6 +66,7 @@ Reject a candidate when its actual command has materially different semantics, t
 - For network tests, allow only `127.0.0.1`, `localhost`, or an isolated address explicitly supplied by the user.
 - Record the original Atomic GUID and every override. Do not edit the vendored Atomic YAML merely to make validation pass.
 - If an Atomic command embeds a public URL or has a dependency downloader, treat it as unsafe unless the chosen test is replaced or the dependency is already vendored and hash-verified.
+- Implement every `custom_canary` directly in the generated runner with a paired cleanup function. Do not leave prose-only substitutions in executable steps.
 
 ## Evidence rules
 
@@ -68,3 +79,5 @@ For every required finding specify:
 - whether evidence is required or optional.
 
 Do not score volatile evidence such as a live process or connection unless the episode freezes the host while it is present. Controller success, stdout, or an Atomic return code alone is not proof that endpoint evidence exists.
+
+For process or command evidence, require Sysmon, Windows 4688 auditing, PowerShell Operational logging, or another independently configured telemetry source. A runner transcript is not a substitute.

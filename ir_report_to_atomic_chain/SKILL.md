@@ -1,60 +1,88 @@
 ---
 name: ir-report-to-atomic-chain
-description: Convert public incident-response and DFIR reports into source-grounded, safety-adjusted, locally validated Atomic Red Team attack-chain documents. Use for one-report extraction or batch generation into docs/atomic-chains; do not use to execute attacks or invent unsupported report facts.
+description: Convert public incident-response and DFIR reports into source-grounded, safety-adjusted, locally validated Atomic Red Team scenario packages that can be run directly on disposable Windows lab targets. Use for single-report or batch scenario generation; do not use to execute scenarios without separate authorization.
 ---
 
-# IR Report to Atomic Chain
+# IR Report to Runnable Atomic Scenario
 
-Turn archived DFIR narratives into reproducible attack-chain specifications for an endpoint-investigation benchmark. The deliverable is documentation and validation metadata, not attack execution.
+Turn archived DFIR narratives into directly runnable Windows investigation scenarios. The primary deliverable is executable code, not an attack-chain essay.
 
 ## Required workspace inputs
 
-Locate the repository root before acting. It must contain:
+Locate the repository root. It must contain:
 
-- `Public_IR_Reports/manifest.csv` and the report files referenced by it;
-- `atomic-red-team/atomics/` with local Atomic YAML definitions;
-- a writable `docs/` directory, creating it when needed.
+- `public_ir_reports/manifest.csv` and its referenced reports;
+- `atomic_red_team/atomics/` as the pinned local Atomic Red Team catalog;
+- a writable `scenarios/` directory.
 
-If the report collection or Atomic catalog is missing, stop and report the missing input. Do not replace local validation with remembered ATT&CK or Atomic details, and do not browse for payloads.
+Do not substitute remembered ATT&CK or Atomic details for local validation, and do not browse for payloads.
+
+## Output contract
+
+Create one self-contained directory per selected report:
+
+```text
+scenarios/<scenario-id>/
+|-- scenario.json
+|-- run.ps1
+|-- verify.ps1
+|-- validate_scenario.py
+`-- README.md
+```
+
+The package must support these commands on a disposable Windows target with `Invoke-AtomicTest` available:
+
+```powershell
+.\run.ps1 -Mode Plan
+.\run.ps1 -Mode Execute -ConfirmExecution -PathToAtomicsFolder <path>
+.\run.ps1 -Mode Cleanup -PathToAtomicsFolder <path>
+```
+
+`Plan` must be side-effect free. `Execute` must require `-ConfirmExecution`. `Cleanup` must remove only exact scenario-owned changes. Do not generate a package that needs manual code editing before these commands work.
+
+Read [references/output-schema.md](references/output-schema.md) before generating files. Read [references/fidelity-safety.md](references/fidelity-safety.md) before choosing or adapting tests.
 
 ## Modes
 
-- **Single report:** process the report named or linked by the user.
-- **Filtered batch:** honor requested source, A/B level, date range, platform, count, or report IDs.
-- **Unscoped batch:** default to unprocessed A-class reports. Process every matching report, using resumable batches when context requires it; do not silently include B-class material.
+- **Single report:** generate one runnable package for the named report.
+- **Filtered batch:** honor source, A/B level, date, platform, count, or report IDs.
+- **Unscoped batch:** default to unprocessed A-class Windows reports. Use resumable batches and do not silently include B-class material.
 
-Use `scripts/prepare_batch.py` to produce a deterministic queue and skip documents already present in `docs/atomic-chains/`. Do not overwrite an existing chain document unless the user asks to regenerate it or the source manifest changed materially.
+Use `scripts/prepare_batch.py` for a deterministic queue. A report is already processed only when its scenario directory contains all five required files. Do not overwrite an existing package unless the user asks to regenerate it or its source changed materially.
 
 ## Workflow
 
-1. Read the selected manifest row and the complete normalized report. For a PDF without normalized Markdown, use the available PDF-reading workflow and cite page numbers.
-2. Extract the report's causal sequence before assigning ATT&CK IDs. Label each source step as `observed`, `reported`, `inferred`, or `unknown`; never convert analyst uncertainty into fact.
-3. Select a benchmark slice. Prefer the smallest causally meaningful chain: L1 for one semantic action, L2 for a single-host multi-step chain, and L3 only when cross-host evidence is essential. Record omitted steps.
-4. Map each retained semantic action to ATT&CK and then to an exact local Atomic test. Inspect the technique YAML and verify GUID, name, platform, executor, inputs, dependencies, elevation requirement, observable effects, and cleanup. Never select an Atomic test from its title alone.
-5. When no safe Atomic test preserves the report behavior, use `custom_canary` or `not_simulated`; do not force an inaccurate mapping. Document every semantic substitution.
-6. Read [references/fidelity-safety.md](references/fidelity-safety.md) before choosing or adapting tests. External targets, malware, credential theft, exploit execution, process injection, and ransomware require the safe substitutions defined there.
-7. Read [references/output-schema.md](references/output-schema.md) before writing. Save one document per report under `docs/atomic-chains/<report-id>.md`, with machine-readable YAML frontmatter and the required Chinese sections.
-8. Run `scripts/validate_chain_docs.py` against every new or changed document. Fix errors rather than suppressing them. Then run `scripts/build_chain_index.py` to rebuild `docs/Atomic攻击链索引.md`.
-9. Report the number generated, skipped, and failed, plus validation errors that still require human judgment.
+1. Read the manifest row and complete normalized report. Extract the causal sequence before assigning ATT&CK IDs; label source steps `observed`, `reported`, `inferred`, or `unknown`.
+2. Select the smallest useful Windows slice. Prefer L1 or single-host L2. Generate L3 only when the user has explicitly supplied an authorized isolated multi-VM topology.
+3. Map retained actions to exact tests in the pinned local Atomic catalog. Verify GUID, name, platform, executor, input arguments, dependencies, elevation, command, observable effects, and cleanup from the YAML itself.
+4. Reject unsafe or unreliable tests. Use inline harmless PowerShell canary functions for safe semantic substitutions; omit unsupported behavior rather than emitting a placeholder that prevents execution.
+5. Generate the complete package. Embed exact Atomic GUIDs and input overrides in `run.ps1`; do not make the operator copy commands out of Markdown.
+6. Make verification independent of the Atomic return code. `verify.ps1` must inspect endpoint evidence or isolated Mock-service records and emit JSON to stdout. It must not treat transcripts, scenario state, or controller success as Ground Truth.
+7. Validate `scenario.json`, validate every Atomic reference against `atomic_red_team`, parse both PowerShell files with the PowerShell AST parser, and run `run.ps1 -Mode Plan`. Never run `Execute` as part of generation or validation.
+8. Report generated, skipped, and failed packages, including any scenario rejected because it could not be made safe and directly runnable.
 
-## Non-negotiable invariants
+## Runtime invariants
 
-- Preserve causal order from the report; do not sort steps merely by ATT&CK tactic.
-- Separate report facts, ATT&CK interpretation, Atomic implementation, and Ground Truth. Ground Truth may contain only evidence the selected implementation is expected to create and that an independent verifier can check.
-- Prefer no-elevation, no-dependency tests with cleanup. A mutating test without cleanup is invalid unless the document provides a narrowly scoped custom cleanup and explains it.
-- Replace public C2 and download URLs with loopback or an explicitly provided isolated mock service. Never reuse report IOCs as live targets.
-- Use harmless canary data and scenario-owned paths. Do not generate or fetch real malware, dump real credentials, exploit a production vulnerability, encrypt user data, weaken host security, or perform lateral movement outside an authorized disposable lab.
-- Generating a chain does not authorize executing it. Only execute when the user separately requests execution and supplies an authorized, recoverable target environment.
-- Every Atomic entry in frontmatter must use a GUID found in the checked-out local repository. Record the Atomic repository commit so later changes are detectable.
+- Preserve report causal order; do not sort by ATT&CK tactic.
+- Pin and check the Atomic repository commit at runtime. Abort before mutation if it differs from the expected commit embedded during generation.
+- Treat the generated directory as a control-plane asset. `run.ps1` and `verify.ps1` must each be standalone and must not require `scenario.json` at runtime; embed the pinned commit and required constants in the scripts.
+- Resolve all paths from `$PSScriptRoot` or explicit parameters. Do not embed the generator machine's absolute paths.
+- Keep scenario mutations under `C:\ProgramData\EndpointIRBench\<scenario-id>` and exact scenario-owned registry/task/service names.
+- Use only loopback Mock services by default. A user-supplied isolated address is allowed only when recorded in `scenario.json`; public report IOCs are never execution targets.
+- Start required Mock services inside `run.ps1`, wait until ready, enforce timeouts, and always stop them in `finally` blocks.
+- Stop on the first failed step, preserve already-created evidence, and leave cleanup explicit. Never silently clean immediately after execution.
+- Make `Cleanup` idempotent and safe after partial execution.
+- Keep controller truth off the investigated endpoint. If a runner is copied into the VM, remove the runner and package files before taking the investigation snapshot without deleting the generated endpoint evidence. `verify.ps1` prints results; it writes a file only to an explicit operator-supplied output path.
+- Do not generate real malware, credential theft, production exploitation, external C2, security-control weakening, user-data encryption, or unauthorized lateral movement.
+- Code generation does not authorize execution. Execute only after a separate user request identifies an authorized, recoverable lab target.
 
 ## Supporting scripts
 
-Resolve script paths relative to this `SKILL.md` file.
+Resolve paths relative to this file:
 
 ```bash
-python3 scripts/prepare_batch.py --repo-root <repo> --level A
-python3 scripts/validate_chain_docs.py --repo-root <repo> <docs...>
-python3 scripts/build_chain_index.py --repo-root <repo>
+python scripts/prepare_batch.py --repo-root <repo> --level A --platform Windows
+python scenarios/<scenario-id>/validate_scenario.py --repo-root <repo>
 ```
 
-The scripts handle queueing, structural checks, local Atomic verification, and index generation. The Agent remains responsible for reading each report, making the causal and semantic judgments, and correcting unsafe or unsupported mappings.
+The Agent remains responsible for source interpretation and safe implementation. A validator passing does not replace human review of the generated commands.

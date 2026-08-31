@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare a deterministic, resumable queue of IR reports for chain extraction."""
+"""Prepare a deterministic, resumable queue of IR reports for runnable scenarios."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 def safe_name(value: str) -> str:
-    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-.")
+    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-.").lower()
     if not cleaned:
         raise ValueError(f"Cannot derive output name from report id: {value!r}")
     return cleaned
@@ -41,14 +41,21 @@ def main() -> None:
     args = parser.parse_args()
 
     repo = args.repo_root.resolve()
-    manifest = repo / "Public_IR_Reports" / "manifest.csv"
-    atomics = repo / "atomic-red-team" / "atomics"
+    manifest = repo / "public_ir_reports" / "manifest.csv"
+    atomics = repo / "atomic_red_team" / "atomics"
     if not manifest.is_file():
         raise SystemExit(f"Manifest not found: {manifest}")
     if not atomics.is_dir():
         raise SystemExit(f"Atomic catalog not found: {atomics}")
 
-    output_dir = repo / "docs" / "atomic-chains"
+    output_dir = repo / "scenarios"
+    required_files = (
+        "scenario.json",
+        "run.ps1",
+        "verify.ps1",
+        "validate_scenario.py",
+        "README.md",
+    )
     selected: list[dict[str, object]] = []
     rows = list(csv.DictReader(manifest.open(encoding="utf-8")))
     rows.sort(key=lambda row: (row["published"], row["source"], row["id"]), reverse=True)
@@ -69,11 +76,15 @@ def main() -> None:
             continue
 
         report_relative = row["normalized_file"] or row["source_file"]
-        report_path = repo / "Public_IR_Reports" / report_relative
+        report_path = repo / "public_ir_reports" / report_relative
         if not report_path.is_file():
             raise SystemExit(f"Manifest references a missing report: {report_path}")
-        output_path = output_dir / f"{safe_name(row['id'])}.md"
-        exists = output_path.is_file()
+        scenario_id = safe_name(row["id"])
+        output_path = output_dir / scenario_id
+        existing_files = sorted(
+            name for name in required_files if (output_path / name).is_file()
+        )
+        exists = len(existing_files) == len(required_files)
         if exists and not args.include_existing:
             continue
 
@@ -87,11 +98,18 @@ def main() -> None:
                 "platform": row["platform"],
                 "scenario_focus": row["scenario_focus"],
                 "source_url": row["source_url"],
+                "scenario_id": scenario_id,
                 "report_path": str(report_path),
                 "report_relative": str(report_path.relative_to(repo)),
-                "output_path": str(output_path),
-                "output_relative": str(output_path.relative_to(repo)),
+                "scenario_dir": str(output_path),
+                "scenario_relative": str(output_path.relative_to(repo)),
+                "scenario_file": str(output_path / "scenario.json"),
+                "run_file": str(output_path / "run.ps1"),
+                "verify_file": str(output_path / "verify.ps1"),
+                "validator_file": str(output_path / "validate_scenario.py"),
+                "readme_file": str(output_path / "README.md"),
                 "already_exists": exists,
+                "existing_files": existing_files,
             }
         )
         if args.limit and len(selected) >= args.limit:
@@ -103,7 +121,10 @@ def main() -> None:
             row["id"]
             for row in rows
             if row["id"] in requested_ids
-            and (output_dir / f"{safe_name(row['id'])}.md").is_file()
+            and all(
+                (output_dir / safe_name(row["id"]) / name).is_file()
+                for name in required_files
+            )
             and not args.include_existing
         }
         missing = requested_ids - found - existing_requested

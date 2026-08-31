@@ -1,103 +1,147 @@
-# Output schema
+# Runnable scenario package schema
 
-Read this reference before creating a chain document.
+Read this reference before generating a scenario. Markdown narrative is secondary; the required deliverable is code that runs without manual editing.
 
-## Location and naming
+## Directory and naming
 
-- One report maps to one document: `docs/atomic-chains/<report-id>.md`.
-- Use the manifest `id` as `<report-id>`, replacing only filesystem-unsafe characters.
-- Rebuild the aggregate index at `docs/Atomic攻击链索引.md` after a batch.
+Write one package per report under `scenarios/<scenario-id>/`. Use a stable lowercase ASCII slug. Existing packages are immutable unless regeneration is explicitly requested.
 
-## Required YAML frontmatter
+Every package must contain these required files:
 
-```yaml
----
-chain_id: IRCHAIN-<stable-id>
-report_id: <manifest id>
-title: <Chinese scenario title>
-source: <publisher>
-published: YYYY-MM-DD
-source_report: Public_IR_Reports/<relative path>
-source_url: https://...
-use_level: A
-scenario_level: L1 | L2 | L3
-platform: windows | linux | macos | mixed
-atomic_repo_commit: <git commit>
-generated_at: YYYY-MM-DD
-atomic_tests:
-  - order: 1
-    technique: T1059.003
-    guid: 00000000-0000-0000-0000-000000000000
-    name: Exact Atomic test name
-    implementation: atomic
-    source_confidence: observed
-    mutates_state: true
-    input_args:
-      file_contents_path: 'C:\ProgramData\EndpointIRBench\<chain-id>\marker.txt'
-    allow_elevation: false
-    allow_dependencies: false
-  - order: 2
-    technique: T1204.002
-    implementation: custom_canary
-    source_confidence: reported
-    mutates_state: true
-    custom_cleanup: Remove only the scenario-owned lure and marker files.
----
+```text
+scenario.json          Machine-readable provenance, safety, steps, and Ground Truth
+run.ps1                Plan, Execute, and Cleanup orchestration
+verify.ps1             Independent endpoint-evidence verification
+validate_scenario.py   Static package and local Atomic validation
+README.md              Short operator prerequisites and commands
 ```
 
-For `implementation: atomic`, `guid` and exact `name` are required. For `custom_canary` or `not_simulated`, omit `guid` and explain the implementation in the document. Set `allow_elevation` or `allow_dependencies` to true only with an explicit, narrowly scoped justification in `## 安全与适配说明`.
+Additional payloads are allowed only when they are harmless, hash-recorded, generated locally, and stored under `assets/` in the scenario package.
 
-## Required Chinese sections
+The package is a control-plane artifact. `run.ps1` and `verify.ps1` must each run without reading `scenario.json` or other package metadata. When the runner is copied into a target VM instead of invoked remotely, remove the copied package files before taking the investigation snapshot; this removal must not touch generated endpoint evidence.
 
-### 1. 来源与场景范围
+## `scenario.json`
 
-Link the local report and original URL. State why the report and slice were selected, the target level, host count, and platform. Mention any material source uncertainty.
+Use UTF-8 JSON so package metadata can be read without a YAML dependency. Required shape:
 
-### 2. 报告原始攻击链
+```json
+{
+  "schema_version": 1,
+  "scenario_id": "l2-example-001",
+  "title": "Example investigation scenario",
+  "level": "L2",
+  "platform": "windows",
+  "host_count": 1,
+  "source": {
+    "report_id": "manifest-id",
+    "publisher": "publisher",
+    "published": "YYYY-MM-DD",
+    "local_file": "public_ir_reports/source/report.md",
+    "source_url": "https://example.invalid/report",
+    "confidence_notes": ""
+  },
+  "atomic_repo_commit": "full git commit",
+  "initial_alert": {
+    "severity": "medium",
+    "text": "Sparse alert that does not reveal the answer"
+  },
+  "safety": {
+    "external_network": false,
+    "requires_elevation": false,
+    "allows_dependencies": false,
+    "scenario_root": "C:\\ProgramData\\EndpointIRBench\\l2-example-001",
+    "cleanup_required": true
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "canary creation",
+      "source_confidence": "observed",
+      "implementation": "atomic",
+      "technique": "T1059.003",
+      "atomic_guid": "00000000-0000-0000-0000-000000000000",
+      "atomic_name": "Exact local Atomic test name",
+      "input_args": {},
+      "mutates_state": true
+    }
+  ],
+  "expected_findings": [
+    {
+      "id": "F1",
+      "required": true,
+      "type": "file",
+      "expected": "exact expected value",
+      "evidence_surface": "filesystem",
+      "temporal_relation": "created before step 2",
+      "verifier": "verify.ps1 check name"
+    }
+  ],
+  "omitted_behaviors": []
+}
+```
 
-Show the causal narrative before modification. Use a table with: order, source behavior, confidence label, report evidence or section, and whether retained.
+Use `implementation: "custom_canary"` only for code implemented directly in `run.ps1`; include a precise cleanup action. Do not include `not_simulated` items in executable `steps`; record them under `omitted_behaviors`.
 
-### 3. 可执行攻击语义链
+## `run.ps1`
 
-Provide one concise arrow chain showing only retained simulated behavior.
+Required interface:
 
-### 4. Atomic Red Team 映射
+```powershell
+[CmdletBinding()]
+param(
+    [ValidateSet('Plan', 'Execute', 'Cleanup')]
+    [string]$Mode = 'Plan',
+    [string]$PathToAtomicsFolder = '',
+    [switch]$ConfirmExecution
+)
+```
 
-Use a table with:
+Required behavior:
 
-| # | 语义动作 | ATT&CK | Atomic 名称/GUID | 平台与执行器 | 参数调整 | 预期证据 | Cleanup |
+- `Plan` prints scenario ID, safety boundary, ordered steps, expected mutations, and cleanup scope, then exits without checking or changing the host.
+- `Execute` checks Windows, `Invoke-AtomicTest`, the atomics directory, the pinned repository commit embedded in the script, absence of existing scenario state, and explicit confirmation before the first mutation.
+- Every Atomic call supplies `-TestGuids`, `-PathToAtomicsFolder`, a timeout, `-Confirm:$false`, and all documented input overrides.
+- Custom canaries are functions with paired cleanup functions; do not download code or embed report IOCs.
+- Use `try/finally` for temporary listeners and jobs. A failure returns nonzero and does not automatically erase investigation evidence.
+- `Cleanup` invokes matching Atomic cleanup with the same input overrides, removes exact custom artifacts, tolerates already-missing artifacts, and refuses paths outside the scenario root.
+- Runtime bookkeeping may contain only non-answer-bearing execution state and should be removable before the investigation snapshot.
 
-If a step uses `custom_canary` or `not_simulated`, say so explicitly instead of inventing a GUID.
+## `verify.ps1`
 
-### 5. 安全与适配说明
+Verification must read evidence independently. It may inspect files, hashes, registry values, scheduled tasks, services, Windows event logs, DNS cache, or loopback Mock-service records. It must not use Atomic stdout, execution transcripts, or the runner's exit code as proof.
 
-List removed behaviors, semantic substitutions, endpoint/path overrides, elevation or dependency exceptions, and the boundary of scenario-owned data.
+Output one JSON object to stdout:
 
-### 6. Ground Truth
+```json
+{
+  "scenario_id": "l2-example-001",
+  "verified_at": "ISO-8601",
+  "passed": true,
+  "checks": [
+    {"id": "F1", "passed": true, "observed": "..."}
+  ]
+}
+```
 
-List required and optional findings. Each required item must include exact expected values, evidence surface, temporal relation, and a verifier independent of the Atomic controller output.
+Accept an optional `-OutputPath`; reject output paths under the investigated scenario root. Missing optional evidence must not fail the package. Required evidence must have a stable observation surface at investigation time.
 
-### 7. 调查任务
+## `validate_scenario.py`
 
-Provide a sparse initial alert and the questions the investigation Agent must answer. Do not reveal every Ground Truth value in the initial alert.
+Use only Python's standard library for `scenario.json` and package checks. If PyYAML is unavailable, fail with an actionable message before Atomic YAML validation; do not silently skip it. Validate:
 
-### 8. 执行与清理计划
+- required files and JSON fields;
+- contiguous step ordering and unique finding IDs;
+- source file containment under `public_ir_reports`;
+- exact pinned Atomic commit;
+- GUID, name, Windows platform, input keys, dependencies, elevation, embedded URLs, and cleanup against local Atomic YAML;
+- every mutating step has Atomic or custom cleanup;
+- only loopback URLs unless an isolated endpoint was explicitly supplied;
+- both PowerShell files parse successfully and `run.ps1 -Mode Plan` exits zero.
 
-Provide reviewed `Invoke-AtomicTest` invocations in causal order, but do not execute them. Include prerequisites, mock-service requirements, snapshot timing, and explicit cleanup commands. Commands must use the selected GUIDs and recorded input overrides.
+## `README.md`
 
-### 9. 未覆盖与人工复核项
+Keep it operational: prerequisites, exact Plan/Execute/Verify/Cleanup commands, expected mutations, control-file removal before the investigation snapshot, snapshot timing, and safety boundary. Do not duplicate the source report or produce a long attack-chain essay.
 
-Record omitted report behaviors, fidelity gaps, volatile evidence, unsupported platforms, and decisions requiring a security expert.
+## Completion gate
 
-## Quality gate
-
-A document is ready for the index only when:
-
-- the local report and source URL are present;
-- causal steps are source-labelled;
-- all Atomic GUIDs validate against the checked-out catalog;
-- adaptations are disclosed;
-- external network and unsafe payloads are absent;
-- mutating steps have cleanup;
-- required Ground Truth is independently verifiable;
-- the document passes `validate_chain_docs.py`.
+A package is complete only when all five files exist, static validation passes, PowerShell parsing passes, and Plan mode succeeds. Generation must never run Execute mode.

@@ -1,4 +1,4 @@
 interface:
-  display_name: "IR Report to Atomic Chain"
-  short_description: "Extract safe Atomic Red Team chains from IR reports"
-  default_prompt: "Use $ir-report-to-atomic-chain to convert selected public IR reports into validated Atomic Red Team attack-chain documents under docs/."
+  display_name: "IR Report to Runnable Scenario"
+  short_description: "Build safe runnable Atomic Red Team scenario packages"
+  default_prompt: "Use $ir-report-to-atomic-chain to convert selected public IR reports into validated, directly runnable Windows scenario packages under scenarios/."
